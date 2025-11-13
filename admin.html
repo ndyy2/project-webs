@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pendaftaran UMKM</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* Variabel Warna (Sesuai Palet) */
+      :root {
+        --primary-blue: #1e40af; /* Biru Tua */
+        --accent-teal: #14b8a6; /* Teal */
+        --secondary-yellow: #fcd34d; /* Kuning Emas */
+        --light-bg-start: #f3f4f6; /* Gray-50 */
+        --light-bg-mid: #ffffff;
+        --light-bg-end: #f0fdfa; /* Teal-50 */
+        --text-dark: #2c3e50;
+        --text-gray: #4b5563; /* Abu-abu lebih gelap */
+        --border-color: #e5e7eb;
+        --shadow-color: rgba(0, 0, 0, 0.05);
+      }
+
+      /* CSS Umum & Modern Gradient Background */
+      body {
+        font-family: "Inter", sans-serif;
+        margin: 0;
+        /* Menggunakan kombinasi gradient dari palet */
+        background: linear-gradient(
+          135deg,
+          var(--light-bg-start) 0%,
+          var(--light-bg-mid) 50%,
+          var(--light-bg-end) 100%
+        );
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        padding: 20px;
+      }
+
+      /* Container Form (Card-Based Layout) */
+      .form-container {
+        background-color: white;
+        padding: 40px;
+        border-radius: 1.5rem; /* Large rounded corners (2xl/3xl) */
+        /* Soft shadow for Neumorphism Influences */
+        box-shadow: 0 10px 15px -3px var(--shadow-color),
+          0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        width: 100%;
+        max-width: 450px;
+        text-align: center;
+        transition: transform 0.3s ease-in-out;
+      }
+
+      /* Hover elevation effect (Card-Based Layout) */
+      .form-container:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+          0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      }
+
+      .form-container h2 {
+        color: var(--primary-blue);
+        margin-bottom: 30px;
+        font-weight: 900; /* Tebal untuk hirarki */
+        font-size: 1.8rem;
+      }
+
+      /* Input Fields */
+      .input-group {
+        margin-bottom: 20px;
+        text-align: left;
+      }
+
+      .input-group label {
+        display: block;
+        margin-bottom: 6px;
+        font-weight: 600;
+        color: var(--text-gray);
+        font-size: 0.9em;
+      }
+
+      .input-group input {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid var(--border-color);
+        border-radius: 0.5rem; /* Consistent subtle border */
+        box-sizing: border-box;
+        transition: border-color 0.3s, box-shadow 0.3s;
+      }
+
+      /* Focus state with Primary Blue accent */
+      .input-group input:focus {
+        border-color: var(--primary-blue);
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.1); /* Soft Focus Ring */
+      }
+
+      /* Tombol (Button with Gradient Fill) */
+      .btn-submit {
+        width: 100%;
+        padding: 14px;
+        /* Gradient Fill: from-primary to-blue-700 (biru tua) */
+        background: linear-gradient(
+          90deg,
+          var(--primary-blue) 0%,
+          #1d4ed8 100%
+        );
+        color: white;
+        border: none;
+        border-radius: 0.5rem;
+        cursor: pointer;
+        font-size: 1.05em;
+        font-weight: 700;
+        transition: all 0.3s ease-in-out; /* Animation-Centric UX */
+        box-shadow: 0 4px 6px -1px rgba(30, 64, 175, 0.3),
+          0 2px 4px -2px rgba(30, 64, 175, 0.1);
+      }
+
+      /* Hover transformation (Interactive Elements) */
+      .btn-submit:hover {
+        background: linear-gradient(
+          90deg,
+          #1e40af 0%,
+          #1d4ed8 100%
+        ); /* Slight darker gradient on hover */
+        transform: translateY(-2px); /* Slight elevation */
+        box-shadow: 0 10px 15px -3px rgba(30, 64, 175, 0.4);
+      }
+
+      /* Link Tambahan */
+      .link-switch {
+        margin-top: 25px;
+        font-size: 0.9em;
+        color: var(--text-gray);
+      }
+
+      .link-switch a {
+        color: var(--accent-teal); /* Menggunakan Accent Teal */
+        text-decoration: none;
+        font-weight: 700;
+        transition: color 0.3s;
+      }
+
+      .link-switch a:hover {
+        color: #0d9488; /* Teal lebih gelap saat hover */
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="form-container">
+      <h2>✨ Daftarkan UMKM Anda</h2>
+
+      <form action="#" method="POST">
+        <div class="input-group">
+          <label for="nama_umkm">NAMA UMKM</label>
+          <input
+            type="text"
+            id="nama_umkm"
+            name="nama_umkm"
+            placeholder="Masukan Nama UMKM Anda"
+            required
+          />
+        </div>
+
+        <div class="input-group">
+          <label for="kategori">KATEGORI</label>
+          <input
+            type="text"
+            id="kategori"
+            name="kategori"
+            placeholder="Masukan Kategori Produk"
+            required
+          />
+        </div>
+
+        <div class="input-group">
+          <label for="deskripsi">DESKRIPSI</label>
+          <input
+            type="text"
+            id="deskripsi"
+            name="deskripsi"
+            placeholder="Jelaskan produk atau layanan UMKM Anda"
+            required
+          />
+        </div>
+
+        <div class="input-group">
+          <label for="instagram">INSTAGRAM</label>
+          <input
+            type="url"
+            id="instagram"
+            name="instagram"
+            placeholder="masukan link instagram UMKM anda"
+            required
+          />
+        </div>
+
+        <div class="input-group">
+          <label for="telepon">TELEPON</label>
+          <input
+            type="tel"
+            id="telepon"
+            name="telepon"
+            placeholder="Masukan Nomor Telp"
+            required
+          />
+        </div>
+
+        <div class="input-group">
+          <label for="lokasi">LOKASI</label>
+          <input
+            type="text"
+            id="lokasi"
+            name="lokasi"
+            placeholder="Alamat atau link Google Maps"
+            required
+          />
+        </div>
+
+        <div class="input-group">
+          <label for="icon">UPLOAD ICON/LOGO</label>
+          <input
+            type="file"
+            id="icon"
+            name="icon"
+            accept="image/*"
+            required
+            style="padding: 10px"
+          />
+        </div>
+
+        <button type="submit" class="btn-submit">TAMBAHKAN UMKM</button>
+      </form>
+      <div class="link-switch">
+        Sudah terdaftar? <a href="#">Lihat Daftar UMKM</a>
+      </div>
+    </div>
+  </body>
+</html>

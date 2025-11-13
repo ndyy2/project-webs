@@ -1,33 +1,87 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Layanan Publik & UKM Lokal</title>
-    <link rel="stylesheet" href="/css/l-style.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Momo+Trust+Display&display=swap"
-      rel="stylesheet"
-    />
+    <title>Landing Page Sederhana</title>
+    <style>
+      /* CSS untuk styling */
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-image: url("/images/waiting-room-with-chairs-blurred.jpg");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        color: #333;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+      }
+
+      .container {
+        width: 90%;
+        max-width: 800px;
+        padding: 20px;
+      }
+
+      /* Styling untuk bagian teks (judul dan subjudul) */
+      .hero-text {
+        margin-bottom: 40px;
+      }
+
+      h1 {
+        font-size: 3em;
+        color: #2c3e50;
+        margin-bottom: 10px;
+      }
+
+      p.subtitle {
+        font-size: 1.2em;
+        color: #7f8c8d;
+        margin-top: 0;
+        margin-bottom: 20px;
+      }
+
+      /* Styling untuk tombol */
+      .cta-button {
+        display: inline-block;
+        padding: 15px 30px;
+        font-size: 1.1em;
+        color: white;
+        background-color: #3498db; /* Warna biru */
+        border: none;
+        border-radius: 5px;
+        text-decoration: none; /* Menghilangkan garis bawah pada link */
+        transition: background-color 0.3s ease;
+        cursor: pointer;
+        font-weight: bold;
+      }
+
+      .cta-button:hover {
+        background-color: #2980b9; /* Warna biru lebih gelap saat di-hover */
+      }
+    </style>
   </head>
   <body>
     <div class="container">
-      <h1>WELCOME TO</h1>
-      <h1 class="heading">
-        <b>Direktori Layanan Publik</b> <br />
-        & <b> UKM Lokal</b>
-      </h1>
-      <h4>
-        Informasi lengkap layanan pemerintah untuk masyarakat — mudah diakses,
-        cepat, dan transparan.
-      </h4>
-    </div>
-    <div class="button">
-      <a href="/asset/pages/HomePages.html">
-        <button>Cari Layanan</button>
-      </a>
+      <div class="hero-text">
+        <h1>
+          WELCOME TO <br />
+          Layanan Masyarakat & UKM Lokal
+        </h1>
+
+        <p class="subtitle">
+          Jembatan Informasi dan Pelayanan untuk Pemberdayaan Komunitas dan
+          Ekonomi Daerah.
+        </p>
+      </div>
+
+      <a href="#" class="cta-button">Klik Di Sini untuk Mulai!</a>
     </div>
   </body>
 </html>
