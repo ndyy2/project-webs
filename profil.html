@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profil Pengguna - Akun Saya</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* Styling CSS */
+
+      /* Atur ulang dasar */
+      body {
+        font-family: "Roboto", sans-serif;
+        background-color: #f4f7f9;
+        color: #333;
+        line-height: 1.6;
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+      }
+
+      /* Container Utama Profil */
+      .profile-container {
+        background: #ffffff;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        max-width: 700px;
+        width: 100%;
+        padding: 30px;
+      }
+
+      /* Header Profil */
+      .profile-header {
+        text-align: center;
+        padding-bottom: 20px;
+        border-bottom: 1px solid #eee;
+        margin-bottom: 30px;
+      }
+
+      .profile-header h1 {
+        font-size: 2em;
+        color: #007bff;
+        margin-top: 10px;
+        margin-bottom: 5px;
+      }
+
+      .profile-header p {
+        color: #666;
+        font-size: 0.9em;
+      }
+
+      /* Avatar */
+      .avatar-wrapper {
+        position: relative;
+        display: inline-block;
+      }
+
+      .profile-avatar {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 3px solid #007bff;
+      }
+
+      .edit-avatar-btn {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        background-color: #007bff;
+        color: white;
+        border: 2px solid white;
+        border-radius: 50%;
+        padding: 5px 10px;
+        font-size: 0.7em;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      .edit-avatar-btn:hover {
+        background-color: #0056b3;
+      }
+
+      /* Form Styling */
+      .section-group {
+        border: 1px solid #ddd;
+        padding: 20px;
+        border-radius: 8px;
+        margin-bottom: 25px;
+      }
+
+      .section-group h3 {
+        margin-top: 0;
+        color: #007bff;
+        border-bottom: 2px solid #eee;
+        padding-bottom: 10px;
+        margin-bottom: 15px;
+      }
+
+      .form-group {
+        margin-bottom: 15px;
+      }
+
+      .form-group label {
+        display: block;
+        font-weight: 700;
+        margin-bottom: 5px;
+        color: #555;
+      }
+
+      .form-group input[type="text"],
+      .form-group input[type="email"],
+      .form-group input[type="password"],
+      .form-group textarea {
+        width: 98%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        box-sizing: border-box;
+        transition: border-color 0.3s;
+      }
+
+      .form-group input:focus,
+      .form-group textarea:focus {
+        border-color: #007bff;
+        outline: none;
+      }
+
+      /* Tombol Aksi */
+      .button-actions {
+        display: flex;
+        justify-content: flex-start;
+        gap: 15px;
+        margin-top: 30px;
+      }
+
+      .save-btn,
+      .logout-btn,
+      .action-btn {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 6px;
+        font-weight: 700;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      .save-btn {
+        background-color: #28a745; /* Hijau untuk Simpan */
+        color: white;
+      }
+
+      .save-btn:hover {
+        background-color: #1e7e34;
+      }
+
+      .logout-btn {
+        background-color: #dc3545; /* Merah untuk Keluar */
+        color: white;
+      }
+
+      .logout-btn:hover {
+        background-color: #c82333;
+      }
+
+      .action-btn {
+        background-color: #f8f9fa;
+        color: #007bff;
+        border: 1px solid #007bff;
+        font-weight: 400;
+        margin-left: 10px;
+      }
+
+      .action-btn:hover {
+        background-color: #e2e6ea;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="profile-container">
+      <header class="profile-header">
+        <div class="avatar-wrapper">
+          <img
+            src="/images/backgroundLP.png"
+            alt="Foto Profil"
+            class="profile-avatar"
+          />
+          <button class="edit-avatar-btn">Ubah Foto</button>
+        </div>
+        <h1>Pengaturan Akun</h1>
+        <p>Kelola detail profil, alamat email, dan kata sandi Anda.</p>
+      </header>
+
+      <form class="profile-form">
+        <section class="section-group">
+          <h3>Informasi Pribadi</h3>
+
+          <div class="form-group">
+            <label for="full-name">Nama Lengkap</label>
+            <input
+              type="text"
+              id="full-name"
+              value="Nama Pengguna Anda"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="bio">Bio Singkat</label>
+            <textarea id="bio" rows="3">
+Saya seorang pengguna aktif dan profesional.</textarea
+            >
+          </div>
+
+          <div class="form-group">
+            <label for="location">Lokasi</label>
+            <input type="text" id="location" value="Jakarta, Indonesia" />
+          </div>
+        </section>
+
+        <section class="section-group">
+          <h3>Detail Kontak & Keamanan</h3>
+
+          <div class="form-group">
+            <label for="email">Alamat Email</label>
+            <input type="email" id="email" value="user@example.com" required />
+          </div>
+
+          <div class="form-group">
+            <label for="password">Kata Sandi</label>
+            <input type="password" id="password" value="********" readonly />
+            <button type="button" class="action-btn">Ubah Kata Sandi</button>
+          </div>
+        </section>
+
+        <div class="button-actions">
+          <button type="submit" class="save-btn">Simpan Perubahan</button>
+          <button type="button" class="logout-btn">Keluar (Log Out)</button>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
