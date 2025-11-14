@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profil UMKM & Layanan Multi-Card - Modern Design</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      /* --- Konfigurasi Tailwind Custom Warna --- */
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'primary': '#1E40AF', /* Primary Blue */
+              'accent': '#14B8A6', /* Accent Teal */
+              'secondary-yellow': '#FCD34D',
+            },
+          }
+        }
+      }
+
+      /* CSS Kustom Tambahan untuk Sidebar dan Transisi */
+      html,
+      body {
+        height: 100%;
+      }
+
+      body {
+        /* Menggunakan gradient background yang halus */
+        background-color: #f7f9fb;
+        font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+          "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
+          "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+          "Noto Color Emoji";
+        margin: 0;
+      }
+
+      /* --- Styling Sidebar Kiri (Glass Morphism) --- */
+      .sidebar {
+        height: 100%;
+        width: 0;
+        position: fixed;
+        z-index: 1000;
+        top: 0;
+        left: 0;
+        /* Ganti warna solid dengan gradien yang lebih dalam atau semi-transparan */
+        background-color: rgba(30, 64, 175, 0.95); /* Primary Blue semi-transparant */
+        overflow-x: hidden;
+        transition: 0.5s;
+        padding-top: 60px;
+        color: white;
+        /* backdrop-blur untuk efek Glass Morphism */
+        backdrop-filter: blur(8px);
+      }
+
+      .sidebar.open {
+        width: 250px;
+      }
+
+      /* --- Styling Navbar (Glass Morphism) --- */
+      .navbar {
+        /* bg-white/95 dan backdrop-blur untuk efek kaca */
+        background-color: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(8px);
+        position: sticky;
+        top: 0;
+        z-index: 999;
+      }
+
+      /* Posisikan burger menu di KANAN ATAS */
+      .burger-menu {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        font-size: 30px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        z-index: 1001;
+        color: #1E40AF; /* Primary Blue */
+        transition: transform 0.3s;
+      }
+
+      /* Pindahkan main content/card saat sidebar terbuka */
+      .content-area.shifted {
+        margin-left: 250px;
+        transition: margin-left 0.5s;
+      }
+
+      .content-area {
+        transition: margin-left 0.5s;
+        padding-left: 2rem;
+      }
+
+      .navbar h1 {
+        margin-left: 1rem;
+      }
+
+      /* Styling Card untuk Elemen Individu (Lebih halus dan rounded) */
+      .individual-card {
+        background-color: white;
+        padding: 24px;
+        border-radius: 1.5rem; /* rounded-3xl */
+        /* Soft Shadow untuk Neumorphism Influence */
+        box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.1),
+          0 4px 15px -2px rgba(0, 0, 0, 0.05);
+        transition: transform 0.3s, box-shadow 0.3s;
+      }
+
+      /* Hover Elevation Effect */
+      .individual-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 20px 40px -8px rgba(30, 64, 175, 0.2),
+          0 8px 20px -4px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Styling Khusus untuk Card Ringkasan Layanan */
+      .stats-card {
+          /* Gradient Background */
+          background: linear-gradient(135deg, #1E40AF, #3B82F6);
+          color: white;
+          /* Reset hover untuk kontras yang lebih baik pada gradien */
+          box-shadow: 0 10px 30px -5px rgba(30, 64, 175, 0.3);
+      }
+
+      .stats-card:hover {
+          transform: translateY(-4px);
+          box-shadow: 0 20px 40px -8px rgba(30, 64, 175, 0.5);
+      }
+
+      .stats-card strong {
+          color: #FCD34D; /* Secondary Yellow untuk highlight */
+      }
+    </style>
+  </head>
+  <body class="flex flex-col min-h-screen">
+    <div
+      class="fixed inset-0 -z-10 bg-gradient-to-br from-slate-50 via-blue-50 to-teal-50"
+    ></div>
+
+    <div class="navbar shadow-lg p-4 flex justify-between items-center">
+      <h1 class="text-2xl font-extrabold text-primary ml-4">
+        Layanan Masyarakat & UMKM Lokal
+      </h1>
+      <button id="burger-button" class="burger-menu">&#9776;</button>
+    </div>
+
+    <div id="left-sidebar" class="sidebar">
+      <h2
+        class="text-3xl font-semibold text-white px-6 mb-4 border-b border-white/20 pb-2"
+      >
+        Menu
+      </h2>
+      <ul class="space-y-2">
+        <li>
+          <a
+            href="#"
+            class="block py-2 px-6 text-gray-300 hover:bg-accent/30 hover:text-white transition duration-300"
+            >Profil</a
+          >
+        </li>
+        <li>
+          <a
+            href="#"
+            class="block py-2 px-6 text-gray-300 hover:bg-accent/30 hover:text-white transition duration-300"
+            >Market</a
+          >
+        </li>
+        <li>
+          <a
+            href="#"
+            class="block py-2 px-6 text-gray-300 hover:bg-accent/30 hover:text-white transition duration-300"
+            >Hubungi Kami</a
+          >
+        </li>
+      </ul>
+    </div>
+
+    <div
+      id="content-area"
+      class="content-area flex-grow flex flex-col items-center p-8 space-y-6"
+    >
+      <div class="max-w-4xl w-full flex flex-col md:flex-row gap-6">
+        <div class="individual-card flex-1 md:w-2/3 flex items-start gap-6">
+          <div class="profile-photo flex-shrink-0">
+            <img
+              src="image.png"
+              alt="Foto Profil"
+              class="w-24 h-24 object-cover rounded-full border-4 border-accent shadow-lg"
+            />
+          </div>
+          <div class="profile-header">
+            <h1 class="text-2xl font-extrabold text-primary mb-0">
+              Nama Penjual (Joko Santoso)
+            </h1>
+            <p class="text-lg text-accent font-semibold italic">
+              Nama Toko & Layanan: Bengkel Motor Jaya
+            </p>
+          </div>
+        </div>
+
+        <div class="individual-card flex-1 md:w-1/3 stats-card">
+          <h3 class="text-xl font-bold mb-2 border-b border-white/50 pb-1">
+            Ringkasan Layanan
+          </h3>
+          <p class="text-gray-200">
+            Kategori:
+            <strong class="text-secondary-yellow">Otomotif/Servis</strong>
+          </p>
+          <p class="text-gray-200">
+            Proyek Selesai: <strong class="text-secondary-yellow">450+</strong>
+          </p>
+          <p class="text-gray-200">
+            Rating: <strong class="text-secondary-yellow">4.9/5.0</strong>
+          </p>
+        </div>
+      </div>
+
+      <div class="individual-card max-w-4xl w-full">
+        <h2
+          class="text-2xl font-bold text-primary mb-3 border-b border-gray-200 pb-2"
+        >
+          Deskripsi/Bio Profil
+        </h2>
+        <p class="text-gray-600 leading-relaxed">
+          Selamat datang di **Bengkel Motor Jaya**! Kami adalah pengembang UMKM
+          lokal yang berkomitmen memberikan layanan servis dan perbaikan motor
+          terbaik. Berpengalaman lebih dari 5 tahun, kami melayani berbagai
+          jenis motor dengan harga terjangkau dan suku cadang berkualitas.
+          Prioritas kami adalah kepuasan dan keselamatan Anda dalam berkendara.
+          Kami melayani servis rutin, ganti oli, perbaikan mesin, hingga
+          modifikasi ringan.
+        </p>
+      </div>
+    </div>
+
+    <script>
+      // script.js
+      const burgerButton = document.getElementById("burger-button");
+      const leftSidebar = document.getElementById("left-sidebar");
+      const contentArea = document.getElementById("content-area");
+
+      // Fungsi untuk membuka/menutup sidebar
+      function toggleSidebar() {
+        // Toggle class 'open' pada sidebar untuk mengontrol lebar
+        leftSidebar.classList.toggle("open");
+
+        // Toggle class 'shifted' pada area konten untuk menggeser card ke kanan
+        contentArea.classList.toggle("shifted");
+      }
+
+      // Tambahkan event listener ke tombol burger
+      burgerButton.addEventListener("click", toggleSidebar);
+    </script>
+  </body>
+</html>
