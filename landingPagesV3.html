@@ -1,0 +1,1779 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Direktori Layanan Masyarakat dan UMKM Lokal</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      /* Reset dan Variabel */
+      :root {
+        /* Color Palette */
+        --primary-blue: #1e40af;
+        --accent-teal: #14b8a6;
+        --secondary-yellow: #fcd34d;
+        --success-green: #10b981;
+        --warning-yellow: #f59e0b;
+        --pure-white: #ffffff;
+
+        /* Gradients */
+        --gradient-blue: linear-gradient(135deg, var(--primary-blue), #1e3a8a);
+        --gradient-blue-teal: linear-gradient(
+          135deg,
+          var(--primary-blue),
+          var(--accent-teal)
+        );
+        --gradient-teal: linear-gradient(135deg, var(--accent-teal), #0d9488);
+        --gradient-light: linear-gradient(135deg, #eff6ff, #f0fdfa);
+
+        /* Background Gradients */
+        --bg-gradient-1: linear-gradient(135deg, #f8fafc, #e0f2fe, #ccfbf1);
+        --bg-gradient-2: linear-gradient(
+          135deg,
+          #eff6ff,
+          var(--pure-white),
+          #f0fdfa
+        );
+        --bg-gradient-3: linear-gradient(135deg, #f1f5f9, #f8fafc);
+
+        /* Gray Scale */
+        --gray-50: #f8fafc;
+        --gray-100: #f1f5f9;
+        --gray-200: #e2e8f0;
+        --gray-300: #cbd5e1;
+        --gray-400: #94a3b8;
+        --gray-500: #64748b;
+        --gray-600: #475569;
+        --gray-700: #334155;
+        --gray-800: #1e293b;
+        --gray-900: #0f172a;
+
+        /* Typography */
+        --font-family: "Inter", "Segoe UI", system-ui, sans-serif;
+        --border-radius: 12px;
+        --border-radius-lg: 16px;
+        --border-radius-xl: 20px;
+        --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+        --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+          0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+          0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+          0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        --transition-slow: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      @font-face {
+        font-family: "Inter";
+        font-style: normal;
+        font-weight: 300 900;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/inter/v12/UcC73FwrK3iLTeHuS_fvQtMwCp50KnMa2JL7SUc.woff2)
+          format("woff2");
+      }
+
+      body {
+        font-family: var(--font-family);
+        background: var(--bg-gradient-1);
+        color: var(--gray-800);
+        line-height: 1.6;
+        min-height: 100vh;
+        display: flex;
+      }
+
+      /* Sidebar Navigasi dengan Glass Morphism */
+      .sidebar {
+        width: 280px;
+        background: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border-right: 1px solid rgba(255, 255, 255, 0.2);
+        height: 100vh;
+        position: fixed;
+        overflow-y: auto;
+        z-index: 1000;
+        box-shadow: var(--shadow-lg);
+      }
+
+      .logo {
+        padding: 30px 20px;
+        text-align: center;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        background: var(--gradient-blue-teal);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .logo h1 {
+        font-size: 1.75rem;
+        font-weight: 700;
+        margin-bottom: 8px;
+        letter-spacing: -0.025em;
+      }
+
+      .logo p {
+        font-size: 0.9rem;
+        opacity: 0.8;
+        font-weight: 400;
+      }
+
+      .nav-links {
+        padding: 25px 0;
+      }
+
+      .nav-links li {
+        list-style: none;
+        margin: 8px 15px;
+      }
+
+      .nav-links a {
+        display: flex;
+        align-items: center;
+        padding: 14px 20px;
+        color: var(--gray-700);
+        text-decoration: none;
+        border-radius: var(--border-radius);
+        transition: var(--transition);
+        font-weight: 500;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .nav-links a::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: var(--gradient-blue-teal);
+        opacity: 0.1;
+        transition: var(--transition-slow);
+      }
+
+      .nav-links a:hover::before,
+      .nav-links a.active::before {
+        left: 0;
+      }
+
+      .nav-links a:hover,
+      .nav-links a.active {
+        color: var(--primary-blue);
+        background: rgba(30, 64, 175, 0.05);
+        transform: translateX(4px);
+      }
+
+      .nav-links i {
+        margin-right: 12px;
+        font-size: 1.3rem;
+        width: 24px;
+        text-align: center;
+      }
+
+      /* Konten Utama */
+      .main-content {
+        flex: 1;
+        margin-left: 280px;
+        padding: 30px;
+        min-height: 100vh;
+      }
+
+      .content-wrapper {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      /* Header dengan Glass Effect */
+      .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 40px;
+        padding: 20px 30px;
+        background: rgba(255, 255, 255, 0.75);
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+        border-radius: var(--border-radius-xl);
+        box-shadow: var(--shadow-md);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+      }
+
+      .search-container {
+        flex: 1;
+        max-width: 500px;
+        position: relative;
+      }
+
+      .search-container input {
+        width: 100%;
+        padding: 14px 50px 14px 20px;
+        border: 1px solid var(--gray-200);
+        border-radius: var(--border-radius-lg);
+        font-size: 1rem;
+        transition: var(--transition);
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(10px);
+      }
+
+      .search-container input:focus {
+        outline: none;
+        border-color: var(--primary-blue);
+        box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.1);
+        background: rgba(255, 255, 255, 0.95);
+      }
+
+      .search-container button {
+        position: absolute;
+        right: 8px;
+        top: 50%;
+        transform: translateY(-50%);
+        background: var(--gradient-blue-teal);
+        color: white;
+        border: none;
+        padding: 10px 16px;
+        border-radius: var(--border-radius);
+        cursor: pointer;
+        transition: var(--transition);
+        font-weight: 600;
+      }
+
+      .search-container button:hover {
+        transform: translateY(-50%) scale(1.05);
+        box-shadow: var(--shadow-lg);
+      }
+
+      .user-info {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 8px 16px;
+        background: rgba(255, 255, 255, 0.6);
+        border-radius: var(--border-radius-lg);
+        backdrop-filter: blur(10px);
+        cursor: pointer;
+        transition: var(--transition);
+      }
+
+      .user-info:hover {
+        background: rgba(255, 255, 255, 0.8);
+      }
+
+      .user-avatar {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        background: var(--gradient-blue);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: 700;
+        font-size: 1.1rem;
+        box-shadow: var(--shadow-md);
+      }
+
+      /* Konten Halaman */
+      .page-title {
+        margin-bottom: 30px;
+        color: var(--gray-900);
+        font-size: 2.25rem;
+        font-weight: 700;
+        background: var(--gradient-blue);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        letter-spacing: -0.025em;
+      }
+
+      .page-content {
+        display: none;
+        animation: fadeInUp 0.6s ease-out;
+      }
+
+      .page-content.active {
+        display: block;
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Kartu dengan Neumorphism dan Glass Effect */
+      .cards-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+        gap: 25px;
+        margin-bottom: 50px;
+      }
+
+      .card {
+        background: rgba(255, 255, 255, 0.75);
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+        border-radius: var(--border-radius-xl);
+        box-shadow: var(--shadow-lg);
+        overflow: hidden;
+        transition: var(--transition);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        position: relative;
+        opacity: 0;
+        transform: translateY(20px);
+        animation: cardAppear 0.6s ease-out forwards;
+      }
+
+      .card:nth-child(1) {
+        animation-delay: 0.1s;
+      }
+      .card:nth-child(2) {
+        animation-delay: 0.2s;
+      }
+      .card:nth-child(3) {
+        animation-delay: 0.3s;
+      }
+      .card:nth-child(4) {
+        animation-delay: 0.4s;
+      }
+      .card:nth-child(5) {
+        animation-delay: 0.5s;
+      }
+      .card:nth-child(6) {
+        animation-delay: 0.6s;
+      }
+
+      @keyframes cardAppear {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: var(--gradient-blue-teal);
+        transform: scaleX(0);
+        transition: var(--transition);
+      }
+
+      .card:hover::before {
+        transform: scaleX(1);
+      }
+
+      .card:hover {
+        transform: translateY(-8px);
+        box-shadow: var(--shadow-xl);
+        background: rgba(255, 255, 255, 0.9);
+      }
+
+      .card-header {
+        padding: 20px;
+        background: var(--gradient-blue);
+        color: white;
+        position: relative;
+      }
+
+      .card-header h3 {
+        margin-bottom: 8px;
+        font-size: 1.3rem;
+        font-weight: 600;
+      }
+
+      .category {
+        display: inline-block;
+        background: rgba(255, 255, 255, 0.2);
+        color: white;
+        padding: 6px 12px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 500;
+        backdrop-filter: blur(10px);
+      }
+
+      .card-body {
+        padding: 20px;
+      }
+
+      .card-body p {
+        margin-bottom: 20px;
+        line-height: 1.7;
+        color: var(--gray-600);
+      }
+
+      .contact-info {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        margin-top: 20px;
+      }
+
+      .contact-item {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 10px;
+        background: rgba(255, 255, 255, 0.5);
+        border-radius: var(--border-radius);
+        transition: var(--transition);
+      }
+
+      .contact-item:hover {
+        background: rgba(255, 255, 255, 0.8);
+        transform: translateX(4px);
+      }
+
+      .contact-item i {
+        color: var(--accent-teal);
+        font-size: 1.1rem;
+        width: 20px;
+      }
+
+      /* Dashboard Styles */
+      .dashboard-stats {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 20px;
+        margin-bottom: 40px;
+      }
+
+      .stat-card {
+        background: rgba(255, 255, 255, 0.75);
+        backdrop-filter: blur(15px);
+        padding: 25px;
+        border-radius: var(--border-radius-xl);
+        box-shadow: var(--shadow-md);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        transition: var(--transition);
+        text-align: center;
+      }
+
+      .stat-card:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-lg);
+      }
+
+      .stat-card i {
+        font-size: 2.5rem;
+        margin-bottom: 15px;
+        background: var(--gradient-blue-teal);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .stat-card h3 {
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 5px;
+        color: var(--gray-800);
+      }
+
+      .stat-card p {
+        color: var(--gray-600);
+        font-weight: 500;
+      }
+
+      /* Form Styles */
+      .form-container {
+        background: rgba(255, 255, 255, 0.75);
+        backdrop-filter: blur(15px);
+        padding: 40px;
+        border-radius: var(--border-radius-xl);
+        box-shadow: var(--shadow-md);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        max-width: 700px;
+        margin: 0 auto;
+      }
+
+      .form-group {
+        margin-bottom: 25px;
+      }
+
+      .form-group label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 600;
+        color: var(--gray-700);
+      }
+
+      .form-group input,
+      .form-group textarea,
+      .form-group select {
+        width: 100%;
+        padding: 14px 16px;
+        border: 1px solid var(--gray-200);
+        border-radius: var(--border-radius);
+        font-size: 1rem;
+        transition: var(--transition);
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(10px);
+      }
+
+      .form-group input:focus,
+      .form-group textarea:focus,
+      .form-group select:focus {
+        outline: none;
+        border-color: var(--primary-blue);
+        box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.1);
+        background: rgba(255, 255, 255, 0.95);
+      }
+
+      .form-group textarea {
+        min-height: 120px;
+        resize: vertical;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 14px 24px;
+        background: var(--gradient-blue-teal);
+        color: white;
+        border: none;
+        border-radius: var(--border-radius);
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: var(--transition);
+        text-decoration: none;
+      }
+
+      .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-lg);
+      }
+
+      .btn-secondary {
+        background: var(--gray-300);
+        color: var(--gray-700);
+      }
+
+      .btn-success {
+        background: var(--success-green);
+      }
+
+      .btn-warning {
+        background: var(--warning-yellow);
+      }
+
+      .action-buttons {
+        display: flex;
+        gap: 15px;
+        margin-top: 30px;
+        justify-content: flex-end;
+      }
+
+      /* Profile Styles */
+      .profile-container {
+        display: grid;
+        grid-template-columns: 300px 1fr;
+        gap: 30px;
+      }
+
+      .profile-sidebar {
+        background: rgba(255, 255, 255, 0.75);
+        backdrop-filter: blur(15px);
+        padding: 30px;
+        border-radius: var(--border-radius-xl);
+        box-shadow: var(--shadow-md);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        text-align: center;
+      }
+
+      .profile-avatar {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        background: var(--gradient-blue);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: 700;
+        font-size: 2.5rem;
+        margin: 0 auto 20px;
+        box-shadow: var(--shadow-lg);
+      }
+
+      .profile-details {
+        background: rgba(255, 255, 255, 0.75);
+        backdrop-filter: blur(15px);
+        padding: 30px;
+        border-radius: var(--border-radius-xl);
+        box-shadow: var(--shadow-md);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+      }
+
+      .profile-details h3 {
+        margin-bottom: 20px;
+        padding-bottom: 15px;
+        border-bottom: 1px solid var(--gray-200);
+        color: var(--gray-800);
+      }
+
+      .detail-item {
+        display: flex;
+        margin-bottom: 15px;
+        padding-bottom: 15px;
+        border-bottom: 1px solid var(--gray-100);
+      }
+
+      .detail-label {
+        flex: 0 0 150px;
+        font-weight: 600;
+        color: var(--gray-700);
+      }
+
+      .detail-value {
+        flex: 1;
+        color: var(--gray-600);
+      }
+
+      /* Loading dan Error States */
+      .loading {
+        text-align: center;
+        padding: 40px;
+        font-size: 1.2rem;
+        color: var(--primary-blue);
+        background: rgba(255, 255, 255, 0.8);
+        border-radius: var(--border-radius-xl);
+        backdrop-filter: blur(10px);
+        margin: 20px 0;
+      }
+
+      .loading i {
+        animation: spin 1s linear infinite;
+        margin-right: 10px;
+      }
+
+      @keyframes spin {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      .error {
+        text-align: center;
+        padding: 30px;
+        color: var(--warning-yellow);
+        background: rgba(245, 158, 11, 0.1);
+        border-radius: var(--border-radius-xl);
+        margin: 20px 0;
+        border-left: 4px solid var(--warning-yellow);
+      }
+
+      .no-data {
+        text-align: center;
+        padding: 60px 40px;
+        color: var(--gray-500);
+        font-style: italic;
+        background: rgba(255, 255, 255, 0.6);
+        border-radius: var(--border-radius-xl);
+        backdrop-filter: blur(10px);
+      }
+
+      /* Halaman Tentang dan Kontak */
+      .about-content,
+      .contact-content {
+        background: rgba(255, 255, 255, 0.75);
+        backdrop-filter: blur(15px);
+        padding: 40px;
+        border-radius: var(--border-radius-xl);
+        box-shadow: var(--shadow-md);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+      }
+
+      .about-content p,
+      .contact-content p {
+        margin-bottom: 20px;
+        font-size: 1.1rem;
+        line-height: 1.8;
+        color: var(--gray-700);
+      }
+
+      /* Floating Animation untuk Elemen */
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+
+      .card:hover .card-header {
+        animation: float 3s ease-in-out infinite;
+      }
+
+      /* Modal Styles */
+      .modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(5px);
+        z-index: 2000;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .modal.active {
+        display: flex;
+      }
+
+      .modal-content {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(20px);
+        padding: 30px;
+        border-radius: var(--border-radius-xl);
+        box-shadow: var(--shadow-xl);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        max-width: 500px;
+        width: 90%;
+        max-height: 90vh;
+        overflow-y: auto;
+        animation: modalAppear 0.3s ease-out;
+      }
+
+      @keyframes modalAppear {
+        from {
+          opacity: 0;
+          transform: scale(0.9) translateY(-20px);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1) translateY(0);
+        }
+      }
+
+      .modal-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+        padding-bottom: 15px;
+        border-bottom: 1px solid var(--gray-200);
+      }
+
+      .modal-header h3 {
+        margin: 0;
+        color: var(--gray-800);
+      }
+
+      .close-modal {
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: var(--gray-500);
+        transition: var(--transition);
+      }
+
+      .close-modal:hover {
+        color: var(--gray-800);
+      }
+
+      /* Toast Notification */
+      .toast {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        padding: 15px 20px;
+        background: var(--success-green);
+        color: white;
+        border-radius: var(--border-radius);
+        box-shadow: var(--shadow-lg);
+        z-index: 3000;
+        transform: translateX(150%);
+        transition: transform 0.3s ease-out;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .toast.show {
+        transform: translateX(0);
+      }
+
+      .toast.error {
+        background: var(--warning-yellow);
+      }
+
+      /* Responsif */
+      @media (max-width: 1024px) {
+        .sidebar {
+          width: 240px;
+        }
+        .main-content {
+          margin-left: 240px;
+        }
+        .profile-container {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .sidebar {
+          width: 70px;
+          transform: translateX(0);
+        }
+
+        .sidebar .logo h1,
+        .sidebar .logo p,
+        .nav-links span {
+          display: none;
+        }
+
+        .nav-links a {
+          justify-content: center;
+          padding: 15px;
+        }
+
+        .nav-links i {
+          margin-right: 0;
+          font-size: 1.4rem;
+        }
+
+        .main-content {
+          margin-left: 70px;
+          padding: 20px;
+        }
+
+        .header {
+          flex-direction: column;
+          align-items: stretch;
+          gap: 20px;
+        }
+
+        .search-container {
+          max-width: 100%;
+        }
+
+        .cards-container {
+          grid-template-columns: 1fr;
+        }
+
+        .dashboard-stats {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .action-buttons {
+          flex-direction: column;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .sidebar {
+          width: 60px;
+        }
+
+        .main-content {
+          margin-left: 60px;
+          padding: 15px;
+        }
+
+        .page-title {
+          font-size: 1.8rem;
+        }
+
+        .about-content,
+        .contact-content {
+          padding: 25px;
+        }
+
+        .form-container {
+          padding: 25px;
+        }
+
+        .dashboard-stats {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Sidebar Navigasi -->
+    <nav class="sidebar">
+      <div class="logo">
+        <h1>Direktori</h1>
+        <p>Layanan & UMKM Lokal</p>
+      </div>
+      <ul class="nav-links">
+        <li>
+          <a href="#" class="nav-link active" data-page="dashboard"
+            ><i class="fas fa-tachometer-alt"></i> <span>Dashboard</span></a
+          >
+        </li>
+        <li>
+          <a href="#" class="nav-link" data-page="layanan"
+            ><i class="fas fa-home"></i> <span>Layanan Masyarakat</span></a
+          >
+        </li>
+        <li>
+          <a href="#" class="nav-link" data-page="umkm"
+            ><i class="fas fa-store"></i> <span>UMKM Lokal</span></a
+          >
+        </li>
+        <li>
+          <a href="#" class="nav-link" data-page="profil"
+            ><i class="fas fa-user"></i> <span>Profil</span></a
+          >
+        </li>
+        <li>
+          <a href="#" class="nav-link" data-page="tentang"
+            ><i class="fas fa-info-circle"></i> <span>Tentang Kami</span></a
+          >
+        </li>
+        <li>
+          <a href="#" class="nav-link" data-page="kontak"
+            ><i class="fas fa-envelope"></i> <span>Kontak</span></a
+          >
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Konten Utama -->
+    <main class="main-content">
+      <div class="content-wrapper">
+        <div class="header">
+          <div class="search-container">
+            <input
+              type="text"
+              id="searchInput"
+              placeholder="Cari layanan atau UMKM..."
+            />
+            <button id="searchButton">
+              <i class="fas fa-search"></i> Cari
+            </button>
+          </div>
+          <div class="user-info" id="userProfileBtn">
+            <div class="user-avatar">AD</div>
+            <span>Admin</span>
+          </div>
+        </div>
+
+        <!-- Halaman Dashboard -->
+        <div class="page-content active" id="dashboard-page">
+          <h2 class="page-title">Dashboard</h2>
+          <div class="dashboard-stats">
+            <div class="stat-card">
+              <i class="fas fa-home"></i>
+              <h3 id="total-layanan">0</h3>
+              <p>Layanan Masyarakat</p>
+            </div>
+            <div class="stat-card">
+              <i class="fas fa-store"></i>
+              <h3 id="total-umkm">0</h3>
+              <p>UMKM Lokal</p>
+            </div>
+            <div class="stat-card">
+              <i class="fas fa-users"></i>
+              <h3>1,254</h3>
+              <p>Pengguna Terdaftar</p>
+            </div>
+            <div class="stat-card">
+              <i class="fas fa-eye"></i>
+              <h3>5,678</h3>
+              <p>Total Kunjungan</p>
+            </div>
+          </div>
+          <div class="action-buttons">
+            <button class="btn" id="addLayananBtn">
+              <i class="fas fa-plus"></i> Tambah Layanan
+            </button>
+            <button class="btn btn-success" id="addUmkmBtn">
+              <i class="fas fa-plus"></i> Tambah UMKM
+            </button>
+          </div>
+        </div>
+
+        <!-- Halaman Layanan Masyarakat -->
+        <div class="page-content" id="layanan-page">
+          <h2 class="page-title">Layanan Masyarakat</h2>
+          <div class="loading" id="layanan-loading">
+            <i class="fas fa-spinner"></i> Memuat data layanan masyarakat...
+          </div>
+          <div class="error" id="layanan-error" style="display: none"></div>
+          <div class="cards-container" id="layanan-cards"></div>
+        </div>
+
+        <!-- Halaman UMKM Lokal -->
+        <div class="page-content" id="umkm-page">
+          <h2 class="page-title">UMKM Lokal</h2>
+          <div class="loading" id="umkm-loading">
+            <i class="fas fa-spinner"></i> Memuat data UMKM lokal...
+          </div>
+          <div class="error" id="umkm-error" style="display: none"></div>
+          <div class="cards-container" id="umkm-cards"></div>
+        </div>
+
+        <!-- Halaman Profil -->
+        <div class="page-content" id="profil-page">
+          <h2 class="page-title">Profil Pengguna</h2>
+          <div class="profile-container">
+            <div class="profile-sidebar">
+              <div class="profile-avatar">AD</div>
+              <h3>Admin</h3>
+              <p>Administrator Sistem</p>
+              <div style="margin-top: 20px">
+                <button class="btn btn-secondary" id="editProfileBtn">
+                  <i class="fas fa-edit"></i> Edit Profil
+                </button>
+              </div>
+            </div>
+            <div class="profile-details">
+              <h3>Informasi Profil</h3>
+              <div class="detail-item">
+                <div class="detail-label">Nama Lengkap</div>
+                <div class="detail-value">Admin Direktori</div>
+              </div>
+              <div class="detail-item">
+                <div class="detail-label">Email</div>
+                <div class="detail-value">admin@direktorilokal.com</div>
+              </div>
+              <div class="detail-item">
+                <div class="detail-label">Telepon</div>
+                <div class="detail-value">(021) 1234-5678</div>
+              </div>
+              <div class="detail-item">
+                <div class="detail-label">Alamat</div>
+                <div class="detail-value">
+                  Jl. Contoh No. 123, Jakarta Pusat
+                </div>
+              </div>
+              <div class="detail-item">
+                <div class="detail-label">Bergabung Sejak</div>
+                <div class="detail-value">15 Januari 2023</div>
+              </div>
+              <div class="detail-item">
+                <div class="detail-label">Peran</div>
+                <div class="detail-value">Administrator</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Halaman Tentang Kami -->
+        <div class="page-content" id="tentang-page">
+          <h2 class="page-title">Tentang Kami</h2>
+          <div class="about-content">
+            <p>
+              Direktori Layanan Masyarakat dan UMKM Lokal adalah platform
+              inovatif yang bertujuan untuk memudahkan masyarakat dalam
+              menemukan berbagai layanan publik dan usaha mikro, kecil, dan
+              menengah (UMKM) di daerah mereka.
+            </p>
+            <p>
+              Kami berkomitmen untuk mendukung pertumbuhan ekonomi lokal dengan
+              mempromosikan produk dan jasa dari pelaku UMKM, serta memberikan
+              informasi yang lengkap dan terpercaya tentang layanan masyarakat
+              yang tersedia.
+            </p>
+            <p>
+              Dengan antarmuka yang modern dan responsif, kami menghadirkan
+              pengalaman pengguna yang optimal dalam menjelajahi berbagai
+              layanan dan UMKM di sekitar Anda.
+            </p>
+          </div>
+        </div>
+
+        <!-- Halaman Kontak -->
+        <div class="page-content" id="kontak-page">
+          <h2 class="page-title">Kontak Kami</h2>
+          <div class="contact-content">
+            <p>
+              Jika Anda memiliki pertanyaan, saran, atau ingin mendaftarkan
+              layanan/UMKM Anda ke dalam direktori kami, silakan hubungi:
+            </p>
+            <div class="contact-info">
+              <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <span>info@direktorilokal.com</span>
+              </div>
+              <div class="contact-item">
+                <i class="fas fa-phone"></i>
+                <span>(021) 1234-5678</span>
+              </div>
+              <div class="contact-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Jl. Contoh No. 123, Jakarta Pusat</span>
+              </div>
+              <div class="contact-item">
+                <i class="fab fa-instagram"></i>
+                <span>@direktorilokal</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Modal Tambah Layanan/UMKM -->
+    <div class="modal" id="addModal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 id="modalTitle">Tambah Data</h3>
+          <button class="close-modal" id="closeModal">&times;</button>
+        </div>
+        <form id="addForm">
+          <input type="hidden" id="formType" value="" />
+          <input type="hidden" id="editId" value="" />
+
+          <div class="form-group">
+            <label for="nama">Nama</label>
+            <input type="text" id="nama" required />
+          </div>
+
+          <div class="form-group">
+            <label for="kategori">Kategori</label>
+            <select id="kategori" required>
+              <option value="">Pilih Kategori</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="deskripsi">Deskripsi</label>
+            <textarea id="deskripsi" required></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="telepon">Telepon</label>
+            <input type="text" id="telepon" required />
+          </div>
+
+          <div class="form-group">
+            <label for="instagram">Instagram</label>
+            <input type="text" id="instagram" required />
+          </div>
+
+          <div class="action-buttons">
+            <button type="button" class="btn btn-secondary" id="cancelBtn">
+              Batal
+            </button>
+            <button type="submit" class="btn" id="submitBtn">Simpan</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast"></div>
+
+    <script>
+      // Data JSON lengkap
+      const DATA = {
+        layanan: [
+          {
+            id: 1,
+            nama: "Puskesmas Sehat Sentosa",
+            deskripsi:
+              "Memberikan pelayanan kesehatan dasar dan rujukan untuk masyarakat. Tersedia layanan rawat jalan, imunisasi, dan pemeriksaan kesehatan gratis.",
+            kategori: "Kesehatan",
+            telepon: "(021) 555-1234",
+            instagram: "@puskesmas_sehat",
+          },
+          {
+            id: 2,
+            nama: "Kantor Kelurahan Harmoni",
+            deskripsi:
+              "Melayani administrasi kependudukan seperti pembuatan KTP, KK, akta kelahiran, dan surat keterangan lainnya.",
+            kategori: "Administrasi",
+            telepon: "(021) 555-5678",
+            instagram: "@kelurahan_harmoni",
+          },
+          {
+            id: 3,
+            nama: "Perpustakaan Daerah",
+            deskripsi:
+              "Menyediakan koleksi buku untuk semua usia. Juga mengadakan kegiatan literasi dan bimbingan belajar gratis untuk pelajar.",
+            kategori: "Pendidikan",
+            telepon: "(021) 555-9012",
+            instagram: "@perpustakaan_daerah",
+          },
+          {
+            id: 4,
+            nama: "Posyandu Mawar",
+            deskripsi:
+              "Layanan kesehatan ibu dan anak, termasuk penimbangan balita, imunisasi, dan konsultasi gizi.",
+            kategori: "Kesehatan",
+            telepon: "(021) 555-3456",
+            instagram: "@posyandu_mawar",
+          },
+          {
+            id: 5,
+            nama: "Balai Latihan Kerja",
+            deskripsi:
+              "Menyediakan pelatihan keterampilan kerja untuk meningkatkan kompetensi dan peluang kerja masyarakat.",
+            kategori: "Pelatihan",
+            telepon: "(021) 555-7890",
+            instagram: "@blk_daerah",
+          },
+          {
+            id: 6,
+            nama: "Pos Kamling 24 Jam",
+            deskripsi:
+              "Menjaga keamanan lingkungan dengan sistem patroli dan posko keamanan yang beroperasi 24 jam.",
+            kategori: "Keamanan",
+            telepon: "(021) 555-2345",
+            instagram: "@poskamling24jam",
+          },
+        ],
+        umkm: [
+          {
+            id: 1,
+            nama: "Kerajinan Tangan Bu Rini",
+            deskripsi:
+              "Menjual berbagai kerajinan tangan seperti tas anyaman, hiasan dinding, dan aksesoris dari bahan alami dengan kualitas terbaik.",
+            kategori: "Kerajinan",
+            telepon: "0812-3456-7890",
+            instagram: "@kerajinan_burini",
+          },
+          {
+            id: 2,
+            nama: "Warung Makan Sederhana",
+            deskripsi:
+              "Menyajikan masakan rumahan dengan cita rasa autentik. Menu andalan: nasi campur, soto ayam, dan gado-gado.",
+            kategori: "Kuliner",
+            telepon: "0813-4567-8901",
+            instagram: "@warung_sederhana",
+          },
+          {
+            id: 3,
+            nama: "Toko Baju Ananda",
+            deskripsi:
+              "Menjual pakaian berkualitas dengan harga terjangkau. Tersedia berbagai model baju muslim, casual, dan aksesoris.",
+            kategori: "Fashion",
+            telepon: "0814-5678-9012",
+            instagram: "@toko_bajuananda",
+          },
+          {
+            id: 4,
+            nama: "Kafe Buku Santai",
+            deskripsi:
+              "Tempat nyaman untuk membaca buku sambil menikmati kopi dan camilan. Juga menjual buku-buku bekas berkualitas.",
+            kategori: "Kuliner & Hiburan",
+            telepon: "0815-6789-0123",
+            instagram: "@kafebuku_santai",
+          },
+          {
+            id: 5,
+            nama: "Toko Kue Ibu Sari",
+            deskripsi:
+              "Spesialis kue tradisional dan modern. Pilihan terbaik untuk acara keluarga, ulang tahun, dan pernikahan.",
+            kategori: "Kuliner",
+            telepon: "0816-7890-1234",
+            instagram: "@tokokue_ibusari",
+          },
+          {
+            id: 6,
+            nama: "Bengkel Jaya Motor",
+            deskripsi:
+              "Melayani perbaikan dan perawatan sepeda motor dengan teknisi berpengalaman. Tersedia suku cadang asli dan berkualitas.",
+            kategori: "Otomotif",
+            telepon: "0817-8901-2345",
+            instagram: "@bengkeljayamotor",
+          },
+          {
+            id: 7,
+            nama: "Salon Cantik",
+            deskripsi:
+              "Menyediakan layanan perawatan rambut dan kecantikan dengan harga terjangkau dan hasil memuaskan.",
+            kategori: "Kecantikan",
+            telepon: "0818-9012-3456",
+            instagram: "@salon_cantik",
+          },
+          {
+            id: 8,
+            nama: "Toko Elektronik Maju",
+            deskripsi:
+              "Menjual berbagai peralatan elektronik rumah tangga dengan garansi resmi dan layanan purna jual yang terpercaya.",
+            kategori: "Elektronik",
+            telepon: "0819-0123-4567",
+            instagram: "@toko_elektronikmaju",
+          },
+        ],
+        kategori: {
+          layanan: [
+            "Kesehatan",
+            "Administrasi",
+            "Pendidikan",
+            "Pelatihan",
+            "Keamanan",
+            "Lainnya",
+          ],
+          umkm: [
+            "Kuliner",
+            "Fashion",
+            "Kerajinan",
+            "Otomotif",
+            "Kecantikan",
+            "Elektronik",
+            "Jasa",
+            "Lainnya",
+          ],
+        },
+      };
+
+      // State aplikasi
+      const APP_STATE = {
+        currentUser: {
+          id: 1,
+          name: "Admin Direktori",
+          email: "admin@direktorilokal.com",
+          phone: "(021) 1234-5678",
+          address: "Jl. Contoh No. 123, Jakarta Pusat",
+          joinDate: "15 Januari 2023",
+          role: "Administrator",
+          avatar: "AD",
+        },
+        data: {
+          layanan: [],
+          umkm: [],
+        },
+        editingItem: null,
+      };
+
+      // Inisialisasi aplikasi
+      document.addEventListener("DOMContentLoaded", function () {
+        initializeApp();
+      });
+
+      async function initializeApp() {
+        try {
+          // Load data dari localStorage atau gunakan data default
+          loadDataFromStorage();
+
+          // Setup UI
+          setupNavigation();
+          setupSearch();
+          setupModals();
+          setupEventListeners();
+
+          // Render data awal
+          renderDashboardStats();
+          renderCards("layanan", APP_STATE.data.layanan);
+          renderCards("umkm", APP_STATE.data.umkm);
+
+          console.log("Aplikasi berhasil diinisialisasi");
+        } catch (error) {
+          console.error("Error initializing app:", error);
+          showToast("Gagal memuat aplikasi", "error");
+        }
+      }
+
+      // Fungsi untuk memuat data dari localStorage
+      function loadDataFromStorage() {
+        const storedLayanan = localStorage.getItem("direktori-layanan");
+        const storedUmkm = localStorage.getItem("direktori-umkm");
+
+        APP_STATE.data.layanan = storedLayanan
+          ? JSON.parse(storedLayanan)
+          : DATA.layanan;
+        APP_STATE.data.umkm = storedUmkm ? JSON.parse(storedUmkm) : DATA.umkm;
+      }
+
+      // Fungsi untuk menyimpan data ke localStorage
+      function saveDataToStorage() {
+        localStorage.setItem(
+          "direktori-layanan",
+          JSON.stringify(APP_STATE.data.layanan)
+        );
+        localStorage.setItem(
+          "direktori-umkm",
+          JSON.stringify(APP_STATE.data.umkm)
+        );
+      }
+
+      // Setup navigasi
+      function setupNavigation() {
+        const navLinks = document.querySelectorAll(".nav-link");
+        const pages = document.querySelectorAll(".page-content");
+
+        navLinks.forEach((link) => {
+          link.addEventListener("click", function (e) {
+            e.preventDefault();
+            switchPage(this, navLinks, pages);
+          });
+        });
+
+        // Setup user profile button
+        document
+          .getElementById("userProfileBtn")
+          .addEventListener("click", function () {
+            switchToPage("profil", navLinks, pages);
+          });
+      }
+
+      function switchPage(clickedLink, allLinks, allPages) {
+        // Hapus kelas aktif dari semua link dan halaman
+        allLinks.forEach((link) => link.classList.remove("active"));
+        allPages.forEach((page) => page.classList.remove("active"));
+
+        // Tambah kelas aktif ke link yang diklik
+        clickedLink.classList.add("active");
+
+        // Tampilkan halaman yang sesuai
+        const pageId = clickedLink.getAttribute("data-page");
+        switchToPage(pageId, allLinks, allPages);
+      }
+
+      function switchToPage(pageId, allLinks, allPages) {
+        // Hapus kelas aktif dari semua halaman
+        allPages.forEach((page) => page.classList.remove("active"));
+
+        // Tampilkan halaman yang sesuai
+        const targetPage = document.getElementById(`${pageId}-page`);
+        if (targetPage) {
+          targetPage.classList.add("active");
+        }
+
+        // Update navigasi
+        allLinks.forEach((link) => {
+          if (link.getAttribute("data-page") === pageId) {
+            link.classList.add("active");
+          } else {
+            link.classList.remove("active");
+          }
+        });
+      }
+
+      // Setup modal
+      function setupModals() {
+        const modal = document.getElementById("addModal");
+        const closeModal = document.getElementById("closeModal");
+        const cancelBtn = document.getElementById("cancelBtn");
+        const form = document.getElementById("addForm");
+
+        // Event listeners untuk modal
+        closeModal.addEventListener("click", closeAddModal);
+        cancelBtn.addEventListener("click", closeAddModal);
+
+        // Submit form
+        form.addEventListener("submit", handleFormSubmit);
+
+        // Tombol tambah data
+        document
+          .getElementById("addLayananBtn")
+          .addEventListener("click", function () {
+            openAddModal("layanan");
+          });
+
+        document
+          .getElementById("addUmkmBtn")
+          .addEventListener("click", function () {
+            openAddModal("umkm");
+          });
+      }
+
+      function openAddModal(type, item = null) {
+        const modal = document.getElementById("addModal");
+        const modalTitle = document.getElementById("modalTitle");
+        const formType = document.getElementById("formType");
+        const editId = document.getElementById("editId");
+        const kategoriSelect = document.getElementById("kategori");
+
+        // Set judul modal
+        const action = item ? "Edit" : "Tambah";
+        const typeName =
+          type === "layanan" ? "Layanan Masyarakat" : "UMKM Lokal";
+        modalTitle.textContent = `${action} ${typeName}`;
+
+        // Set tipe form
+        formType.value = type;
+
+        // Isi opsi kategori
+        kategoriSelect.innerHTML = '<option value="">Pilih Kategori</option>';
+        DATA.kategori[type].forEach((kat) => {
+          kategoriSelect.innerHTML += `<option value="${kat}">${kat}</option>`;
+        });
+
+        // Jika edit, isi form dengan data yang ada
+        if (item) {
+          APP_STATE.editingItem = item;
+          editId.value = item.id;
+          document.getElementById("nama").value = item.nama;
+          document.getElementById("kategori").value = item.kategori;
+          document.getElementById("deskripsi").value = item.deskripsi;
+          document.getElementById("telepon").value = item.telepon;
+          document.getElementById("instagram").value = item.instagram;
+        } else {
+          APP_STATE.editingItem = null;
+          editId.value = "";
+          document.getElementById("addForm").reset();
+        }
+
+        // Tampilkan modal
+        modal.classList.add("active");
+      }
+
+      function closeAddModal() {
+        const modal = document.getElementById("addModal");
+        modal.classList.remove("active");
+        APP_STATE.editingItem = null;
+      }
+
+      function handleFormSubmit(e) {
+        e.preventDefault();
+
+        const type = document.getElementById("formType").value;
+        const editId = document.getElementById("editId").value;
+        const formData = {
+          nama: document.getElementById("nama").value,
+          kategori: document.getElementById("kategori").value,
+          deskripsi: document.getElementById("deskripsi").value,
+          telepon: document.getElementById("telepon").value,
+          instagram: document.getElementById("instagram").value,
+        };
+
+        if (editId) {
+          // Edit data yang ada
+          updateData(type, parseInt(editId), formData);
+        } else {
+          // Tambah data baru
+          addData(type, formData);
+        }
+
+        closeAddModal();
+      }
+
+      function addData(type, data) {
+        const newId =
+          APP_STATE.data[type].length > 0
+            ? Math.max(...APP_STATE.data[type].map((item) => item.id)) + 1
+            : 1;
+
+        const newItem = {
+          id: newId,
+          ...data,
+        };
+
+        APP_STATE.data[type].push(newItem);
+        saveDataToStorage();
+
+        // Update UI
+        renderCards(type, APP_STATE.data[type]);
+        renderDashboardStats();
+
+        showToast(
+          `${type === "layanan" ? "Layanan" : "UMKM"} berhasil ditambahkan`
+        );
+      }
+
+      function updateData(type, id, data) {
+        const index = APP_STATE.data[type].findIndex((item) => item.id === id);
+
+        if (index !== -1) {
+          APP_STATE.data[type][index] = {
+            id: id,
+            ...data,
+          };
+
+          saveDataToStorage();
+
+          // Update UI
+          renderCards(type, APP_STATE.data[type]);
+
+          showToast(
+            `${type === "layanan" ? "Layanan" : "UMKM"} berhasil diperbarui`
+          );
+        }
+      }
+
+      function deleteData(type, id) {
+        if (confirm(`Apakah Anda yakin ingin menghapus data ini?`)) {
+          APP_STATE.data[type] = APP_STATE.data[type].filter(
+            (item) => item.id !== id
+          );
+          saveDataToStorage();
+
+          // Update UI
+          renderCards(type, APP_STATE.data[type]);
+          renderDashboardStats();
+
+          showToast(
+            `${type === "layanan" ? "Layanan" : "UMKM"} berhasil dihapus`
+          );
+        }
+      }
+
+      // Setup event listeners lainnya
+      function setupEventListeners() {
+        // Setup pencarian
+        setupSearch();
+
+        // Tombol edit profil
+        document
+          .getElementById("editProfileBtn")
+          .addEventListener("click", function () {
+            alert("Fitur edit profil akan segera tersedia!");
+          });
+      }
+
+      // Setup pencarian
+      function setupSearch() {
+        const searchInput = document.getElementById("searchInput");
+        const searchButton = document.getElementById("searchButton");
+
+        function performSearch() {
+          const query = searchInput.value.toLowerCase().trim();
+          const allCards = document.querySelectorAll(".card");
+
+          allCards.forEach((card) => {
+            const isVisible = isCardMatchingQuery(card, query);
+            card.style.display = isVisible ? "block" : "none";
+          });
+        }
+
+        function isCardMatchingQuery(card, query) {
+          if (!query) return true;
+
+          const nama = card.querySelector("h3").textContent.toLowerCase();
+          const deskripsi = card.querySelector("p").textContent.toLowerCase();
+          const kategori = card
+            .querySelector(".category")
+            .textContent.toLowerCase();
+
+          return (
+            nama.includes(query) ||
+            deskripsi.includes(query) ||
+            kategori.includes(query)
+          );
+        }
+
+        searchButton.addEventListener("click", performSearch);
+        searchInput.addEventListener("keyup", function (e) {
+          if (e.key === "Enter") {
+            performSearch();
+          }
+        });
+      }
+
+      // Render statistik dashboard
+      function renderDashboardStats() {
+        document.getElementById("total-layanan").textContent =
+          APP_STATE.data.layanan.length;
+        document.getElementById("total-umkm").textContent =
+          APP_STATE.data.umkm.length;
+      }
+
+      // Render kartu
+      function renderCards(type, data) {
+        const container = document.getElementById(`${type}-cards`);
+
+        if (!data || data.length === 0) {
+          container.innerHTML =
+            '<p class="no-data">Tidak ada data yang tersedia.</p>';
+          return;
+        }
+
+        container.innerHTML = data
+          .map((item) => createCard(item, type))
+          .join("");
+
+        // Tambahkan event listeners untuk tombol edit dan hapus
+        container.querySelectorAll(".card-actions .edit-btn").forEach((btn) => {
+          btn.addEventListener("click", function () {
+            const id = parseInt(this.closest(".card").getAttribute("data-id"));
+            const item = APP_STATE.data[type].find((item) => item.id === id);
+            openAddModal(type, item);
+          });
+        });
+
+        container
+          .querySelectorAll(".card-actions .delete-btn")
+          .forEach((btn) => {
+            btn.addEventListener("click", function () {
+              const id = parseInt(
+                this.closest(".card").getAttribute("data-id")
+              );
+              deleteData(type, id);
+            });
+          });
+      }
+
+      // Fungsi untuk membuat kartu
+      function createCard(item, type) {
+        return `
+          <div class="card" data-id="${item.id}" data-type="${type}">
+            <div class="card-header">
+              <h3>${item.nama}</h3>
+              <span class="category">${item.kategori}</span>
+            </div>
+            <div class="card-body">
+              <p>${item.deskripsi}</p>
+              <div class="contact-info">
+                <div class="contact-item">
+                  <i class="fas fa-phone"></i>
+                  <span>${item.telepon}</span>
+                </div>
+                <div class="contact-item">
+                  <i class="fab fa-instagram"></i>
+                  <span>${item.instagram}</span>
+                </div>
+              </div>
+              <div class="card-actions" style="margin-top: 15px; display: flex; gap: 10px;">
+                <button class="btn btn-secondary edit-btn" style="padding: 8px 12px; font-size: 0.9rem;">
+                  <i class="fas fa-edit"></i> Edit
+                </button>
+                <button class="btn btn-warning delete-btn" style="padding: 8px 12px; font-size: 0.9rem;">
+                  <i class="fas fa-trash"></i> Hapus
+                </button>
+              </div>
+            </div>
+          </div>
+        `;
+      }
+
+      // Fungsi untuk menampilkan toast notification
+      function showToast(message, type = "success") {
+        const toast = document.getElementById("toast");
+        toast.textContent = message;
+        toast.className = "toast";
+
+        if (type === "error") {
+          toast.classList.add("error");
+        }
+
+        toast.classList.add("show");
+
+        setTimeout(() => {
+          toast.classList.remove("show");
+        }, 3000);
+      }
+
+      function showError(message) {
+        console.error(message);
+        showToast(message, "error");
+      }
+    </script>
+  </body>
+</html>

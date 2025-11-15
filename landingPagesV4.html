@@ -1,0 +1,3124 @@
+<!DOCTYPE html>
+<html lang="id" style="scroll-behavior: smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- SEO Meta Tags -->
+    <title>
+      Direktori Layanan Publik & UMKM Lokal | Platform Terpadu Masyarakat
+    </title>
+    <meta
+      name="description"
+      content="Platform terpadu untuk mengakses layanan publik dan menemukan UMKM lokal terbaik. Temukan rumah sakit, sekolah, kantor pemerintah, dan produk UMKM berkualitas di sekitar Anda."
+    />
+    <meta
+      name="keywords"
+      content="layanan publik, UMKM lokal, UMKM, direktori bisnis, pelayanan masyarakat, produk lokal"
+    />
+    <meta name="author" content="Direktori Layanan" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://direktori-layanan.id/" />
+    <meta property="og:title" content="Direktori Layanan Publik & UMKM Lokal" />
+    <meta
+      property="og:description"
+      content="Temukan layanan publik dan UMKM lokal terbaik di sekitar Anda dalam satu platform"
+    />
+    <meta
+      property="og:image"
+      content="https://direktori-layanan.id/og-image.jpg"
+    />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://direktori-layanan.id/" />
+    <meta
+      property="twitter:title"
+      content="Direktori Layanan Publik & UMKM Lokal"
+    />
+    <meta
+      property="twitter:description"
+      content="Platform terpadu untuk layanan publik dan UMKM lokal"
+    />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.png" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#1E40AF",
+              secondary: "#FCD34D",
+              accent: "#14B8A6",
+              dark: "#0F172A",
+            },
+            fontFamily: {
+              sans: ["Inter", "sans-serif"],
+            },
+            animation: {
+              float: "float 6s ease-in-out infinite",
+              "fade-in": "fadeIn 0.8s ease-out forwards",
+              "slide-up": "slideUp 0.8s ease-out forwards",
+              "slide-down": "slideDown 0.5s ease-out forwards",
+              "pulse-soft": "pulseSoft 3s ease-in-out infinite",
+              "bounce-soft": "bounceSoft 2s ease-in-out infinite",
+              "scale-in": "scaleIn 0.5s ease-out forwards",
+              "slide-in": "slideIn 0.3s ease-out forwards",
+            },
+            keyframes: {
+              float: {
+                "0%, 100%": { transform: "translateY(0px)" },
+                "50%": { transform: "translateY(-20px)" },
+              },
+              fadeIn: {
+                "0%": { opacity: "0" },
+                "100%": { opacity: "1" },
+              },
+              slideUp: {
+                "0%": { transform: "translateY(30px)", opacity: "0" },
+                "100%": { transform: "translateY(0)", opacity: "1" },
+              },
+              slideDown: {
+                "0%": { transform: "translateY(-20px)", opacity: "0" },
+                "100%": { transform: "translateY(0)", opacity: "1" },
+              },
+              pulseSoft: {
+                "0%, 100%": { opacity: "1" },
+                "50%": { opacity: "0.7" },
+              },
+              bounceSoft: {
+                "0%, 100%": { transform: "translateY(0)" },
+                "50%": { transform: "translateY(-10px)" },
+              },
+              scaleIn: {
+                "0%": { transform: "scale(0.95)", opacity: "0" },
+                "100%": { transform: "scale(1)", opacity: "1" },
+              },
+              slideIn: {
+                "0%": { transform: "translateX(-100%)" },
+                "100%": { transform: "translateX(0)" },
+              },
+            },
+          },
+        },
+      };
+    </script>
+
+    <style>
+      /* Enhanced Glass Morphism */
+      .glass {
+        background: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+
+      .glass-dark {
+        background: rgba(15, 23, 42, 0.95);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .glass-sidebar {
+        background: linear-gradient(
+          135deg,
+          rgba(30, 41, 59, 0.95) 0%,
+          rgba(15, 23, 42, 0.98) 100%
+        );
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border-right: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      /* Smooth scroll reveal animations */
+      .reveal {
+        opacity: 0;
+        transform: translateY(50px);
+        transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
+
+      .reveal.active {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .reveal-left {
+        opacity: 0;
+        transform: translateX(-50px);
+        transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
+
+      .reveal-left.active {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      .reveal-right {
+        opacity: 0;
+        transform: translateX(50px);
+        transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
+
+      .reveal-right.active {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      /* Enhanced card hover effects */
+      .card-enhanced {
+        transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .card-enhanced::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.3),
+          transparent
+        );
+        transition: left 0.6s;
+      }
+
+      .card-enhanced:hover::before {
+        left: 100%;
+      }
+
+      .card-enhanced:hover {
+        transform: translateY(-8px) scale(1.02);
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+      }
+
+      /* Custom scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+      }
+
+      ::-webkit-scrollbar-track {
+        background: #f1f5f9;
+        border-radius: 10px;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: linear-gradient(180deg, #1e40af, #14b8a6);
+        border-radius: 10px;
+      }
+
+      ::-webkit-scrollbar-thumb:hover {
+        background: linear-gradient(180deg, #1e3a8a, #0f766e);
+      }
+
+      /* Loading spinner */
+      .spinner {
+        border: 4px solid rgba(30, 64, 175, 0.1);
+        border-radius: 50%;
+        border-top: 4px solid #1e40af;
+        width: 50px;
+        height: 50px;
+        animation: spin 1s ease-in-out infinite;
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      /* Gradient text */
+      .gradient-text {
+        background: linear-gradient(135deg, #1e40af 0%, #14b8a6 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      /* CTA Button Pulse */
+      @keyframes pulse-ring {
+        0% {
+          transform: scale(1);
+          opacity: 1;
+        }
+        100% {
+          transform: scale(1.3);
+          opacity: 0;
+        }
+      }
+
+      .cta-pulse::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        background: inherit;
+        animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        z-index: -1;
+      }
+
+      /* Filter button active state */
+      .filter-btn {
+        transition: all 0.3s ease;
+        position: relative;
+      }
+
+      .filter-btn.active {
+        background: linear-gradient(135deg, #14b8a6, #0d9488);
+        color: white;
+        transform: scale(1.05);
+      }
+
+      .filter-btn.active::after {
+        content: "";
+        position: absolute;
+        bottom: -2px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60%;
+        height: 3px;
+        background: #fcd34d;
+        border-radius: 2px;
+      }
+
+      /* Smooth page transitions */
+      .page-transition {
+        animation: fadeIn 0.5s ease-out;
+      }
+
+      /* Background patterns */
+      .bg-dots {
+        background-image: radial-gradient(
+          circle,
+          rgba(30, 64, 175, 0.1) 1px,
+          transparent 1px
+        );
+        background-size: 20px 20px;
+      }
+
+      .bg-grid {
+        background-image: linear-gradient(
+            rgba(30, 64, 175, 0.05) 1px,
+            transparent 1px
+          ),
+          linear-gradient(90deg, rgba(30, 64, 175, 0.05) 1px, transparent 1px);
+        background-size: 30px 30px;
+      }
+
+      /* Mobile menu animation */
+      .mobile-menu-enter {
+        animation: slideDown 0.3s ease-out;
+      }
+
+      /* Search input focus effect */
+      .search-input:focus {
+        box-shadow: 0 0 0 4px rgba(30, 64, 175, 0.1);
+      }
+
+      /* Stats counter animation */
+      @keyframes countUp {
+        from {
+          transform: translateY(20px);
+          opacity: 0;
+        }
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+
+      .stat-number {
+        animation: countUp 0.8s ease-out;
+      }
+
+      /* Sidebar navigation styles */
+      .nav-link {
+        position: relative;
+        transition: all 0.3s ease;
+      }
+
+      .nav-link::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 4px;
+        background: linear-gradient(180deg, #1e40af, #14b8a6);
+        transform: scaleY(0);
+        transition: transform 0.3s ease;
+      }
+
+      .nav-link.active::before {
+        transform: scaleY(1);
+      }
+
+      .nav-link:hover {
+        background: rgba(30, 64, 175, 0.1);
+        transform: translateX(8px);
+      }
+
+      .nav-link.active {
+        background: rgba(30, 64, 175, 0.15);
+        color: #ffffff;
+        font-weight: 600;
+      }
+
+      /* Floating action button */
+      .fab {
+        box-shadow: 0 10px 25px rgba(30, 64, 175, 0.3);
+        transition: all 0.3s ease;
+      }
+
+      .fab:hover {
+        box-shadow: 0 15px 35px rgba(30, 64, 175, 0.4);
+        transform: translateY(-3px);
+      }
+
+      /* Enhanced sidebar */
+      .sidebar {
+        background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
+        box-shadow: 5px 0 25px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Content area scroll */
+      .content-area {
+        scroll-behavior: smooth;
+      }
+
+      /* Notification badge */
+      .notification-badge {
+        animation: pulseSoft 2s ease-in-out infinite;
+      }
+
+      /* Star rating */
+      .star-rating {
+        display: inline-flex;
+        gap: 2px;
+      }
+
+      .star {
+        color: #d1d5db;
+        transition: color 0.2s ease;
+      }
+
+      .star.filled {
+        color: #fbbf24;
+      }
+
+      /* Map container */
+      .map-container {
+        border-radius: 1rem;
+        overflow: hidden;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Profile image */
+      .profile-image {
+        background: linear-gradient(135deg, #1e40af 0%, #14b8a6 100%);
+      }
+
+      /* Contact form */
+      .contact-form input,
+      .contact-form textarea {
+        transition: all 0.3s ease;
+      }
+
+      .contact-form input:focus,
+      .contact-form textarea:focus {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(30, 64, 175, 0.1);
+      }
+
+      /* Toggle switch */
+      .toggle-switch {
+        position: relative;
+        display: inline-block;
+        width: 60px;
+        height: 34px;
+      }
+
+      .toggle-switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+      }
+
+      .toggle-slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        transition: 0.4s;
+        border-radius: 34px;
+      }
+
+      .toggle-slider:before {
+        position: absolute;
+        content: "";
+        height: 26px;
+        width: 26px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        transition: 0.4s;
+        border-radius: 50%;
+      }
+
+      input:checked + .toggle-slider {
+        background-color: #1e40af;
+      }
+
+      input:checked + .toggle-slider:before {
+        transform: translateX(26px);
+      }
+
+      /* Line clamp utility */
+      .line-clamp-3 {
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+
+      /* Enhanced Card Styles */
+      .enhanced-card {
+        background: white;
+        border-radius: 1.5rem;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        overflow: hidden;
+        position: relative;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+
+      .enhanced-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, #1e40af, #14b8a6);
+        transform: scaleX(0);
+        transition: transform 0.4s ease;
+      }
+
+      .enhanced-card:hover::before {
+        transform: scaleX(1);
+      }
+
+      .enhanced-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+      }
+
+      .category-badge {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        padding: 0.5rem 1rem;
+        border-radius: 2rem;
+        font-size: 0.75rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        z-index: 10;
+      }
+
+      .card-image {
+        height: 180px;
+        background-size: cover;
+        background-position: center;
+        position: relative;
+      }
+
+      .card-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+        padding: 1rem;
+        color: white;
+      }
+
+      /* Profile Photo Upload */
+      .profile-photo-container {
+        position: relative;
+        display: inline-block;
+        cursor: pointer;
+      }
+
+      .profile-photo-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      .profile-photo-container:hover .profile-photo-overlay {
+        opacity: 1;
+      }
+
+      /* Form Styles */
+      .form-input {
+        transition: all 0.3s ease;
+        border: 2px solid #e5e7eb;
+      }
+
+      .form-input:focus {
+        border-color: #1e40af;
+        box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.1);
+        transform: translateY(-2px);
+      }
+
+      /* Custom Radio Buttons */
+      .custom-radio {
+        position: relative;
+        padding-left: 2rem;
+        cursor: pointer;
+      }
+
+      .custom-radio input {
+        position: absolute;
+        opacity: 0;
+      }
+
+      .radio-checkmark {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 1.25rem;
+        width: 1.25rem;
+        background-color: #f3f4f6;
+        border-radius: 50%;
+        border: 2px solid #d1d5db;
+        transition: all 0.3s ease;
+      }
+
+      .custom-radio input:checked ~ .radio-checkmark {
+        background-color: #1e40af;
+        border-color: #1e40af;
+      }
+
+      .radio-checkmark:after {
+        content: "";
+        position: absolute;
+        display: none;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 0.5rem;
+        height: 0.5rem;
+        border-radius: 50%;
+        background: white;
+      }
+
+      .custom-radio input:checked ~ .radio-checkmark:after {
+        display: block;
+      }
+    </style>
+  </head>
+
+  <body
+    class="bg-gradient-to-br from-blue-50 via-white to-teal-50 font-sans antialiased flex h-screen overflow-hidden"
+  >
+    <!-- Sidebar Navigation -->
+    <nav class="glass-sidebar w-80 flex-shrink-0 h-full overflow-y-auto z-50">
+      <div class="p-6">
+        <!-- Logo -->
+        <div class="flex items-center space-x-3 mb-8">
+          <div
+            class="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-xl flex items-center justify-center shadow-lg"
+          >
+            <i data-lucide="building-2" class="w-7 h-7 text-white"></i>
+          </div>
+          <div>
+            <h1 class="text-xl font-black text-white">Direktori Layanan</h1>
+            <p class="text-xs text-gray-300">Publik & UMKM Lokal</p>
+          </div>
+        </div>
+
+        <!-- User Profile -->
+        <div class="glass-dark rounded-2xl p-4 mb-6">
+          <div class="flex items-center space-x-3">
+            <div
+              class="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center"
+            >
+              <span class="text-white font-bold text-sm">AD</span>
+            </div>
+            <div class="flex-1 min-w-0">
+              <p class="text-white font-semibold truncate">Admin Direktori</p>
+              <p class="text-gray-400 text-sm truncate">Administrator</p>
+            </div>
+            <div class="relative">
+              <i data-lucide="bell" class="w-5 h-5 text-gray-400"></i>
+              <span
+                class="notification-badge absolute -top-1 -right-1 w-3 h-3 bg-red-500 rounded-full"
+              ></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Navigation Links -->
+        <nav class="space-y-2">
+          <a
+            href="#dashboard"
+            class="nav-link active flex items-center space-x-3 p-3 rounded-xl text-white hover:text-white transition-all duration-300"
+            onclick="switchPage('dashboard')"
+          >
+            <i data-lucide="layout-dashboard" class="w-5 h-5"></i>
+            <span class="font-medium">Dashboard</span>
+          </a>
+
+          <a
+            href="#layanan"
+            class="nav-link flex items-center space-x-3 p-3 rounded-xl text-gray-300 hover:text-white transition-all duration-300"
+            onclick="switchPage('layanan')"
+          >
+            <i data-lucide="building-2" class="w-5 h-5"></i>
+            <span class="font-medium">Layanan Publik</span>
+          </a>
+
+          <a
+            href="#umkm"
+            class="nav-link flex items-center space-x-3 p-3 rounded-xl text-gray-300 hover:text-white transition-all duration-300"
+            onclick="switchPage('umkm')"
+          >
+            <i data-lucide="shopping-basket" class="w-5 h-5"></i>
+            <span class="font-medium">UMKM Lokal</span>
+          </a>
+
+          <a
+            href="#peta"
+            class="nav-link flex items-center space-x-3 p-3 rounded-xl text-gray-300 hover:text-white transition-all duration-300"
+            onclick="switchPage('peta')"
+          >
+            <i data-lucide="map" class="w-5 h-5"></i>
+            <span class="font-medium">Peta Interaktif</span>
+          </a>
+
+          <a
+            href="#testimoni"
+            class="nav-link flex items-center space-x-3 p-3 rounded-xl text-gray-300 hover:text-white transition-all duration-300"
+            onclick="switchPage('testimoni')"
+          >
+            <i data-lucide="message-square" class="w-5 h-5"></i>
+            <span class="font-medium">Testimoni</span>
+          </a>
+
+          <a
+            href="#penilaian"
+            class="nav-link flex items-center space-x-3 p-3 rounded-xl text-gray-300 hover:text-white transition-all duration-300"
+            onclick="switchPage('penilaian')"
+          >
+            <i data-lucide="star" class="w-5 h-5"></i>
+            <span class="font-medium">Penilaian</span>
+          </a>
+
+          <a
+            href="#profil"
+            class="nav-link flex items-center space-x-3 p-3 rounded-xl text-gray-300 hover:text-white transition-all duration-300"
+            onclick="switchPage('profil')"
+          >
+            <i data-lucide="user" class="w-5 h-5"></i>
+            <span class="font-medium">Profil</span>
+          </a>
+
+          <a
+            href="#kontak"
+            class="nav-link flex items-center space-x-3 p-3 rounded-xl text-gray-300 hover:text-white transition-all duration-300"
+            onclick="switchPage('kontak')"
+          >
+            <i data-lucide="phone" class="w-5 h-5"></i>
+            <span class="font-medium">Kontak</span>
+          </a>
+        </nav>
+
+        <!-- Quick Actions -->
+        <div class="mt-8 pt-6 border-t border-gray-700">
+          <h3
+            class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4"
+          >
+            Quick Actions
+          </h3>
+          <div class="space-y-2">
+            <button
+              class="w-full flex items-center space-x-3 p-3 rounded-xl bg-primary/20 text-primary hover:bg-primary/30 transition-all duration-300"
+              onclick="showAddModal('layanan')"
+            >
+              <i data-lucide="plus-circle" class="w-5 h-5"></i>
+              <span class="font-medium">Tambah Layanan</span>
+            </button>
+            <button
+              class="w-full flex items-center space-x-3 p-3 rounded-xl bg-accent/20 text-accent hover:bg-accent/30 transition-all duration-300"
+              onclick="showAddModal('umkm')"
+            >
+              <i data-lucide="store" class="w-5 h-5"></i>
+              <span class="font-medium">Daftar UMKM</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="mt-8 pt-6 border-t border-gray-700">
+          <div class="flex items-center justify-between text-gray-400">
+            <span class="text-sm">© 2025 Direktori</span>
+            <div class="flex space-x-2">
+              <button
+                class="p-1 hover:text-white transition-colors"
+                onclick="switchPage('profil')"
+              >
+                <i data-lucide="settings" class="w-4 h-4"></i>
+              </button>
+              <button
+                class="p-1 hover:text-white transition-colors"
+                onclick="logout()"
+              >
+                <i data-lucide="log-out" class="w-4 h-4"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="flex-1 flex flex-col overflow-hidden">
+      <!-- Top Header -->
+      <header class="glass border-b border-gray-200 z-40">
+        <div class="flex items-center justify-between p-6">
+          <!-- Search Bar -->
+          <div class="flex-1 max-w-2xl">
+            <div class="relative">
+              <i
+                data-lucide="search"
+                class="w-5 h-5 text-gray-400 absolute left-4 top-1/2 transform -translate-y-1/2"
+              ></i>
+              <input
+                type="text"
+                id="search"
+                placeholder="Cari layanan, UMKM, atau lokasi..."
+                class="search-input w-full pl-12 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-primary focus:bg-white transition-all duration-300"
+              />
+            </div>
+          </div>
+
+          <!-- Header Actions -->
+          <div class="flex items-center space-x-4 ml-6">
+            <!-- Theme Toggle -->
+            <button
+              class="p-2 text-gray-600 hover:text-primary transition-colors duration-300"
+              onclick="toggleTheme()"
+            >
+              <i data-lucide="moon" class="w-5 h-5" id="theme-icon"></i>
+            </button>
+
+            <!-- Notifications -->
+            <div class="relative">
+              <button
+                class="p-2 text-gray-600 hover:text-primary transition-colors duration-300"
+                onclick="toggleNotifications()"
+              >
+                <i data-lucide="bell" class="w-5 h-5"></i>
+              </button>
+              <span
+                class="notification-badge absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full"
+              ></span>
+            </div>
+
+            <!-- User Menu -->
+            <div class="flex items-center space-x-3">
+              <div class="text-right hidden md:block">
+                <p class="text-sm font-semibold text-gray-900">
+                  Admin Direktori
+                </p>
+                <p class="text-xs text-gray-500">Administrator</p>
+              </div>
+              <div
+                class="w-10 h-10 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center cursor-pointer"
+                onclick="switchPage('profil')"
+              >
+                <span class="text-white font-bold text-sm">AD</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Content Pages -->
+      <div class="flex-1 overflow-y-auto content-area bg-gray-50/50">
+        <!-- Dashboard Page -->
+        <section id="dashboard-page" class="page-content active p-6">
+          <!-- Welcome Section -->
+          <div class="mb-8 reveal">
+            <h1 class="text-3xl font-black text-gray-900 mb-2">
+              Selamat Datang, Admin! 👋
+            </h1>
+            <p class="text-gray-600">
+              Kelola dan pantau layanan publik & UMKM lokal dalam satu platform
+            </p>
+          </div>
+
+          <!-- Stats Grid -->
+          <div
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8"
+          >
+            <div
+              class="glass rounded-2xl p-6 card-enhanced reveal"
+              style="animation-delay: 0.1s"
+            >
+              <div class="flex items-center justify-between mb-4">
+                <div
+                  class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center"
+                >
+                  <i data-lucide="building-2" class="w-6 h-6 text-primary"></i>
+                </div>
+                <span class="text-sm font-semibold text-green-600">+12%</span>
+              </div>
+              <h3
+                class="text-2xl font-black text-gray-900 mb-1"
+                id="layanan-count"
+              >
+                0
+              </h3>
+              <p class="text-gray-600 font-medium">Layanan Publik</p>
+            </div>
+
+            <div
+              class="glass rounded-2xl p-6 card-enhanced reveal"
+              style="animation-delay: 0.2s"
+            >
+              <div class="flex items-center justify-between mb-4">
+                <div
+                  class="w-12 h-12 bg-teal-100 rounded-xl flex items-center justify-center"
+                >
+                  <i
+                    data-lucide="shopping-basket"
+                    class="w-6 h-6 text-accent"
+                  ></i>
+                </div>
+                <span class="text-sm font-semibold text-green-600">+18%</span>
+              </div>
+              <h3
+                class="text-2xl font-black text-gray-900 mb-1"
+                id="umkm-count"
+              >
+                0
+              </h3>
+              <p class="text-gray-600 font-medium">UMKM Terdaftar</p>
+            </div>
+
+            <div
+              class="glass rounded-2xl p-6 card-enhanced reveal"
+              style="animation-delay: 0.3s"
+            >
+              <div class="flex items-center justify-between mb-4">
+                <div
+                  class="w-12 h-12 bg-amber-100 rounded-xl flex items-center justify-center"
+                >
+                  <i data-lucide="users" class="w-6 h-6 text-amber-600"></i>
+                </div>
+                <span class="text-sm font-semibold text-green-600">+24%</span>
+              </div>
+              <h3 class="text-2xl font-black text-gray-900 mb-1">1,254</h3>
+              <p class="text-gray-600 font-medium">Pengguna Aktif</p>
+            </div>
+
+            <div
+              class="glass rounded-2xl p-6 card-enhanced reveal"
+              style="animation-delay: 0.4s"
+            >
+              <div class="flex items-center justify-between mb-4">
+                <div
+                  class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center"
+                >
+                  <i data-lucide="eye" class="w-6 h-6 text-green-600"></i>
+                </div>
+                <span class="text-sm font-semibold text-green-600">+8%</span>
+              </div>
+              <h3 class="text-2xl font-black text-gray-900 mb-1">5,678</h3>
+              <p class="text-gray-600 font-medium">Total Kunjungan</p>
+            </div>
+          </div>
+
+          <!-- Quick Actions -->
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+            <!-- Recent Activity -->
+            <div class="glass rounded-2xl p-6 reveal">
+              <h3 class="text-xl font-black text-gray-900 mb-6">
+                Aktivitas Terbaru
+              </h3>
+              <div class="space-y-4">
+                <div
+                  class="flex items-center space-x-4 p-3 bg-blue-50 rounded-xl"
+                >
+                  <div
+                    class="w-10 h-10 bg-primary rounded-full flex items-center justify-center"
+                  >
+                    <i data-lucide="plus" class="w-5 h-5 text-white"></i>
+                  </div>
+                  <div class="flex-1">
+                    <p class="font-semibold text-gray-900">
+                      Layanan baru ditambahkan
+                    </p>
+                    <p class="text-sm text-gray-600">Puskesmas Sehat Sentosa</p>
+                  </div>
+                  <span class="text-xs text-gray-500">2 jam lalu</span>
+                </div>
+
+                <div
+                  class="flex items-center space-x-4 p-3 bg-teal-50 rounded-xl"
+                >
+                  <div
+                    class="w-10 h-10 bg-accent rounded-full flex items-center justify-center"
+                  >
+                    <i data-lucide="store" class="w-5 h-5 text-white"></i>
+                  </div>
+                  <div class="flex-1">
+                    <p class="font-semibold text-gray-900">
+                      UMKM baru terdaftar
+                    </p>
+                    <p class="text-sm text-gray-600">
+                      Kerajinan Tangan Bu Rini
+                    </p>
+                  </div>
+                  <span class="text-xs text-gray-500">5 jam lalu</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Popular Services -->
+            <div
+              class="glass rounded-2xl p-6 reveal"
+              style="animation-delay: 0.2s"
+            >
+              <h3 class="text-xl font-black text-gray-900 mb-6">
+                Layanan Populer
+              </h3>
+              <div class="space-y-3">
+                <div
+                  class="flex items-center justify-between p-3 hover:bg-gray-50 rounded-lg transition-colors"
+                >
+                  <div class="flex items-center space-x-3">
+                    <div
+                      class="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center"
+                    >
+                      <i
+                        data-lucide="heart-pulse"
+                        class="w-4 h-4 text-primary"
+                      ></i>
+                    </div>
+                    <span class="font-medium text-gray-900">Kesehatan</span>
+                  </div>
+                  <span class="text-sm text-gray-600">1.2k views</span>
+                </div>
+
+                <div
+                  class="flex items-center justify-between p-3 hover:bg-gray-50 rounded-lg transition-colors"
+                >
+                  <div class="flex items-center space-x-3">
+                    <div
+                      class="w-8 h-8 bg-teal-100 rounded-lg flex items-center justify-center"
+                    >
+                      <i
+                        data-lucide="graduation-cap"
+                        class="w-4 h-4 text-accent"
+                      ></i>
+                    </div>
+                    <span class="font-medium text-gray-900">Pendidikan</span>
+                  </div>
+                  <span class="text-sm text-gray-600">980 views</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Layanan Publik Page -->
+        <section id="layanan-page" class="page-content p-6 hidden">
+          <div class="mb-8 reveal">
+            <h1 class="text-3xl font-black text-gray-900 mb-2">
+              Layanan Publik
+            </h1>
+            <p class="text-gray-600">
+              Kelola semua layanan publik yang tersedia untuk masyarakat
+            </p>
+          </div>
+
+          <!-- Filter buttons -->
+          <div
+            class="flex flex-wrap gap-3 mb-8 reveal"
+            style="animation-delay: 0.2s"
+          >
+            <button
+              class="filter-btn active px-6 py-3 bg-white rounded-xl text-gray-700 font-semibold shadow-sm hover:shadow-md transition-all duration-300"
+              data-filter="all"
+              data-section="layanan"
+            >
+              Semua
+            </button>
+            <button
+              class="filter-btn px-6 py-3 bg-white rounded-xl text-gray-700 font-semibold shadow-sm hover:shadow-md transition-all duration-300"
+              data-filter="kesehatan"
+              data-section="layanan"
+            >
+              <i data-lucide="heart-pulse" class="w-4 h-4 inline mr-2"></i>
+              Kesehatan
+            </button>
+            <button
+              class="filter-btn px-6 py-3 bg-white rounded-xl text-gray-700 font-semibold shadow-sm hover:shadow-md transition-all duration-300"
+              data-filter="pendidikan"
+              data-section="layanan"
+            >
+              <i data-lucide="graduation-cap" class="w-4 h-4 inline mr-2"></i>
+              Pendidikan
+            </button>
+            <button
+              class="filter-btn px-6 py-3 bg-white rounded-xl text-gray-700 font-semibold shadow-sm hover:shadow-md transition-all duration-300"
+              data-filter="administrasi"
+              data-section="layanan"
+            >
+              <i data-lucide="file-text" class="w-4 h-4 inline mr-2"></i>
+              Administrasi
+            </button>
+          </div>
+
+          <!-- Loading spinner -->
+          <div id="loading-layanan" class="flex justify-center py-12">
+            <div class="spinner"></div>
+          </div>
+
+          <!-- Layanan list -->
+          <div
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+            id="layanan-list"
+          >
+            <!-- Cards will be loaded here -->
+          </div>
+        </section>
+
+        <!-- UMKM Lokal Page -->
+        <section id="umkm-page" class="page-content p-6 hidden">
+          <div class="mb-8 reveal">
+            <h1 class="text-3xl font-black text-gray-900 mb-2">UMKM Lokal</h1>
+            <p class="text-gray-600">
+              Kelola dan pantau UMKM lokal yang terdaftar dalam platform
+            </p>
+          </div>
+
+          <!-- Filter buttons -->
+          <div
+            class="flex flex-wrap gap-3 mb-8 reveal"
+            style="animation-delay: 0.2s"
+          >
+            <button
+              class="filter-btn active px-6 py-3 bg-white rounded-xl text-gray-700 font-semibold shadow-sm hover:shadow-md transition-all duration-300"
+              data-filter="all"
+              data-section="umkm"
+            >
+              Semua
+            </button>
+            <button
+              class="filter-btn px-6 py-3 bg-white rounded-xl text-gray-700 font-semibold shadow-sm hover:shadow-md transition-all duration-300"
+              data-filter="makanan"
+              data-section="umkm"
+            >
+              <i data-lucide="utensils" class="w-4 h-4 inline mr-2"></i>
+              Makanan
+            </button>
+            <button
+              class="filter-btn px-6 py-3 bg-white rounded-xl text-gray-700 font-semibold shadow-sm hover:shadow-md transition-all duration-300"
+              data-filter="kerajinan"
+              data-section="umkm"
+            >
+              <i data-lucide="palette" class="w-4 h-4 inline mr-2"></i>
+              Kerajinan
+            </button>
+            <button
+              class="filter-btn px-6 py-3 bg-white rounded-xl text-gray-700 font-semibold shadow-sm hover:shadow-md transition-all duration-300"
+              data-filter="fashion"
+              data-section="umkm"
+            >
+              <i data-lucide="shirt" class="w-4 h-4 inline mr-2"></i>
+              Fashion
+            </button>
+          </div>
+
+          <!-- Loading spinner -->
+          <div id="loading-umkm" class="flex justify-center py-12">
+            <div class="spinner"></div>
+          </div>
+
+          <!-- UMKM list -->
+          <div
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+            id="umkm-list"
+          >
+            <!-- Cards will be loaded here -->
+          </div>
+        </section>
+
+        <!-- Peta Interaktif Page -->
+        <section id="peta-page" class="page-content p-6 hidden">
+          <div class="mb-8 reveal">
+            <h1 class="text-3xl font-black text-gray-900 mb-2">
+              Peta Interaktif
+            </h1>
+            <p class="text-gray-600">
+              Lihat lokasi layanan publik dan UMKM dalam peta interaktif
+            </p>
+          </div>
+
+          <div
+            class="glass rounded-2xl p-6 reveal"
+            style="animation-delay: 0.2s"
+          >
+            <div class="map-container">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.888953053354!2d107.608545!3d-6.902429!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e639b0d07a5f%3A0x7c5a5b5b5b5b5b5b!2sBandung%2C%20Kota%20Bandung%2C%20Jawa%20Barat!5e0!3m2!1sid!2sid!4v1620000000000!5m2!1sid!2sid"
+                width="100%"
+                height="500"
+                style="border: 0"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                title="Peta Interaktif Layanan Publik dan UMKM"
+              ></iframe>
+            </div>
+
+            <!-- Map Legend -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+              <div
+                class="flex items-center space-x-3 p-3 bg-blue-50 rounded-lg"
+              >
+                <div class="w-4 h-4 bg-primary rounded-full"></div>
+                <span class="text-sm font-medium text-gray-700"
+                  >Layanan Publik</span
+                >
+              </div>
+              <div
+                class="flex items-center space-x-3 p-3 bg-teal-50 rounded-lg"
+              >
+                <div class="w-4 h-4 bg-accent rounded-full"></div>
+                <span class="text-sm font-medium text-gray-700"
+                  >UMKM Lokal</span
+                >
+              </div>
+              <div
+                class="flex items-center space-x-3 p-3 bg-amber-50 rounded-lg"
+              >
+                <div class="w-4 h-4 bg-yellow-500 rounded-full"></div>
+                <span class="text-sm font-medium text-gray-700"
+                  >Lokasi Anda</span
+                >
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Testimoni Page -->
+        <section id="testimoni-page" class="page-content p-6 hidden">
+          <div class="mb-8 reveal">
+            <h1 class="text-3xl font-black text-gray-900 mb-2">
+              Testimoni Pengguna
+            </h1>
+            <p class="text-gray-600">
+              Lihat apa kata pengguna tentang platform kami
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Testimonial 1 -->
+            <div class="glass rounded-2xl p-6 card-enhanced reveal">
+              <div class="flex items-center space-x-3 mb-4">
+                <div
+                  class="w-12 h-12 bg-gradient-to-br from-primary to-blue-600 rounded-full flex items-center justify-center"
+                >
+                  <span class="text-white font-bold">RS</span>
+                </div>
+                <div>
+                  <h4 class="font-bold text-gray-900">Rina Santoso</h4>
+                  <p class="text-sm text-gray-600">Ibu Rumah Tangga</p>
+                </div>
+              </div>
+              <div class="star-rating mb-3">
+                <span class="star filled">★</span>
+                <span class="star filled">★</span>
+                <span class="star filled">★</span>
+                <span class="star filled">★</span>
+                <span class="star filled">★</span>
+              </div>
+              <p class="text-gray-700 text-sm leading-relaxed">
+                "Sangat membantu menemukan layanan kesehatan terdekat.
+                Platformnya mudah digunakan dan informasinya akurat!"
+              </p>
+            </div>
+
+            <!-- Testimonial 2 -->
+            <div
+              class="glass rounded-2xl p-6 card-enhanced reveal"
+              style="animation-delay: 0.1s"
+            >
+              <div class="flex items-center space-x-3 mb-4">
+                <div
+                  class="w-12 h-12 bg-gradient-to-br from-accent to-teal-600 rounded-full flex items-center justify-center"
+                >
+                  <span class="text-white font-bold">BS</span>
+                </div>
+                <div>
+                  <h4 class="font-bold text-gray-900">Budi Setiawan</h4>
+                  <p class="text-sm text-gray-600">Pengusaha UMKM</p>
+                </div>
+              </div>
+              <div class="star-rating mb-3">
+                <span class="star filled">★</span>
+                <span class="star filled">★</span>
+                <span class="star filled">★</span>
+                <span class="star filled">★</span>
+                <span class="star">★</span>
+              </div>
+              <p class="text-gray-700 text-sm leading-relaxed">
+                "Sejak mendaftarkan usaha saya di sini, penjualan meningkat
+                drastis. Terima kasih Direktori Layanan!"
+              </p>
+            </div>
+
+            <!-- Testimonial 3 -->
+            <div
+              class="glass rounded-2xl p-6 card-enhanced reveal"
+              style="animation-delay: 0.2s"
+            >
+              <div class="flex items-center space-x-3 mb-4">
+                <div
+                  class="w-12 h-12 bg-gradient-to-br from-yellow-500 to-amber-600 rounded-full flex items-center justify-center"
+                >
+                  <span class="text-white font-bold">AL</span>
+                </div>
+                <div>
+                  <h4 class="font-bold text-gray-900">Ani Lestari</h4>
+                  <p class="text-sm text-gray-600">Mahasiswa</p>
+                </div>
+              </div>
+              <div class="star-rating mb-3">
+                <span class="star filled">★</span>
+                <span class="star filled">★</span>
+                <span class="star filled">★</span>
+                <span class="star filled">★</span>
+                <span class="star filled">★</span>
+              </div>
+              <p class="text-gray-700 text-sm leading-relaxed">
+                "Aplikasi yang sangat berguna untuk mahasiswa seperti saya. Bisa
+                menemukan segala kebutuhan dalam satu platform."
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Penilaian Page -->
+        <section id="penilaian-page" class="page-content p-6 hidden">
+          <div class="mb-8 reveal">
+            <h1 class="text-3xl font-black text-gray-900 mb-2">
+              Sistem Penilaian
+            </h1>
+            <p class="text-gray-600">
+              Kelola dan pantau penilaian pengguna terhadap layanan dan UMKM
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <!-- Rating Summary -->
+            <div class="glass rounded-2xl p-6 reveal">
+              <h3 class="text-xl font-black text-gray-900 mb-6">
+                Ringkasan Penilaian
+              </h3>
+              <div class="space-y-4">
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center space-x-3">
+                    <span class="text-lg font-semibold text-gray-700"
+                      >Rating Rata-rata</span
+                    >
+                  </div>
+                  <div class="text-right">
+                    <span class="text-3xl font-black text-primary">4.7</span>
+                    <span class="text-gray-600">/5.0</span>
+                  </div>
+                </div>
+
+                <div class="space-y-2">
+                  <div class="flex items-center justify-between">
+                    <div class="flex items-center space-x-2">
+                      <span class="text-sm text-gray-600">5 bintang</span>
+                      <div class="star-rating">
+                        <span class="star filled">★</span>
+                        <span class="star filled">★</span>
+                        <span class="star filled">★</span>
+                        <span class="star filled">★</span>
+                        <span class="star filled">★</span>
+                      </div>
+                    </div>
+                    <span class="text-sm font-semibold text-gray-700">128</span>
+                  </div>
+
+                  <div class="flex items-center justify-between">
+                    <div class="flex items-center space-x-2">
+                      <span class="text-sm text-gray-600">4 bintang</span>
+                      <div class="star-rating">
+                        <span class="star filled">★</span>
+                        <span class="star filled">★</span>
+                        <span class="star filled">★</span>
+                        <span class="star filled">★</span>
+                        <span class="star">★</span>
+                      </div>
+                    </div>
+                    <span class="text-sm font-semibold text-gray-700">45</span>
+                  </div>
+
+                  <div class="flex items-center justify-between">
+                    <div class="flex items-center space-x-2">
+                      <span class="text-sm text-gray-600">3 bintang</span>
+                      <div class="star-rating">
+                        <span class="star filled">★</span>
+                        <span class="star filled">★</span>
+                        <span class="star filled">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                      </div>
+                    </div>
+                    <span class="text-sm font-semibold text-gray-700">12</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Recent Ratings -->
+            <div
+              class="glass rounded-2xl p-6 reveal"
+              style="animation-delay: 0.2s"
+            >
+              <h3 class="text-xl font-black text-gray-900 mb-6">
+                Penilaian Terbaru
+              </h3>
+              <div class="space-y-4">
+                <div
+                  class="flex items-start space-x-3 p-3 bg-gray-50 rounded-lg"
+                >
+                  <div class="flex-1">
+                    <div class="flex items-center justify-between mb-2">
+                      <span class="font-semibold text-gray-900"
+                        >Puskesmas Sehat Sentosa</span
+                      >
+                      <div class="star-rating">
+                        <span class="star filled">★</span>
+                        <span class="star filled">★</span>
+                        <span class="star filled">★</span>
+                        <span class="star filled">★</span>
+                        <span class="star filled">★</span>
+                      </div>
+                    </div>
+                    <p class="text-sm text-gray-600">
+                      "Pelayanan sangat memuaskan dan cepat"
+                    </p>
+                    <span class="text-xs text-gray-500"
+                      >- Sari, 2 jam lalu</span
+                    >
+                  </div>
+                </div>
+
+                <div
+                  class="flex items-start space-x-3 p-3 bg-gray-50 rounded-lg"
+                >
+                  <div class="flex-1">
+                    <div class="flex items-center justify-between mb-2">
+                      <span class="font-semibold text-gray-900"
+                        >Kerajinan Tangan Bu Rini</span
+                      >
+                      <div class="star-rating">
+                        <span class="star filled">★</span>
+                        <span class="star filled">★</span>
+                        <span class="star filled">★</span>
+                        <span class="star filled">★</span>
+                        <span class="star">★</span>
+                      </div>
+                    </div>
+                    <p class="text-sm text-gray-600">
+                      "Produk berkualitas, pengiriman tepat waktu"
+                    </p>
+                    <span class="text-xs text-gray-500"
+                      >- Andi, 5 jam lalu</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Profil Page -->
+        <section id="profil-page" class="page-content p-6 hidden">
+          <div class="mb-8 reveal">
+            <h1 class="text-3xl font-black text-gray-900 mb-2">
+              Profil Pengguna
+            </h1>
+            <p class="text-gray-600">
+              Kelola informasi profil dan pengaturan akun Anda
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <!-- Profile Sidebar -->
+            <div class="lg:col-span-1">
+              <div class="glass rounded-2xl p-6 text-center reveal">
+                <div class="profile-photo-container mb-4">
+                  <div
+                    id="profile-photo"
+                    class="profile-image w-32 h-32 rounded-full mx-auto flex items-center justify-center text-white text-4xl font-bold"
+                  >
+                    AD
+                  </div>
+                  <div class="profile-photo-overlay">
+                    <i data-lucide="camera" class="w-6 h-6 text-white"></i>
+                  </div>
+                  <input
+                    type="file"
+                    id="photo-upload"
+                    accept="image/*"
+                    class="hidden"
+                    onchange="handlePhotoUpload(event)"
+                  />
+                </div>
+                <h3 class="text-xl font-black text-gray-900 mb-2">
+                  Admin Direktori
+                </h3>
+                <p class="text-accent font-semibold mb-4">Administrator</p>
+                <div class="flex justify-center space-x-2 mb-6">
+                  <span
+                    class="px-3 py-1 bg-blue-100 text-primary text-xs font-semibold rounded-full"
+                    >Super Admin</span
+                  >
+                  <span
+                    class="px-3 py-1 bg-green-100 text-green-600 text-xs font-semibold rounded-full"
+                    >Aktif</span
+                  >
+                </div>
+                <button
+                  class="w-full px-4 py-2 bg-primary text-white font-semibold rounded-lg hover:bg-blue-700 transition-all duration-300 mb-3"
+                  onclick="openEditProfileModal()"
+                >
+                  <i data-lucide="edit" class="w-4 h-4 inline mr-2"></i>
+                  Edit Profil
+                </button>
+                <button
+                  class="w-full px-4 py-2 bg-gray-100 text-gray-700 font-semibold rounded-lg hover:bg-gray-200 transition-all duration-300"
+                  onclick="document.getElementById('photo-upload').click()"
+                >
+                  <i data-lucide="camera" class="w-4 h-4 inline mr-2"></i>
+                  Ubah Foto
+                </button>
+              </div>
+
+              <!-- Quick Stats -->
+              <div
+                class="glass rounded-2xl p-6 mt-6 reveal"
+                style="animation-delay: 0.2s"
+              >
+                <h4 class="font-semibold text-gray-900 mb-4">Statistik Akun</h4>
+                <div class="space-y-3">
+                  <div class="flex justify-between items-center">
+                    <span class="text-gray-600">Bergabung</span>
+                    <span class="font-semibold text-gray-900">15 Jan 2024</span>
+                  </div>
+                  <div class="flex justify-between items-center">
+                    <span class="text-gray-600">Layanan Ditambahkan</span>
+                    <span class="font-semibold text-primary">12</span>
+                  </div>
+                  <div class="flex justify-between items-center">
+                    <span class="text-gray-600">UMKM Diverifikasi</span>
+                    <span class="font-semibold text-accent">28</span>
+                  </div>
+                  <div class="flex justify-between items-center">
+                    <span class="text-gray-600">Aktivitas Bulan Ini</span>
+                    <span class="font-semibold text-amber-600">156</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Profile Details -->
+            <div class="lg:col-span-2">
+              <div class="glass rounded-2xl p-6 reveal">
+                <h3 class="text-xl font-black text-gray-900 mb-6">
+                  Informasi Profil
+                </h3>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                  <div>
+                    <label
+                      class="block text-sm font-semibold text-gray-700 mb-2"
+                      >Nama Lengkap</label
+                    >
+                    <div
+                      class="p-3 bg-gray-50 rounded-lg border border-gray-200"
+                    >
+                      <span class="text-gray-900">Admin Direktori</span>
+                    </div>
+                  </div>
+                  <div>
+                    <label
+                      class="block text-sm font-semibold text-gray-700 mb-2"
+                      >Email</label
+                    >
+                    <div
+                      class="p-3 bg-gray-50 rounded-lg border border-gray-200"
+                    >
+                      <span class="text-gray-900"
+                        >admin@direktorilayanan.id</span
+                      >
+                    </div>
+                  </div>
+                  <div>
+                    <label
+                      class="block text-sm font-semibold text-gray-700 mb-2"
+                      >Telepon</label
+                    >
+                    <div
+                      class="p-3 bg-gray-50 rounded-lg border border-gray-200"
+                    >
+                      <span class="text-gray-900">+62 812-3456-7890</span>
+                    </div>
+                  </div>
+                  <div>
+                    <label
+                      class="block text-sm font-semibold text-gray-700 mb-2"
+                      >Jabatan</label
+                    >
+                    <div
+                      class="p-3 bg-gray-50 rounded-lg border border-gray-200"
+                    >
+                      <span class="text-gray-900">Administrator Sistem</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="mb-6">
+                  <label class="block text-sm font-semibold text-gray-700 mb-2"
+                    >Alamat</label
+                  >
+                  <div class="p-3 bg-gray-50 rounded-lg border border-gray-200">
+                    <span class="text-gray-900"
+                      >Jl. Inovasi Digital No. 123, Jakarta Pusat, DKI Jakarta
+                      10110</span
+                    >
+                  </div>
+                </div>
+
+                <div class="mb-6">
+                  <label class="block text-sm font-semibold text-gray-700 mb-2"
+                    >Tentang Saya</label
+                  >
+                  <div class="p-3 bg-gray-50 rounded-lg border border-gray-200">
+                    <span class="text-gray-900"
+                      >Administrator bertanggung jawab untuk mengelola dan
+                      memantau semua layanan publik dan UMKM yang terdaftar
+                      dalam platform Direktori Layanan.</span
+                    >
+                  </div>
+                </div>
+
+                <div class="flex space-x-3">
+                  <button
+                    class="px-6 py-3 bg-primary text-white font-semibold rounded-lg hover:bg-blue-700 transition-all duration-300 flex items-center"
+                    onclick="openEditProfileModal()"
+                  >
+                    <i data-lucide="edit" class="w-4 h-4 mr-2"></i>
+                    Edit Profil
+                  </button>
+                  <button
+                    class="px-6 py-3 bg-gray-100 text-gray-700 font-semibold rounded-lg hover:bg-gray-200 transition-all duration-300 flex items-center"
+                    onclick="openChangePasswordModal()"
+                  >
+                    <i data-lucide="key" class="w-4 h-4 mr-2"></i>
+                    Ubah Password
+                  </button>
+                </div>
+              </div>
+
+              <!-- Security Settings -->
+              <div
+                class="glass rounded-2xl p-6 mt-6 reveal"
+                style="animation-delay: 0.2s"
+              >
+                <h3 class="text-xl font-black text-gray-900 mb-6">
+                  Pengaturan Keamanan
+                </h3>
+                <div class="space-y-4">
+                  <div
+                    class="flex items-center justify-between p-4 bg-gray-50 rounded-lg"
+                  >
+                    <div>
+                      <h4 class="font-semibold text-gray-900">
+                        Verifikasi 2 Faktor
+                      </h4>
+                      <p class="text-sm text-gray-600">
+                        Tambah lapisan keamanan ekstra untuk akun Anda
+                      </p>
+                    </div>
+                    <button
+                      class="px-4 py-2 bg-primary text-white text-sm font-semibold rounded-lg hover:bg-blue-700 transition-all duration-300"
+                      onclick="enable2FA()"
+                    >
+                      Aktifkan
+                    </button>
+                  </div>
+
+                  <div
+                    class="flex items-center justify-between p-4 bg-gray-50 rounded-lg"
+                  >
+                    <div>
+                      <h4 class="font-semibold text-gray-900">Sesi Aktif</h4>
+                      <p class="text-sm text-gray-600">1 perangkat aktif</p>
+                    </div>
+                    <button
+                      class="px-4 py-2 bg-gray-100 text-gray-700 text-sm font-semibold rounded-lg hover:bg-gray-200 transition-all duration-300"
+                      onclick="manageSessions()"
+                    >
+                      Kelola
+                    </button>
+                  </div>
+
+                  <div
+                    class="flex items-center justify-between p-4 bg-gray-50 rounded-lg"
+                  >
+                    <div>
+                      <h4 class="font-semibold text-gray-900">
+                        Notifikasi Email
+                      </h4>
+                      <p class="text-sm text-gray-600">
+                        Terima pembaruan penting via email
+                      </p>
+                    </div>
+                    <label class="toggle-switch">
+                      <input
+                        type="checkbox"
+                        checked
+                        onchange="toggleEmailNotifications(this)"
+                      />
+                      <span class="toggle-slider"></span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Kontak Page -->
+        <section id="kontak-page" class="page-content p-6 hidden">
+          <div class="mb-8 reveal">
+            <h1 class="text-3xl font-black text-gray-900 mb-2">Hubungi Kami</h1>
+            <p class="text-gray-600">
+              Hubungi tim support untuk bantuan dan informasi lebih lanjut
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <!-- Contact Information -->
+            <div class="lg:col-span-1">
+              <div class="glass rounded-2xl p-6 reveal">
+                <h3 class="text-xl font-black text-gray-900 mb-6">
+                  Informasi Kontak
+                </h3>
+
+                <div class="space-y-4">
+                  <div
+                    class="flex items-start space-x-3 p-4 bg-blue-50 rounded-lg"
+                  >
+                    <i
+                      data-lucide="phone"
+                      class="w-5 h-5 text-primary mt-1 flex-shrink-0"
+                    ></i>
+                    <div>
+                      <h4 class="font-semibold text-gray-900">Telepon</h4>
+                      <p class="text-gray-600">+62 21 1234 5678</p>
+                      <p class="text-sm text-gray-500">
+                        Senin - Jumat, 08:00 - 17:00
+                      </p>
+                    </div>
+                  </div>
+
+                  <div
+                    class="flex items-start space-x-3 p-4 bg-teal-50 rounded-lg"
+                  >
+                    <i
+                      data-lucide="mail"
+                      class="w-5 h-5 text-accent mt-1 flex-shrink-0"
+                    ></i>
+                    <div>
+                      <h4 class="font-semibold text-gray-900">Email</h4>
+                      <p class="text-gray-600">support@direktorilayanan.id</p>
+                      <p class="text-sm text-gray-500">Respon dalam 24 jam</p>
+                    </div>
+                  </div>
+
+                  <div
+                    class="flex items-start space-x-3 p-4 bg-amber-50 rounded-lg"
+                  >
+                    <i
+                      data-lucide="map-pin"
+                      class="w-5 h-5 text-amber-600 mt-1 flex-shrink-0"
+                    ></i>
+                    <div>
+                      <h4 class="font-semibold text-gray-900">Alamat Kantor</h4>
+                      <p class="text-gray-600">
+                        Jl. Inovasi Digital No. 123<br />Jakarta Pusat, 10110
+                      </p>
+                    </div>
+                  </div>
+
+                  <div
+                    class="flex items-start space-x-3 p-4 bg-purple-50 rounded-lg"
+                  >
+                    <i
+                      data-lucide="clock"
+                      class="w-5 h-5 text-purple-600 mt-1 flex-shrink-0"
+                    ></i>
+                    <div>
+                      <h4 class="font-semibold text-gray-900">
+                        Jam Operasional
+                      </h4>
+                      <p class="text-gray-600">
+                        Senin - Jumat: 08:00 - 17:00<br />Sabtu: 08:00 - 12:00
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Social Media -->
+                <div class="mt-6 pt-6 border-t border-gray-200">
+                  <h4 class="font-semibold text-gray-900 mb-4">Media Sosial</h4>
+                  <div class="flex space-x-3">
+                    <a
+                      href="#"
+                      class="w-10 h-10 bg-blue-600 text-white rounded-lg flex items-center justify-center hover:bg-blue-700 transition-all duration-300"
+                    >
+                      <i data-lucide="facebook" class="w-5 h-5"></i>
+                    </a>
+                    <a
+                      href="#"
+                      class="w-10 h-10 bg-pink-600 text-white rounded-lg flex items-center justify-center hover:bg-pink-700 transition-all duration-300"
+                    >
+                      <i data-lucide="instagram" class="w-5 h-5"></i>
+                    </a>
+                    <a
+                      href="#"
+                      class="w-10 h-10 bg-blue-400 text-white rounded-lg flex items-center justify-center hover:bg-blue-500 transition-all duration-300"
+                    >
+                      <i data-lucide="twitter" class="w-5 h-5"></i>
+                    </a>
+                    <a
+                      href="#"
+                      class="w-10 h-10 bg-blue-700 text-white rounded-lg flex items-center justify-center hover:bg-blue-800 transition-all duration-300"
+                    >
+                      <i data-lucide="linkedin" class="w-5 h-5"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Contact Form -->
+            <div class="lg:col-span-2">
+              <div
+                class="glass rounded-2xl p-6 reveal"
+                style="animation-delay: 0.2s"
+              >
+                <h3 class="text-xl font-black text-gray-900 mb-6">
+                  Kirim Pesan
+                </h3>
+
+                <form class="contact-form space-y-4" id="contactForm">
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                      <label
+                        class="block text-sm font-semibold text-gray-700 mb-2"
+                        >Nama Lengkap</label
+                      >
+                      <input
+                        type="text"
+                        class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-300"
+                        placeholder="Masukkan nama lengkap"
+                        required
+                      />
+                    </div>
+                    <div>
+                      <label
+                        class="block text-sm font-semibold text-gray-700 mb-2"
+                        >Email</label
+                      >
+                      <input
+                        type="email"
+                        class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-300"
+                        placeholder="nama@email.com"
+                        required
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <label
+                      class="block text-sm font-semibold text-gray-700 mb-2"
+                      >Subjek</label
+                    >
+                    <input
+                      type="text"
+                      class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-300"
+                      placeholder="Subjek pesan"
+                      required
+                    />
+                  </div>
+
+                  <div>
+                    <label
+                      class="block text-sm font-semibold text-gray-700 mb-2"
+                      >Kategori</label
+                    >
+                    <select
+                      class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-300"
+                      required
+                    >
+                      <option value="">Pilih kategori</option>
+                      <option value="layanan">Layanan Publik</option>
+                      <option value="umkm">UMKM Lokal</option>
+                      <option value="technical">Bantuan Teknis</option>
+                      <option value="partnership">Kemitraan</option>
+                      <option value="other">Lainnya</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label
+                      class="block text-sm font-semibold text-gray-700 mb-2"
+                      >Pesan</label
+                    >
+                    <textarea
+                      rows="5"
+                      class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-300"
+                      placeholder="Tulis pesan Anda di sini..."
+                      required
+                    ></textarea>
+                  </div>
+
+                  <div class="flex items-center justify-between pt-4">
+                    <div class="flex items-center">
+                      <input
+                        type="checkbox"
+                        id="newsletter"
+                        class="w-4 h-4 text-primary border-gray-300 rounded focus:ring-primary"
+                      />
+                      <label
+                        for="newsletter"
+                        class="ml-2 text-sm text-gray-600"
+                      >
+                        Berlangganan newsletter untuk update terbaru
+                      </label>
+                    </div>
+                    <button
+                      type="submit"
+                      class="px-8 py-3 bg-gradient-to-r from-primary to-accent text-white font-semibold rounded-lg hover:shadow-lg transform hover:scale-105 transition-all duration-300 flex items-center"
+                    >
+                      <i data-lucide="send" class="w-4 h-4 mr-2"></i>
+                      Kirim Pesan
+                    </button>
+                  </div>
+                </form>
+              </div>
+
+              <!-- FAQ Section -->
+              <div
+                class="glass rounded-2xl p-6 mt-6 reveal"
+                style="animation-delay: 0.3s"
+              >
+                <h3 class="text-xl font-black text-gray-900 mb-6">
+                  Pertanyaan Umum
+                </h3>
+                <div class="space-y-4">
+                  <div class="border-b border-gray-200 pb-4">
+                    <h4 class="font-semibold text-gray-900 mb-2">
+                      Bagaimana cara mendaftarkan UMKM?
+                    </h4>
+                    <p class="text-gray-600 text-sm">
+                      Klik menu "UMKM Lokal" dan pilih "Daftar UMKM". Isi
+                      formulir pendaftaran dengan data yang valid.
+                    </p>
+                  </div>
+                  <div class="border-b border-gray-200 pb-4">
+                    <h4 class="font-semibold text-gray-900 mb-2">
+                      Berapa lama proses verifikasi?
+                    </h4>
+                    <p class="text-gray-600 text-sm">
+                      Proses verifikasi biasanya memakan waktu 1-3 hari kerja
+                      setelah data lengkap diterima.
+                    </p>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold text-gray-900 mb-2">
+                      Apakah ada biaya pendaftaran?
+                    </h4>
+                    <p class="text-gray-600 text-sm">
+                      Tidak, pendaftaran layanan publik dan UMKM di platform
+                      kami sepenuhnya gratis.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- Floating Action Buttons -->
+    <div class="fixed bottom-8 right-8 space-y-4 z-50">
+      <!-- WhatsApp Button -->
+      <a
+        href="https://wa.me/6281234567890"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="fab w-14 h-14 bg-green-500 text-white rounded-full shadow-lg flex items-center justify-center hover:shadow-xl transition-all duration-300"
+        aria-label="Chat WhatsApp"
+      >
+        <i data-lucide="message-circle" class="w-6 h-6"></i>
+      </a>
+
+      <!-- Back to Top Button -->
+      <button
+        id="back-to-top"
+        class="fab w-14 h-14 bg-gradient-to-br from-primary to-accent text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 opacity-0 invisible"
+        aria-label="Kembali ke atas"
+        onclick="scrollToTop()"
+      >
+        <i data-lucide="arrow-up" class="w-6 h-6"></i>
+      </button>
+    </div>
+
+    <!-- Add Modal -->
+    <div
+      id="add-modal"
+      class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden"
+    >
+      <div class="glass rounded-2xl p-6 max-w-md w-full mx-4">
+        <div class="flex justify-between items-center mb-4">
+          <h3 class="text-xl font-black text-gray-900" id="modal-title">
+            Tambah Data
+          </h3>
+          <button
+            onclick="closeAddModal()"
+            class="text-gray-500 hover:text-gray-700"
+          >
+            <i data-lucide="x" class="w-6 h-6"></i>
+          </button>
+        </div>
+        <form id="add-form" class="space-y-4">
+          <div>
+            <label class="block text-sm font-semibold text-gray-700 mb-2"
+              >Nama</label
+            >
+            <input
+              type="text"
+              class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:border-primary"
+              required
+            />
+          </div>
+          <div>
+            <label class="block text-sm font-semibold text-gray-700 mb-2"
+              >Kategori</label
+            >
+            <select
+              class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:border-primary"
+              required
+            >
+              <option value="">Pilih Kategori</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-sm font-semibold text-gray-700 mb-2"
+              >Deskripsi</label
+            >
+            <textarea
+              class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:border-primary"
+              rows="3"
+              required
+            ></textarea>
+          </div>
+          <div class="flex space-x-3 pt-4">
+            <button
+              type="button"
+              onclick="closeAddModal()"
+              class="flex-1 px-4 py-3 bg-gray-100 text-gray-700 font-semibold rounded-lg hover:bg-gray-200 transition-all duration-300"
+            >
+              Batal
+            </button>
+            <button
+              type="submit"
+              class="flex-1 px-4 py-3 bg-primary text-white font-semibold rounded-lg hover:bg-blue-700 transition-all duration-300"
+            >
+              Simpan
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Edit Profile Modal -->
+    <div
+      id="edit-profile-modal"
+      class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden"
+    >
+      <div
+        class="glass rounded-2xl p-6 max-w-2xl w-full mx-4 max-h-[90vh] overflow-y-auto"
+      >
+        <div class="flex justify-between items-center mb-6">
+          <h3 class="text-xl font-black text-gray-900">Edit Profil</h3>
+          <button
+            onclick="closeEditProfileModal()"
+            class="text-gray-500 hover:text-gray-700"
+          >
+            <i data-lucide="x" class="w-6 h-6"></i>
+          </button>
+        </div>
+        <form id="edit-profile-form" class="space-y-6">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <label class="block text-sm font-semibold text-gray-700 mb-2"
+                >Nama Lengkap</label
+              >
+              <input
+                type="text"
+                id="edit-nama"
+                class="w-full px-4 py-3 form-input rounded-lg"
+                value="Admin Direktori"
+                required
+              />
+            </div>
+            <div>
+              <label class="block text-sm font-semibold text-gray-700 mb-2"
+                >Email</label
+              >
+              <input
+                type="email"
+                id="edit-email"
+                class="w-full px-4 py-3 form-input rounded-lg"
+                value="admin@direktorilayanan.id"
+                required
+              />
+            </div>
+            <div>
+              <label class="block text-sm font-semibold text-gray-700 mb-2"
+                >Telepon</label
+              >
+              <input
+                type="tel"
+                id="edit-telepon"
+                class="w-full px-4 py-3 form-input rounded-lg"
+                value="+62 812-3456-7890"
+                required
+              />
+            </div>
+            <div>
+              <label class="block text-sm font-semibold text-gray-700 mb-2"
+                >Jabatan</label
+              >
+              <input
+                type="text"
+                id="edit-jabatan"
+                class="w-full px-4 py-3 form-input rounded-lg"
+                value="Administrator Sistem"
+                required
+              />
+            </div>
+          </div>
+          <div>
+            <label class="block text-sm font-semibold text-gray-700 mb-2"
+              >Alamat</label
+            >
+            <textarea
+              id="edit-alamat"
+              class="w-full px-4 py-3 form-input rounded-lg"
+              rows="3"
+              required
+            >
+Jl. Inovasi Digital No. 123, Jakarta Pusat, DKI Jakarta 10110</textarea
+            >
+          </div>
+          <div>
+            <label class="block text-sm font-semibold text-gray-700 mb-2"
+              >Tentang Saya</label
+            >
+            <textarea
+              id="edit-tentang"
+              class="w-full px-4 py-3 form-input rounded-lg"
+              rows="4"
+              placeholder="Ceritakan sedikit tentang diri Anda..."
+            >
+Administrator bertanggung jawab untuk mengelola dan memantau semua layanan publik dan UMKM yang terdaftar dalam platform Direktori Layanan.</textarea
+            >
+          </div>
+          <div class="flex space-x-3 pt-4">
+            <button
+              type="button"
+              onclick="closeEditProfileModal()"
+              class="flex-1 px-4 py-3 bg-gray-100 text-gray-700 font-semibold rounded-lg hover:bg-gray-200 transition-all duration-300"
+            >
+              Batal
+            </button>
+            <button
+              type="submit"
+              class="flex-1 px-4 py-3 bg-primary text-white font-semibold rounded-lg hover:bg-blue-700 transition-all duration-300"
+            >
+              Simpan Perubahan
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Change Password Modal -->
+    <div
+      id="change-password-modal"
+      class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden"
+    >
+      <div class="glass rounded-2xl p-6 max-w-md w-full mx-4">
+        <div class="flex justify-between items-center mb-6">
+          <h3 class="text-xl font-black text-gray-900">Ubah Password</h3>
+          <button
+            onclick="closeChangePasswordModal()"
+            class="text-gray-500 hover:text-gray-700"
+          >
+            <i data-lucide="x" class="w-6 h-6"></i>
+          </button>
+        </div>
+        <form id="change-password-form" class="space-y-4">
+          <div>
+            <label class="block text-sm font-semibold text-gray-700 mb-2"
+              >Password Saat Ini</label
+            >
+            <input
+              type="password"
+              id="current-password"
+              class="w-full px-4 py-3 form-input rounded-lg"
+              required
+            />
+          </div>
+          <div>
+            <label class="block text-sm font-semibold text-gray-700 mb-2"
+              >Password Baru</label
+            >
+            <input
+              type="password"
+              id="new-password"
+              class="w-full px-4 py-3 form-input rounded-lg"
+              required
+            />
+          </div>
+          <div>
+            <label class="block text-sm font-semibold text-gray-700 mb-2"
+              >Konfirmasi Password Baru</label
+            >
+            <input
+              type="password"
+              id="confirm-password"
+              class="w-full px-4 py-3 form-input rounded-lg"
+              required
+            />
+          </div>
+          <div class="flex space-x-3 pt-4">
+            <button
+              type="button"
+              onclick="closeChangePasswordModal()"
+              class="flex-1 px-4 py-3 bg-gray-100 text-gray-700 font-semibold rounded-lg hover:bg-gray-200 transition-all duration-300"
+            >
+              Batal
+            </button>
+            <button
+              type="submit"
+              class="flex-1 px-4 py-3 bg-primary text-white font-semibold rounded-lg hover:bg-blue-700 transition-all duration-300"
+            >
+              Ubah Password
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script>
+      // Application State
+      const APP_STATE = {
+        currentPage: "dashboard",
+        theme: "light",
+        data: {
+          layanan: [],
+          umkm: [],
+        },
+        filters: {
+          layanan: {
+            category: "all",
+            search: "",
+          },
+          umkm: {
+            category: "all",
+            search: "",
+          },
+        },
+        profile: {
+          name: "Admin Direktori",
+          email: "admin@direktorilayanan.id",
+          phone: "+62 812-3456-7890",
+          position: "Administrator Sistem",
+          address:
+            "Jl. Inovasi Digital No. 123, Jakarta Pusat, DKI Jakarta 10110",
+          about:
+            "Administrator bertanggung jawab untuk mengelola dan memantau semua layanan publik dan UMKM yang terdaftar dalam platform Direktori Layanan.",
+          photo: null,
+        },
+      };
+
+      // Initialize application
+      document.addEventListener("DOMContentLoaded", function () {
+        initializeApp();
+      });
+
+      function initializeApp() {
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Load initial data
+        loadLayananData();
+        loadUMKMData();
+
+        // Initialize components
+        initScrollAnimations();
+        initBackToTop();
+        initEventListeners();
+        initFilterButtons();
+
+        // Set initial theme
+        setTheme("light");
+      }
+
+      function initEventListeners() {
+        // Search functionality
+        const searchInput = document.getElementById("search");
+        if (searchInput) {
+          searchInput.addEventListener("input", debounce(cariData, 300));
+        }
+
+        // Contact form
+        const contactForm = document.getElementById("contactForm");
+        if (contactForm) {
+          contactForm.addEventListener("submit", handleContactSubmit);
+        }
+
+        // Add form
+        const addForm = document.getElementById("add-form");
+        if (addForm) {
+          addForm.addEventListener("submit", handleAddFormSubmit);
+        }
+
+        // Edit profile form
+        const editProfileForm = document.getElementById("edit-profile-form");
+        if (editProfileForm) {
+          editProfileForm.addEventListener("submit", handleEditProfileSubmit);
+        }
+
+        // Change password form
+        const changePasswordForm = document.getElementById(
+          "change-password-form"
+        );
+        if (changePasswordForm) {
+          changePasswordForm.addEventListener(
+            "submit",
+            handleChangePasswordSubmit
+          );
+        }
+
+        // Window scroll for back to top button
+        window.addEventListener("scroll", handleScroll);
+      }
+
+      function initFilterButtons() {
+        // Initialize filter buttons for layanan
+        const layananFilters = document.querySelectorAll(
+          'button[data-section="layanan"]'
+        );
+        layananFilters.forEach((button) => {
+          button.addEventListener("click", function () {
+            filterData(this);
+          });
+        });
+
+        // Initialize filter buttons for umkm
+        const umkmFilters = document.querySelectorAll(
+          'button[data-section="umkm"]'
+        );
+        umkmFilters.forEach((button) => {
+          button.addEventListener("click", function () {
+            filterData(this);
+          });
+        });
+      }
+
+      // Page Management
+      function switchPage(pageId) {
+        // Update active nav link
+        document.querySelectorAll(".nav-link").forEach((link) => {
+          link.classList.remove("active");
+        });
+
+        // Find and activate the clicked nav link
+        const activeLink = Array.from(
+          document.querySelectorAll(".nav-link")
+        ).find((link) => {
+          return link.getAttribute("href") === `#${pageId}`;
+        });
+
+        if (activeLink) {
+          activeLink.classList.add("active");
+        }
+
+        // Hide all pages
+        document.querySelectorAll(".page-content").forEach((page) => {
+          page.classList.add("hidden");
+          page.classList.remove("active");
+        });
+
+        // Show selected page
+        const targetPage = document.getElementById(`${pageId}-page`);
+        if (targetPage) {
+          targetPage.classList.remove("hidden");
+          targetPage.classList.add("active");
+          APP_STATE.currentPage = pageId;
+        }
+
+        // Reinitialize animations
+        setTimeout(() => {
+          initScrollAnimations();
+        }, 100);
+      }
+
+      // Data Management
+      async function loadLayananData() {
+        try {
+          // Simulate API call
+          await new Promise((resolve) => setTimeout(resolve, 1500));
+
+          // Sample data
+          const sampleData = [
+            {
+              id: 1,
+              nama: "Puskesmas Sehat Sentosa",
+              deskripsi:
+                "Memberikan pelayanan kesehatan dasar dan rujukan untuk masyarakat. Tersedia layanan rawat jalan, imunisasi, dan pemeriksaan kesehatan gratis.",
+              kategori: "kesehatan",
+              lokasi: "Jl. Kesehatan No. 123, Jakarta Pusat",
+              telepon: "(021) 555-1234",
+              icon: "heart-pulse",
+              image:
+                "https://images.unsplash.com/photo-1586773860418-d37222d8fce3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80",
+            },
+            {
+              id: 2,
+              nama: "Kantor Kelurahan Harmoni",
+              deskripsi:
+                "Melayani administrasi kependudukan seperti pembuatan KTP, KK, akta kelahiran, dan surat keterangan lainnya.",
+              kategori: "administrasi",
+              lokasi: "Jl. Administrasi No. 456, Jakarta Selatan",
+              telepon: "(021) 555-5678",
+              icon: "file-text",
+              image:
+                "https://images.unsplash.com/photo-1563453392212-326f5e854473?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80",
+            },
+            {
+              id: 3,
+              nama: "Perpustakaan Daerah",
+              deskripsi:
+                "Menyediakan koleksi buku untuk semua usia. Juga mengadakan kegiatan literasi dan bimbingan belajar gratis untuk pelajar.",
+              kategori: "pendidikan",
+              lokasi: "Jl. Pendidikan No. 789, Jakarta Timur",
+              telepon: "(021) 555-9012",
+              icon: "book-open",
+              image:
+                "https://images.unsplash.com/photo-1521587760476-6c12a4b040da?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80",
+            },
+          ];
+
+          APP_STATE.data.layanan = sampleData;
+          displayLayananData(sampleData);
+          document.getElementById("loading-layanan").classList.add("hidden");
+        } catch (error) {
+          console.error("Error loading layanan data:", error);
+          showError("layanan-list", "Gagal memuat data layanan");
+        }
+      }
+
+      async function loadUMKMData() {
+        try {
+          // Simulate API call
+          await new Promise((resolve) => setTimeout(resolve, 1500));
+
+          // Sample data
+          const sampleData = [
+            {
+              id: 1,
+              nama: "Kerajinan Tangan Bu Rini",
+              deskripsi:
+                "Menjual berbagai kerajinan tangan seperti tas anyaman, hiasan dinding, dan aksesoris dari bahan alami dengan kualitas terbaik.",
+              kategori: "kerajinan",
+              lokasi: "Jl. Kerajinan No. 123, Jakarta Barat",
+              telepon: "0812-3456-7890",
+              instagram: "@kerajinan_burini",
+              icon: "palette",
+              image:
+                "https://images.unsplash.com/photo-1605721911519-3dfeb3be25e7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80",
+            },
+            {
+              id: 2,
+              nama: "Warung Makan Sederhana",
+              deskripsi:
+                "Menyajikan masakan rumahan dengan cita rasa autentik. Menu andalan: nasi campur, soto ayam, dan gado-gado.",
+              kategori: "makanan",
+              lokasi: "Jl. Kuliner No. 456, Jakarta Utara",
+              telepon: "0813-4567-8901",
+              instagram: "@warung_sederhana",
+              icon: "utensils",
+              image:
+                "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80",
+            },
+            {
+              id: 3,
+              nama: "Toko Baju Ananda",
+              deskripsi:
+                "Menjual pakaian berkualitas dengan harga terjangkau. Tersedia berbagai model baju muslim, casual, dan aksesoris.",
+              kategori: "fashion",
+              lokasi: "Jl. Fashion No. 789, Jakarta Pusat",
+              telepon: "0814-5678-9012",
+              instagram: "@toko_bajuananda",
+              icon: "shirt",
+              image:
+                "https://images.unsplash.com/photo-1445205170230-053b83016050?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80",
+            },
+          ];
+
+          APP_STATE.data.umkm = sampleData;
+          displayUMKMData(sampleData);
+          document.getElementById("loading-umkm").classList.add("hidden");
+        } catch (error) {
+          console.error("Error loading UMKM data:", error);
+          showError("umkm-list", "Gagal memuat data UMKM");
+        }
+      }
+
+      function displayLayananData(data) {
+        const container = document.getElementById("layanan-list");
+        const countElement = document.getElementById("layanan-count");
+
+        if (!container) return;
+
+        if (data.length === 0) {
+          container.innerHTML = `
+            <div class="col-span-full text-center py-12">
+              <i data-lucide="inbox" class="w-16 h-16 text-gray-400 mx-auto mb-4"></i>
+              <p class="text-gray-500 text-lg">Belum ada data layanan</p>
+            </div>
+          `;
+          countElement.textContent = "0";
+          lucide.createIcons();
+          return;
+        }
+
+        container.innerHTML = data
+          .map(
+            (item, index) => `
+          <div class="enhanced-card reveal" 
+               data-nama="${item.nama.toLowerCase()}" 
+               data-kategori="${item.kategori}"
+               style="animation-delay: ${index * 0.1}s">
+            <div class="card-image" style="background-image: url('${
+              item.image
+            }')">
+              <div class="card-overlay">
+                <h3 class="text-xl font-bold text-white">${item.nama}</h3>
+              </div>
+              <div class="category-badge ${
+                item.kategori === "kesehatan"
+                  ? "bg-red-100 text-red-800"
+                  : item.kategori === "pendidikan"
+                  ? "bg-blue-100 text-blue-800"
+                  : "bg-green-100 text-green-800"
+              }">
+                ${
+                  item.kategori.charAt(0).toUpperCase() + item.kategori.slice(1)
+                }
+              </div>
+            </div>
+            <div class="p-6">
+              <p class="text-gray-600 mb-4 leading-relaxed line-clamp-3">${
+                item.deskripsi
+              }</p>
+              <div class="space-y-2 mb-4">
+                <div class="flex items-center text-sm text-gray-500">
+                  <i data-lucide="map-pin" class="w-4 h-4 mr-2 text-primary"></i>
+                  <span>${item.lokasi}</span>
+                </div>
+                <div class="flex items-center text-sm text-gray-500">
+                  <i data-lucide="phone" class="w-4 h-4 mr-2 text-primary"></i>
+                  <span>${item.telepon}</span>
+                </div>
+              </div>
+              <div class="flex space-x-2">
+                <button class="flex-1 px-4 py-2 bg-primary text-white font-semibold rounded-lg hover:bg-blue-700 transition-all duration-300" onclick="showDetail('${
+                  item.nama
+                }', 'layanan')">
+                  Lihat Detail
+                </button>
+                <button class="px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-all duration-300" onclick="editItem(${
+                  item.id
+                }, 'layanan')">
+                  <i data-lucide="edit" class="w-4 h-4"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        `
+          )
+          .join("");
+
+        countElement.textContent = data.length;
+        lucide.createIcons();
+        initScrollAnimations();
+      }
+
+      function displayUMKMData(data) {
+        const container = document.getElementById("umkm-list");
+        const countElement = document.getElementById("umkm-count");
+
+        if (!container) return;
+
+        if (data.length === 0) {
+          container.innerHTML = `
+            <div class="col-span-full text-center py-12">
+              <i data-lucide="inbox" class="w-16 h-16 text-gray-400 mx-auto mb-4"></i>
+              <p class="text-gray-500 text-lg">Belum ada data UMKM</p>
+            </div>
+          `;
+          countElement.textContent = "0";
+          lucide.createIcons();
+          return;
+        }
+
+        container.innerHTML = data
+          .map(
+            (item, index) => `
+          <div class="enhanced-card reveal" 
+               data-nama="${item.nama.toLowerCase()}" 
+               data-kategori="${item.kategori}"
+               style="animation-delay: ${index * 0.1}s">
+            <div class="card-image" style="background-image: url('${
+              item.image
+            }')">
+              <div class="card-overlay">
+                <h3 class="text-xl font-bold text-white">${item.nama}</h3>
+              </div>
+              <div class="category-badge ${
+                item.kategori === "makanan"
+                  ? "bg-yellow-100 text-yellow-800"
+                  : item.kategori === "kerajinan"
+                  ? "bg-purple-100 text-purple-800"
+                  : "bg-pink-100 text-pink-800"
+              }">
+                ${
+                  item.kategori.charAt(0).toUpperCase() + item.kategori.slice(1)
+                }
+              </div>
+            </div>
+            <div class="p-6">
+              <p class="text-gray-600 mb-4 leading-relaxed line-clamp-3">${
+                item.deskripsi
+              }</p>
+              <div class="space-y-2 mb-4">
+                <div class="flex items-center text-sm text-gray-500">
+                  <i data-lucide="map-pin" class="w-4 h-4 mr-2 text-accent"></i>
+                  <span>${item.lokasi}</span>
+                </div>
+                <div class="flex items-center text-sm text-gray-500">
+                  <i data-lucide="phone" class="w-4 h-4 mr-2 text-accent"></i>
+                  <span>${item.telepon}</span>
+                </div>
+                ${
+                  item.instagram
+                    ? `
+                <div class="flex items-center text-sm text-accent font-medium">
+                  <i data-lucide="instagram" class="w-4 h-4 mr-2"></i>
+                  <span>${item.instagram}</span>
+                </div>
+              `
+                    : ""
+                }
+              </div>
+              <div class="flex space-x-2">
+                <button class="flex-1 px-4 py-2 bg-accent text-white font-semibold rounded-lg hover:bg-teal-700 transition-all duration-300" onclick="showDetail('${
+                  item.nama
+                }', 'umkm')">
+                  Lihat Detail
+                </button>
+                <button class="px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-all duration-300" onclick="editItem(${
+                  item.id
+                }, 'umkm')">
+                  <i data-lucide="edit" class="w-4 h-4"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        `
+          )
+          .join("");
+
+        countElement.textContent = data.length;
+        lucide.createIcons();
+        initScrollAnimations();
+      }
+
+      // Search and Filter
+      function cariData() {
+        const searchTerm = document
+          .getElementById("search")
+          .value.toLowerCase();
+        const currentPage = APP_STATE.currentPage;
+
+        if (currentPage === "layanan") {
+          filterLayananData(searchTerm);
+        } else if (currentPage === "umkm") {
+          filterUMKMData(searchTerm);
+        }
+      }
+
+      function filterLayananData(searchTerm = "") {
+        const filteredData = APP_STATE.data.layanan.filter((item) => {
+          const matchesSearch =
+            !searchTerm ||
+            item.nama.toLowerCase().includes(searchTerm) ||
+            item.deskripsi.toLowerCase().includes(searchTerm) ||
+            item.kategori.toLowerCase().includes(searchTerm);
+
+          return matchesSearch;
+        });
+
+        displayLayananData(filteredData);
+      }
+
+      function filterUMKMData(searchTerm = "") {
+        const filteredData = APP_STATE.data.umkm.filter((item) => {
+          const matchesSearch =
+            !searchTerm ||
+            item.nama.toLowerCase().includes(searchTerm) ||
+            item.deskripsi.toLowerCase().includes(searchTerm) ||
+            item.kategori.toLowerCase().includes(searchTerm);
+
+          return matchesSearch;
+        });
+
+        displayUMKMData(filteredData);
+      }
+
+      function filterData(button) {
+        const section = button.dataset.section;
+        const filter = button.dataset.filter;
+
+        // Update active button
+        document
+          .querySelectorAll(`button[data-section="${section}"]`)
+          .forEach((btn) => {
+            btn.classList.remove("active");
+          });
+        button.classList.add("active");
+
+        // Filter data
+        if (section === "layanan") {
+          const filteredData =
+            filter === "all"
+              ? APP_STATE.data.layanan
+              : APP_STATE.data.layanan.filter(
+                  (item) => item.kategori === filter
+                );
+          displayLayananData(filteredData);
+        } else if (section === "umkm") {
+          const filteredData =
+            filter === "all"
+              ? APP_STATE.data.umkm
+              : APP_STATE.data.umkm.filter((item) => item.kategori === filter);
+          displayUMKMData(filteredData);
+        }
+      }
+
+      // Modal Functions
+      function showAddModal(type) {
+        const modal = document.getElementById("add-modal");
+        const title = document.getElementById("modal-title");
+        const form = document.getElementById("add-form");
+
+        title.textContent = `Tambah ${type === "layanan" ? "Layanan" : "UMKM"}`;
+        form.dataset.type = type;
+
+        // Set category options based on type
+        const categorySelect = form.querySelector("select");
+        categorySelect.innerHTML = '<option value="">Pilih Kategori</option>';
+
+        const categories =
+          type === "layanan"
+            ? ["kesehatan", "pendidikan", "administrasi"]
+            : ["makanan", "kerajinan", "fashion"];
+
+        categories.forEach((cat) => {
+          const option = document.createElement("option");
+          option.value = cat;
+          option.textContent = cat.charAt(0).toUpperCase() + cat.slice(1);
+          categorySelect.appendChild(option);
+        });
+
+        modal.classList.remove("hidden");
+      }
+
+      function closeAddModal() {
+        document.getElementById("add-modal").classList.add("hidden");
+        document.getElementById("add-form").reset();
+      }
+
+      function handleAddFormSubmit(e) {
+        e.preventDefault();
+        const form = e.target;
+        const type = form.dataset.type;
+
+        // Simulate saving data
+        setTimeout(() => {
+          alert(
+            `${type === "layanan" ? "Layanan" : "UMKM"} berhasil ditambahkan!`
+          );
+          closeAddModal();
+
+          // Reload data
+          if (type === "layanan") {
+            loadLayananData();
+          } else {
+            loadUMKMData();
+          }
+        }, 1000);
+      }
+
+      // Profile Functions
+      function openEditProfileModal() {
+        const modal = document.getElementById("edit-profile-modal");
+
+        // Fill form with current data
+        document.getElementById("edit-nama").value = APP_STATE.profile.name;
+        document.getElementById("edit-email").value = APP_STATE.profile.email;
+        document.getElementById("edit-telepon").value = APP_STATE.profile.phone;
+        document.getElementById("edit-jabatan").value =
+          APP_STATE.profile.position;
+        document.getElementById("edit-alamat").value =
+          APP_STATE.profile.address;
+        document.getElementById("edit-tentang").value = APP_STATE.profile.about;
+
+        modal.classList.remove("hidden");
+      }
+
+      function closeEditProfileModal() {
+        document.getElementById("edit-profile-modal").classList.add("hidden");
+      }
+
+      function handleEditProfileSubmit(e) {
+        e.preventDefault();
+
+        // Update profile data
+        APP_STATE.profile.name = document.getElementById("edit-nama").value;
+        APP_STATE.profile.email = document.getElementById("edit-email").value;
+        APP_STATE.profile.phone = document.getElementById("edit-telepon").value;
+        APP_STATE.profile.position =
+          document.getElementById("edit-jabatan").value;
+        APP_STATE.profile.address =
+          document.getElementById("edit-alamat").value;
+        APP_STATE.profile.about = document.getElementById("edit-tentang").value;
+
+        // Update UI
+        updateProfileUI();
+
+        alert("Profil berhasil diperbarui!");
+        closeEditProfileModal();
+      }
+
+      function updateProfileUI() {
+        // Update profile page
+        document
+          .querySelectorAll("#profil-page .text-gray-900")
+          .forEach((el) => {
+            if (el.textContent.includes("Admin Direktori")) {
+              el.textContent = APP_STATE.profile.name;
+            }
+          });
+
+        // Update sidebar
+        document.querySelector(".glass-dark .text-white").textContent =
+          APP_STATE.profile.name;
+        document.querySelector(".glass-dark .text-gray-400").textContent =
+          APP_STATE.profile.position;
+
+        // Update header
+        document.querySelector("header .text-gray-900").textContent =
+          APP_STATE.profile.name;
+      }
+
+      function openChangePasswordModal() {
+        document
+          .getElementById("change-password-modal")
+          .classList.remove("hidden");
+      }
+
+      function closeChangePasswordModal() {
+        document
+          .getElementById("change-password-modal")
+          .classList.add("hidden");
+        document.getElementById("change-password-form").reset();
+      }
+
+      function handleChangePasswordSubmit(e) {
+        e.preventDefault();
+
+        const currentPassword =
+          document.getElementById("current-password").value;
+        const newPassword = document.getElementById("new-password").value;
+        const confirmPassword =
+          document.getElementById("confirm-password").value;
+
+        if (newPassword !== confirmPassword) {
+          alert("Konfirmasi password tidak cocok!");
+          return;
+        }
+
+        if (newPassword.length < 6) {
+          alert("Password baru harus minimal 6 karakter!");
+          return;
+        }
+
+        // Simulate password change
+        setTimeout(() => {
+          alert("Password berhasil diubah!");
+          closeChangePasswordModal();
+        }, 1000);
+      }
+
+      function handlePhotoUpload(event) {
+        const file = event.target.files[0];
+        if (file) {
+          const reader = new FileReader();
+          reader.onload = function (e) {
+            const profilePhoto = document.getElementById("profile-photo");
+            profilePhoto.innerHTML = "";
+            profilePhoto.style.backgroundImage = `url(${e.target.result})`;
+            profilePhoto.style.backgroundSize = "cover";
+            profilePhoto.style.backgroundPosition = "center";
+
+            // Update state
+            APP_STATE.profile.photo = e.target.result;
+
+            alert("Foto profil berhasil diubah!");
+          };
+          reader.readAsDataURL(file);
+        }
+      }
+
+      // Detail and Edit Functions
+      function showDetail(nama, type) {
+        alert(
+          `Detail ${type}: ${nama}\n\nFitur detail lengkap akan segera tersedia!`
+        );
+      }
+
+      function editItem(id, type) {
+        alert(
+          `Edit ${type} dengan ID: ${id}\n\nFitur edit akan segera tersedia!`
+        );
+      }
+
+      function enable2FA() {
+        alert("Verifikasi 2 faktor berhasil diaktifkan!");
+      }
+
+      function manageSessions() {
+        alert("Fitur kelola sesi akan segera tersedia!");
+      }
+
+      function toggleEmailNotifications(checkbox) {
+        const status = checkbox.checked ? "diaktifkan" : "dinonaktifkan";
+        alert(`Notifikasi email ${status}!`);
+      }
+
+      // Contact Functions
+      function handleContactSubmit(e) {
+        e.preventDefault();
+        alert(
+          "Terima kasih! Pesan Anda telah berhasil dikirim. Tim kami akan menghubungi Anda dalam 1x24 jam."
+        );
+        e.target.reset();
+      }
+
+      // Theme Functions
+      function toggleTheme() {
+        const newTheme = APP_STATE.theme === "light" ? "dark" : "light";
+        setTheme(newTheme);
+      }
+
+      function setTheme(theme) {
+        APP_STATE.theme = theme;
+        const icon = document.getElementById("theme-icon");
+
+        if (theme === "dark") {
+          document.documentElement.classList.add("dark");
+          icon.setAttribute("data-lucide", "sun");
+        } else {
+          document.documentElement.classList.remove("dark");
+          icon.setAttribute("data-lucide", "moon");
+        }
+
+        lucide.createIcons();
+      }
+
+      // Notification Functions
+      function toggleNotifications() {
+        alert("Fitur notifikasi akan segera tersedia!");
+      }
+
+      // Utility Functions
+      function initScrollAnimations() {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("active");
+              }
+            });
+          },
+          {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px",
+          }
+        );
+
+        document
+          .querySelectorAll(".reveal")
+          .forEach((el) => observer.observe(el));
+      }
+
+      function initBackToTop() {
+        handleScroll(); // Initial check
+      }
+
+      function handleScroll() {
+        const backToTop = document.getElementById("back-to-top");
+        if (window.pageYOffset > 300) {
+          backToTop.classList.remove("opacity-0", "invisible");
+          backToTop.classList.add("opacity-100", "visible");
+        } else {
+          backToTop.classList.remove("opacity-100", "visible");
+          backToTop.classList.add("opacity-0", "invisible");
+        }
+      }
+
+      function scrollToTop() {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+
+      function debounce(func, wait) {
+        let timeout;
+        return function executedFunction(...args) {
+          const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+          };
+          clearTimeout(timeout);
+          timeout = setTimeout(later, wait);
+        };
+      }
+
+      function showError(containerId, message) {
+        const container = document.getElementById(containerId);
+        if (container) {
+          container.innerHTML = `
+            <div class="col-span-full text-center py-12">
+              <i data-lucide="alert-circle" class="w-16 h-16 text-gray-400 mx-auto mb-4"></i>
+              <p class="text-gray-500 text-lg">${message}</p>
+              <button onclick="location.reload()" class="mt-4 px-6 py-2 bg-primary text-white rounded-xl hover:bg-blue-700 transition-all duration-300">
+                Muat Ulang
+              </button>
+            </div>
+          `;
+          lucide.createIcons();
+        }
+      }
+
+      function logout() {
+        if (confirm("Apakah Anda yakin ingin keluar?")) {
+          alert("Anda telah berhasil keluar.");
+          // Redirect to login page or reload
+          // window.location.href = '/login';
+        }
+      }
+
+      // Console easter egg
+      console.log(
+        "%c🚀 Direktori Layanan - Admin Dashboard",
+        "color: #1E40AF; font-size: 24px; font-weight: bold;"
+      );
+      console.log(
+        "%cPlatform Terpadu untuk Layanan Publik & UMKM Lokal",
+        "color: #14B8A6; font-size: 14px;"
+      );
+      console.log(
+        "%cSemua sistem berjalan dengan baik! ✅",
+        "color: #059669; font-size: 12px;"
+      );
+    </script>
+  </body>
+</html>
