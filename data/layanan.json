@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "nama": "Puskesmas Sehat Sentosa",
+    "deskripsi": "Memberikan pelayanan kesehatan dasar dan rujukan untuk masyarakat. Tersedia layanan rawat jalan, imunisasi, dan pemeriksaan kesehatan gratis.",
+    "kategori": "Kesehatan",
+    "telepon": "(021) 555-1234",
+    "instagram": "@puskesmas_sehat"
+  },
+  {
+    "id": 2,
+    "nama": "Kantor Kelurahan Harmoni",
+    "deskripsi": "Melayani administrasi kependudukan seperti pembuatan KTP, KK, akta kelahiran, dan surat keterangan lainnya.",
+    "kategori": "Administrasi",
+    "telepon": "(021) 555-5678",
+    "instagram": "@kelurahan_harmoni"
+  }
+]

@@ -1,0 +1,86 @@
+[
+  {
+    "nama": "Pelayanan KTP dan Adminduk",
+    "deskripsi": "Pengurusan dokumen kependudukan seperti KTP, KK, dan Akta.",
+    "lokasi": "Kantor Dinas Kependudukan",
+    "icon": "wallet-cards",
+    "kategori": "administrasi"
+  },
+  {
+    "nama": "Layanan Kesehatan Masyarakat",
+    "deskripsi": "Pusat kesehatan, vaksinasi, dan konsultasi kesehatan.",
+    "lokasi": "Puskesmas Utama",
+    "icon": "heart-pulse",
+    "kategori": "kesehatan"
+  },
+  {
+    "nama": "Perpustakaan Daerah",
+    "deskripsi": "Pusat literasi masyarakat dengan koleksi buku fisik & digital.",
+    "lokasi": "Jl. Pendidikan No. 8",
+    "icon": "library",
+    "kategori": "pendidikan"
+  },
+  {
+    "nama": "Pelayanan Pajak Daerah",
+    "deskripsi": "Pembayaran pajak kendaraan, PBB, dan pajak daerah lainnya.",
+    "lokasi": "Kantor Samsat Kota",
+    "icon": "badge-dollar-sign",
+    "kategori": "administrasi"
+  },
+  {
+    "nama": "Pelayanan Perizinan Usaha",
+    "deskripsi": "Pengajuan dan pengurusan izin usaha mikro dan menengah.",
+    "lokasi": "Dinas Penanaman Modal dan PTSP",
+    "icon": "briefcase",
+    "kategori": "administrasi"
+  },
+  {
+    "nama": "Layanan Kepolisian",
+    "deskripsi": "Pelaporan kehilangan, SKCK, dan pengurusan SIM.",
+    "lokasi": "Polsek Kota",
+    "icon": "shield-check",
+    "kategori": "administrasi"
+  },
+  {
+    "nama": "Pengaduan Pelayanan Publik",
+    "deskripsi": "Wadah resmi untuk menyampaikan aspirasi dan pengaduan warga.",
+    "lokasi": "Sekretariat Daerah",
+    "icon": "megaphone",
+    "kategori": "administrasi"
+  },
+  {
+    "nama": "Dukungan Bantuan Sosial",
+    "deskripsi": "Pendaftaran, cek, dan pencairan bantuan sosial pemerintah.",
+    "lokasi": "Dinas Sosial",
+    "icon": "hand-coins",
+    "kategori": "administrasi"
+  },
+  {
+    "nama": "Pelayanan Kependudukan Anak",
+    "deskripsi": "Pengurusan akta kelahiran, kartu identitas anak, dan data anak.",
+    "lokasi": "Kantor Disdukcapil",
+    "icon": "baby",
+    "kategori": "administrasi"
+  },
+  {
+    "nama": "Layanan Perizinan Bangunan",
+    "deskripsi": "Pengajuan dan konsultasi IMB serta sertifikat tanah.",
+    "lokasi": "Dinas PUPR",
+    "icon": "home",
+    "kategori": "administrasi"
+  },
+  {
+    "nama": "Konsultasi Keluarga Berencana",
+    "deskripsi": "Informasi dan layanan KB bagi masyarakat.",
+    "lokasi": "Puskesmas Pembantu",
+    "icon": "users",
+    "kategori": "kesehatan"
+  },
+  {
+    "nama": "Pelayanan Ketenagakerjaan",
+    "deskripsi": "Informasi lowongan kerja, pelatihan, dan pengurusan kartu AK1.",
+    "lokasi": "Dinas Tenaga Kerja",
+    "icon": "user-search",
+    "kategori": "administrasi"
+  }
+]

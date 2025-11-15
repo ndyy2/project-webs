@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "nama": "Kopi Nusantara",
+    "kategori": "makanan",
+    "deskripsi": "Produk kopi asli dari petani lokal, biji pilihan 100% arabika. Diolah dengan teknik roasting terbaik untuk menghasilkan cita rasa yang khas.",
+    "kontak": {
+      "instagram": "@kopinusantara",
+      "telepon": "08123456789"
+    },
+    "lokasi": "Jl. Merdeka No. 10",
+    "icon": "coffee"
+  },
+  {
+    "id": 2,
+    "nama": "Batik Canting Rasa",
+    "kategori": "fashion",
+    "deskripsi": "Usaha batik tradisional dengan motif khas daerah. Menggunakan teknik canting tulis untuk menghasilkan karya yang bernilai seni tinggi.",
+    "kontak": {
+      "instagram": "@batikcantingrasa",
+      "telepon": "08123456788"
+    },
+    "lokasi": "Jl. Melati No. 3",
+    "icon": "shirt"
+  },
+  {
+    "id": 3,
+    "nama": "Kuliner Bu Tini",
+    "kategori": "makanan",
+    "deskripsi": "Masakan rumahan dan catering lokal dengan cita rasa khas. Menggunakan bahan-bahan segar dan resep turun temurun.",
+    "kontak": {
+      "telepon": "08123456787"
+    },
+    "lokasi": "Jl. Mangga No. 5",
+    "icon": "utensils"
+  },
+  {
+    "id": 4,
+    "nama": "Kerajinan Rotan Alam",
+    "kategori": "kerajinan",
+    "deskripsi": "Produk kerajinan rotan berkualitas dengan desain modern dan tradisional. Tahan lama dan ramah lingkungan.",
+    "kontak": {
+      "instagram": "@rotanalam",
+      "telepon": "08123456786"
+    },
+    "lokasi": "Jl. Bambu No. 15",
+    "icon": "package"
+  },
+  {
+    "id": 5,
+    "nama": "Tas Rajut Klasik",
+    "kategori": "fashion",
+    "deskripsi": "Tas rajut dengan desain klasik dan modern. Dibuat dengan teknik rajut tradisional yang teliti.",
+    "kontak": {
+      "instagram": "@tasrajutklasik",
+      "telepon": "08123456785"
+    },
+    "lokasi": "Jl. Sutera No. 8",
+    "icon": "shopping-bag"
+  },
+  {
+    "id": 6,
+    "nama": "Jasa Service Elektronik",
+    "kategori": "jasa",
+    "deskripsi": "Layanan perbaikan elektronik rumah tangga dengan teknisi berpengalaman. Gratis konsultasi dan pengecekan.",
+    "kontak": {
+      "telepon": "08123456784"
+    },
+    "lokasi": "Jl. Listrik No. 22",
+    "icon": "settings"
+  }
+]

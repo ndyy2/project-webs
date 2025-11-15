@@ -1,0 +1,1861 @@
+<!DOCTYPE html>
+<html lang="id" style="scroll-behavior: smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- SEO Meta Tags -->
+    <title>
+      Direktori Layanan Publik & UMKM Lokal | Platform Terpadu Masyarakat
+    </title>
+    <meta
+      name="description"
+      content="Platform terpadu untuk mengakses layanan publik dan menemukan UMKM lokal terbaik. Temukan rumah sakit, sekolah, kantor pemerintah, dan produk UMKM berkualitas di sekitar Anda."
+    />
+    <meta
+      name="keywords"
+      content="layanan publik, UMKM lokal, UMKM, direktori bisnis, pelayanan masyarakat, produk lokal"
+    />
+    <meta name="author" content="Direktori Layanan" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://direktori-layanan.id/" />
+    <meta property="og:title" content="Direktori Layanan Publik & UMKM Lokal" />
+    <meta
+      property="og:description"
+      content="Temukan layanan publik dan UMKM lokal terbaik di sekitar Anda dalam satu platform"
+    />
+    <meta
+      property="og:image"
+      content="https://direktori-layanan.id/og-image.jpg"
+    />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://direktori-layanan.id/" />
+    <meta
+      property="twitter:title"
+      content="Direktori Layanan Publik & UMKM Lokal"
+    />
+    <meta
+      property="twitter:description"
+      content="Platform terpadu untuk layanan publik dan UMKM lokal"
+    />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.png" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#1E40AF",
+              secondary: "#FCD34D",
+              accent: "#14B8A6",
+            },
+            fontFamily: {
+              sans: ["Inter", "sans-serif"],
+            },
+            animation: {
+              float: "float 6s ease-in-out infinite",
+              "fade-in": "fadeIn 0.8s ease-out forwards",
+              "slide-up": "slideUp 0.8s ease-out forwards",
+              "slide-down": "slideDown 0.5s ease-out forwards",
+              "pulse-soft": "pulseSoft 3s ease-in-out infinite",
+              "bounce-soft": "bounceSoft 2s ease-in-out infinite",
+              "scale-in": "scaleIn 0.5s ease-out forwards",
+            },
+            keyframes: {
+              float: {
+                "0%, 100%": { transform: "translateY(0px)" },
+                "50%": { transform: "translateY(-20px)" },
+              },
+              fadeIn: {
+                "0%": { opacity: "0" },
+                "100%": { opacity: "1" },
+              },
+              slideUp: {
+                "0%": { transform: "translateY(30px)", opacity: "0" },
+                "100%": { transform: "translateY(0)", opacity: "1" },
+              },
+              slideDown: {
+                "0%": { transform: "translateY(-20px)", opacity: "0" },
+                "100%": { transform: "translateY(0)", opacity: "1" },
+              },
+              pulseSoft: {
+                "0%, 100%": { opacity: "1" },
+                "50%": { opacity: "0.7" },
+              },
+              bounceSoft: {
+                "0%, 100%": { transform: "translateY(0)" },
+                "50%": { transform: "translateY(-10px)" },
+              },
+              scaleIn: {
+                "0%": { transform: "scale(0.95)", opacity: "0" },
+                "100%": { transform: "scale(1)", opacity: "1" },
+              },
+            },
+          },
+        },
+      };
+    </script>
+
+    <style>
+      /* Smooth scroll reveal animations */
+      .reveal {
+        opacity: 0;
+        transform: translateY(50px);
+        transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
+
+      .reveal.active {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .reveal-left {
+        opacity: 0;
+        transform: translateX(-50px);
+        transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
+
+      .reveal-left.active {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      .reveal-right {
+        opacity: 0;
+        transform: translateX(50px);
+        transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
+
+      .reveal-right.active {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      /* Enhanced card hover effects */
+      .card-enhanced {
+        transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .card-enhanced::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.3),
+          transparent
+        );
+        transition: left 0.6s;
+      }
+
+      .card-enhanced:hover::before {
+        left: 100%;
+      }
+
+      .card-enhanced:hover {
+        transform: translateY(-8px) scale(1.02);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+      }
+
+      /* Custom scrollbar */
+      ::-webkit-scrollbar {
+        width: 10px;
+        height: 10px;
+      }
+
+      ::-webkit-scrollbar-track {
+        background: #f1f5f9;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: linear-gradient(180deg, #1e40af, #14b8a6);
+        border-radius: 10px;
+      }
+
+      ::-webkit-scrollbar-thumb:hover {
+        background: linear-gradient(180deg, #1e3a8a, #0f766e);
+      }
+
+      /* Loading spinner */
+      .spinner {
+        border: 4px solid rgba(30, 64, 175, 0.1);
+        border-radius: 50%;
+        border-top: 4px solid #1e40af;
+        width: 50px;
+        height: 50px;
+        animation: spin 1s ease-in-out infinite;
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      /* Gradient text */
+      .gradient-text {
+        background: linear-gradient(135deg, #1e40af 0%, #14b8a6 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      /* CTA Button Pulse */
+      @keyframes pulse-ring {
+        0% {
+          transform: scale(1);
+          opacity: 1;
+        }
+        100% {
+          transform: scale(1.3);
+          opacity: 0;
+        }
+      }
+
+      .cta-pulse::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        background: inherit;
+        animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        z-index: -1;
+      }
+
+      /* Filter button active state */
+      .filter-btn {
+        transition: all 0.3s ease;
+        position: relative;
+      }
+
+      .filter-btn.active {
+        background: linear-gradient(135deg, #14b8a6, #0d9488);
+        color: white;
+        transform: scale(1.05);
+      }
+
+      .filter-btn.active::after {
+        content: "";
+        position: absolute;
+        bottom: -2px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60%;
+        height: 3px;
+        background: #fcd34d;
+        border-radius: 2px;
+      }
+
+      /* Smooth page transitions */
+      .page-transition {
+        animation: fadeIn 0.5s ease-out;
+      }
+
+      /* Background patterns */
+      .bg-dots {
+        background-image: radial-gradient(
+          circle,
+          rgba(30, 64, 175, 0.1) 1px,
+          transparent 1px
+        );
+        background-size: 20px 20px;
+      }
+
+      .bg-grid {
+        background-image: linear-gradient(
+            rgba(30, 64, 175, 0.05) 1px,
+            transparent 1px
+          ),
+          linear-gradient(90deg, rgba(30, 64, 175, 0.05) 1px, transparent 1px);
+        background-size: 30px 30px;
+      }
+
+      /* Mobile menu animation */
+      .mobile-menu-enter {
+        animation: slideDown 0.3s ease-out;
+      }
+
+      /* Search input focus effect */
+      .search-input:focus {
+        box-shadow: 0 0 0 4px rgba(30, 64, 175, 0.1);
+      }
+
+      /* Stats counter animation */
+      @keyframes countUp {
+        from {
+          transform: translateY(20px);
+          opacity: 0;
+        }
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+
+      .stat-number {
+        animation: countUp 0.8s ease-out;
+      }
+    </style>
+  </head>
+
+  <body
+    class="bg-gradient-to-br from-slate-50 via-blue-50 to-teal-50 font-sans antialiased"
+  >
+    <!-- Header with enhanced UX -->
+    <header
+      class="bg-white/95 backdrop-blur-lg shadow-lg sticky top-0 z-50 transition-all duration-300"
+      id="header"
+    >
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-20">
+          <!-- Logo -->
+          <a href="#" class="flex items-center space-x-3 group">
+            <div
+              class="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-xl flex items-center justify-center shadow-lg transform group-hover:scale-110 group-hover:rotate-6 transition-all duration-300"
+            >
+              <i data-lucide="building-2" class="w-7 h-7 text-white"></i>
+            </div>
+            <div>
+              <h1
+                class="text-xl md:text-2xl font-black text-primary tracking-tight"
+              >
+                Direktori Layanan
+              </h1>
+              <p class="text-xs text-gray-600 font-medium">
+                Publik & UMKM Lokal
+              </p>
+            </div>
+          </a>
+
+          <!-- Desktop Navigation -->
+          <nav
+            class="hidden lg:flex items-center space-x-8"
+            role="navigation"
+            aria-label="Main navigation"
+          >
+            <a
+              href="#layanan"
+              class="nav-link text-gray-700 hover:text-primary font-semibold relative group transition-colors duration-300"
+            >
+              Layanan Publik
+              <span
+                class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"
+              ></span>
+            </a>
+            <a
+              href="#UMKM"
+              class="nav-link text-gray-700 hover:text-accent font-semibold relative group transition-colors duration-300"
+            >
+              UMKM Lokal
+              <span
+                class="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent transition-all duration-300 group-hover:w-full"
+              ></span>
+            </a>
+            <a
+              href="#peta"
+              class="nav-link text-gray-700 hover:text-primary font-semibold relative group transition-colors duration-300"
+            >
+              Peta Lokasi
+              <span
+                class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"
+              ></span>
+            </a>
+            <a
+              href="#kontak"
+              class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-primary to-accent text-white font-bold rounded-full hover:shadow-xl transform hover:scale-105 transition-all duration-300"
+            >
+              <i data-lucide="phone" class="w-4 h-4 mr-2"></i>
+              Hubungi Kami
+            </a>
+          </nav>
+
+          <!-- Mobile menu button -->
+          <button
+            class="lg:hidden p-2 text-primary hover:bg-gray-100 rounded-lg transition-all duration-300"
+            onclick="toggleMobileMenu()"
+            aria-label="Toggle menu"
+            aria-expanded="false"
+            id="mobile-menu-button"
+          >
+            <i data-lucide="menu" class="w-6 h-6"></i>
+          </button>
+        </div>
+
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden lg:hidden pb-4 mobile-menu-enter">
+          <div
+            class="bg-white/95 backdrop-blur-sm rounded-2xl p-4 shadow-xl space-y-2 mt-2"
+          >
+            <a
+              href="#layanan"
+              onclick="toggleMobileMenu()"
+              class="flex items-center px-4 py-3 rounded-xl text-gray-700 hover:bg-blue-50 hover:text-primary transition-all duration-300 font-medium"
+            >
+              <i data-lucide="building-2" class="w-5 h-5 mr-3"></i>
+              Layanan Publik
+            </a>
+            <a
+              href="#UMKM"
+              onclick="toggleMobileMenu()"
+              class="flex items-center px-4 py-3 rounded-xl text-gray-700 hover:bg-teal-50 hover:text-accent transition-all duration-300 font-medium"
+            >
+              <i data-lucide="shopping-basket" class="w-5 h-5 mr-3"></i>
+              UMKM Lokal
+            </a>
+            <a
+              href="#peta"
+              onclick="toggleMobileMenu()"
+              class="flex items-center px-4 py-3 rounded-xl text-gray-700 hover:bg-blue-50 hover:text-primary transition-all duration-300 font-medium"
+            >
+              <i data-lucide="map" class="w-5 h-5 mr-3"></i>
+              Peta Lokasi
+            </a>
+            <a
+              href="#kontak"
+              onclick="toggleMobileMenu()"
+              class="flex items-center justify-center px-4 py-3 bg-gradient-to-r from-primary to-accent text-white font-bold rounded-xl hover:shadow-lg transition-all duration-300"
+            >
+              <i data-lucide="phone" class="w-5 h-5 mr-2"></i>
+              Hubungi Kami
+            </a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero Section with enhanced CTA -->
+    <section
+      class="relative overflow-hidden bg-gradient-to-br from-blue-50 via-white to-teal-50 py-20 md:py-32"
+    >
+      <!-- Animated background elements -->
+      <div
+        class="absolute top-20 left-10 w-32 h-32 bg-primary/10 rounded-full blur-3xl animate-float"
+      ></div>
+      <div
+        class="absolute bottom-20 right-10 w-40 h-40 bg-accent/10 rounded-full blur-3xl animate-float"
+        style="animation-delay: 1s"
+      ></div>
+      <div
+        class="absolute top-1/2 left-1/3 w-24 h-24 bg-secondary/10 rounded-full blur-2xl animate-bounce-soft"
+      ></div>
+
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="max-w-4xl mx-auto text-center">
+          <!-- Badge -->
+          <div
+            class="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-100 to-teal-100 rounded-full mb-6 animate-slide-down"
+          >
+            <span class="text-sm font-bold text-primary mr-2">🚀</span>
+            <span class="text-sm font-semibold text-gray-700"
+              >Platform Terpadu #1 di Indonesia</span
+            >
+          </div>
+
+          <!-- Main heading -->
+          <h1
+            class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-gray-900 mb-6 leading-tight reveal"
+          >
+            Temukan Layanan & UMKM
+            <span class="block gradient-text mt-2"
+              >Terbaik di Sekitar Anda</span
+            >
+          </h1>
+
+          <!-- Subheading -->
+          <p
+            class="text-lg md:text-xl text-gray-600 mb-10 max-w-3xl mx-auto leading-relaxed reveal"
+            style="animation-delay: 0.2s"
+          >
+            Akses mudah ke layanan publik dan dukung produk lokal berkualitas.
+            Semua dalam satu platform yang cepat, mudah, dan terpercaya.
+          </p>
+
+          <!-- Search bar with enhanced UX -->
+          <div
+            class="max-w-2xl mx-auto mb-8 reveal"
+            style="animation-delay: 0.4s"
+          >
+            <div class="relative group">
+              <input
+                type="text"
+                id="search"
+                placeholder="Cari layanan kesehatan, sekolah, produk UMKM..."
+                onkeyup="cariData()"
+                class="search-input w-full px-6 py-5 pl-14 pr-32 rounded-2xl border-2 border-gray-200 bg-white focus:border-primary focus:outline-none text-gray-700 shadow-lg transition-all duration-300 placeholder-gray-400 text-base"
+                aria-label="Cari layanan atau UMKM"
+              />
+              <i
+                data-lucide="search"
+                class="w-6 h-6 text-gray-400 absolute left-5 top-1/2 transform -translate-y-1/2 group-focus-within:text-primary transition-colors duration-300"
+              ></i>
+              <button
+                class="absolute right-2 top-1/2 transform -translate-y-1/2 px-6 py-3 bg-gradient-to-r from-primary to-accent text-white font-bold rounded-xl hover:shadow-lg transition-all duration-300 hidden sm:block"
+              >
+                Cari
+              </button>
+            </div>
+
+            <!-- Popular searches -->
+            <div class="flex flex-wrap gap-2 justify-center mt-4">
+              <span class="text-sm text-gray-500">Populer:</span>
+              <button
+                onclick="document.getElementById('search').value='rumah sakit'; cariData();"
+                class="text-sm text-primary hover:underline font-medium"
+              >
+                Rumah Sakit
+              </button>
+              <span class="text-gray-300">•</span>
+              <button
+                onclick="document.getElementById('search').value='makanan'; cariData();"
+                class="text-sm text-primary hover:underline font-medium"
+              >
+                Makanan
+              </button>
+              <span class="text-gray-300">•</span>
+              <button
+                onclick="document.getElementById('search').value='kerajinan'; cariData();"
+                class="text-sm text-primary hover:underline font-medium"
+              >
+                Kerajinan
+              </button>
+            </div>
+          </div>
+
+          <!-- CTA Buttons -->
+          <div
+            class="flex flex-col sm:flex-row gap-4 justify-center items-center reveal"
+            style="animation-delay: 0.6s"
+          >
+            <a
+              href="#layanan"
+              class="inline-flex items-center px-8 py-4 bg-gradient-to-r from-primary to-blue-700 text-white font-bold rounded-full hover:shadow-2xl transform hover:scale-105 transition-all duration-300 relative cta-pulse group"
+            >
+              <i
+                data-lucide="building-2"
+                class="w-5 h-5 mr-2 group-hover:rotate-12 transition-transform duration-300"
+              ></i>
+              Jelajahi Layanan
+              <i
+                data-lucide="arrow-right"
+                class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300"
+              ></i>
+            </a>
+            <a
+              href="#UMKM"
+              class="inline-flex items-center px-8 py-4 bg-white text-primary font-bold rounded-full border-2 border-primary hover:bg-primary hover:text-white hover:shadow-xl transform hover:scale-105 transition-all duration-300 group"
+            >
+              <i
+                data-lucide="shopping-basket"
+                class="w-5 h-5 mr-2 group-hover:rotate-12 transition-transform duration-300"
+              ></i>
+              Lihat UMKM Lokal
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Decorative wave -->
+      <div class="absolute bottom-0 left-0 right-0">
+        <svg
+          viewBox="0 0 1440 120"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          class="w-full"
+        >
+          <path
+            d="M0 0L60 10C120 20 240 40 360 46.7C480 53 600 47 720 43.3C840 40 960 40 1080 46.7C1200 53 1320 67 1380 73.3L1440 80V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0V0Z"
+            fill="white"
+            fill-opacity="0.8"
+          />
+        </svg>
+      </div>
+    </section>
+
+    <!-- Stats Section with counter animation -->
+    <section class="relative bg-white py-16">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          <!-- Stat 1 -->
+          <div
+            class="text-center reveal bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-8 transform hover:scale-105 transition-all duration-300 card-enhanced"
+          >
+            <div
+              class="w-20 h-20 bg-gradient-to-br from-primary to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-xl"
+            >
+              <i data-lucide="building-2" class="w-10 h-10 text-white"></i>
+            </div>
+            <h3
+              class="text-5xl font-black text-primary mb-2 stat-number"
+              id="layanan-count"
+            >
+              3+
+            </h3>
+            <p class="text-gray-600 font-semibold text-lg">Layanan Publik</p>
+            <p class="text-gray-500 text-sm mt-2">Tersedia 24/7</p>
+          </div>
+
+          <!-- Stat 2 -->
+          <div
+            class="text-center reveal bg-gradient-to-br from-teal-50 to-teal-100 rounded-2xl p-8 transform hover:scale-105 transition-all duration-300 card-enhanced"
+            style="animation-delay: 0.1s"
+          >
+            <div
+              class="w-20 h-20 bg-gradient-to-br from-accent to-teal-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-xl"
+            >
+              <i data-lucide="shopping-basket" class="w-10 h-10 text-white"></i>
+            </div>
+            <h3
+              class="text-5xl font-black text-accent mb-2 stat-number"
+              id="UMKM-count"
+            >
+              3+
+            </h3>
+            <p class="text-gray-600 font-semibold text-lg">UMKM Terdaftar</p>
+            <p class="text-gray-500 text-sm mt-2">Produk Berkualitas</p>
+          </div>
+
+          <!-- Stat 3 -->
+          <div
+            class="text-center reveal bg-gradient-to-br from-yellow-50 to-yellow-100 rounded-2xl p-8 transform hover:scale-105 transition-all duration-300 card-enhanced"
+            style="animation-delay: 0.2s"
+          >
+            <div
+              class="w-20 h-20 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-xl"
+            >
+              <i data-lucide="users" class="w-10 h-10 text-white"></i>
+            </div>
+            <h3 class="text-5xl font-black text-yellow-600 mb-2 stat-number">
+              1000+
+            </h3>
+            <p class="text-gray-600 font-semibold text-lg">Pengguna Aktif</p>
+            <p class="text-gray-500 text-sm mt-2">Kepuasan 98%</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Layanan Publik Section -->
+    <section
+      id="layanan"
+      class="relative py-20 bg-gradient-to-br from-blue-50 to-indigo-50 overflow-hidden"
+    >
+      <!-- Background decoration -->
+      <div
+        class="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full -translate-y-48 translate-x-48 blur-3xl"
+      ></div>
+
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <!-- Section header -->
+        <div class="text-center mb-12 reveal">
+          <div
+            class="inline-flex items-center px-4 py-2 bg-blue-100 rounded-full mb-4 border border-blue-200"
+          >
+            <i data-lucide="building-2" class="w-4 h-4 mr-2 text-primary"></i>
+            <span class="text-sm font-bold text-primary"
+              >Layanan Pemerintah</span
+            >
+          </div>
+          <h2 class="text-3xl md:text-5xl font-black text-gray-900 mb-4">
+            Layanan Publik
+          </h2>
+          <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+            Akses mudah ke berbagai layanan publik untuk memenuhi kebutuhan Anda
+            dan keluarga
+          </p>
+        </div>
+
+        <!-- Filter buttons -->
+        <div
+          class="flex flex-wrap justify-center gap-3 mb-12 reveal"
+          style="animation-delay: 0.2s"
+        >
+          <button
+            class="filter-btn active px-6 py-3 bg-white rounded-full text-gray-700 font-semibold shadow-md hover:shadow-lg transition-all duration-300"
+            data-filter="all"
+            data-section="layanan"
+            onclick="filterData(this)"
+          >
+            Semua
+          </button>
+          <button
+            class="filter-btn px-6 py-3 bg-white rounded-full text-gray-700 font-semibold shadow-md hover:shadow-lg transition-all duration-300"
+            data-filter="kesehatan"
+            data-section="layanan"
+            onclick="filterData(this)"
+          >
+            <i data-lucide="heart-pulse" class="w-4 h-4 inline mr-2"></i>
+            Kesehatan
+          </button>
+          <button
+            class="filter-btn px-6 py-3 bg-white rounded-full text-gray-700 font-semibold shadow-md hover:shadow-lg transition-all duration-300"
+            data-filter="pendidikan"
+            data-section="layanan"
+            onclick="filterData(this)"
+          >
+            <i data-lucide="graduation-cap" class="w-4 h-4 inline mr-2"></i>
+            Pendidikan
+          </button>
+          <button
+            class="filter-btn px-6 py-3 bg-white rounded-full text-gray-700 font-semibold shadow-md hover:shadow-lg transition-all duration-300"
+            data-filter="administrasi"
+            data-section="layanan"
+            onclick="filterData(this)"
+          >
+            <i data-lucide="file-text" class="w-4 h-4 inline mr-2"></i>
+            Administrasi
+          </button>
+        </div>
+
+        <!-- Loading spinner -->
+        <div id="loading-layanan" class="flex justify-center py-12 hidden">
+          <div class="spinner"></div>
+        </div>
+
+        <!-- Layanan list -->
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto"
+          id="layanan-list"
+        >
+          <!-- Cards will be loaded here -->
+        </div>
+
+        <!-- CTA -->
+        <div class="text-center mt-12 reveal" style="animation-delay: 0.4s">
+          <a
+            href="#kontak"
+            class="inline-flex items-center px-8 py-4 bg-primary text-white font-bold rounded-full hover:bg-blue-700 hover:shadow-xl transform hover:scale-105 transition-all duration-300"
+          >
+            <i data-lucide="plus-circle" class="w-5 h-5 mr-2"></i>
+            Daftarkan Layanan Anda
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- UMKM Lokal Section -->
+    <section
+      id="UMKM"
+      class="relative py-20 bg-gradient-to-br from-teal-50 to-emerald-50 overflow-hidden"
+    >
+      <!-- Background decoration -->
+      <div
+        class="absolute bottom-0 left-0 w-96 h-96 bg-accent/5 rounded-full translate-y-48 -translate-x-48 blur-3xl"
+      ></div>
+
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <!-- Section header -->
+        <div class="text-center mb-12 reveal">
+          <div
+            class="inline-flex items-center px-4 py-2 bg-teal-100 rounded-full mb-4 border border-teal-200"
+          >
+            <i
+              data-lucide="shopping-basket"
+              class="w-4 h-4 mr-2 text-accent"
+            ></i>
+            <span class="text-sm font-bold text-accent">Dukung UMKM</span>
+          </div>
+          <h2 class="text-3xl md:text-5xl font-black text-gray-900 mb-4">
+            UMKM Lokal Terbaik
+          </h2>
+          <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+            Temukan dan dukung produk berkualitas dari pengusaha lokal di
+            sekitar Anda
+          </p>
+        </div>
+
+        <!-- Filter buttons -->
+        <div
+          class="flex flex-wrap justify-center gap-3 mb-12 reveal"
+          style="animation-delay: 0.2s"
+        >
+          <button
+            class="filter-btn active px-6 py-3 bg-white rounded-full text-gray-700 font-semibold shadow-md hover:shadow-lg transition-all duration-300"
+            data-filter="all"
+            data-section="UMKM"
+            onclick="filterData(this)"
+          >
+            Semua
+          </button>
+          <button
+            class="filter-btn px-6 py-3 bg-white rounded-full text-gray-700 font-semibold shadow-md hover:shadow-lg transition-all duration-300"
+            data-filter="makanan"
+            data-section="UMKM"
+            onclick="filterData(this)"
+          >
+            <i data-lucide="utensils" class="w-4 h-4 inline mr-2"></i>
+            Makanan & Minuman
+          </button>
+          <button
+            class="filter-btn px-6 py-3 bg-white rounded-full text-gray-700 font-semibold shadow-md hover:shadow-lg transition-all duration-300"
+            data-filter="kerajinan"
+            data-section="UMKM"
+            onclick="filterData(this)"
+          >
+            <i data-lucide="palette" class="w-4 h-4 inline mr-2"></i>
+            Kerajinan
+          </button>
+          <button
+            class="filter-btn px-6 py-3 bg-white rounded-full text-gray-700 font-semibold shadow-md hover:shadow-lg transition-all duration-300"
+            data-filter="fashion"
+            data-section="UMKM"
+            onclick="filterData(this)"
+          >
+            <i data-lucide="shirt" class="w-4 h-4 inline mr-2"></i>
+            Fashion
+          </button>
+          <button
+            class="filter-btn px-6 py-3 bg-white rounded-full text-gray-700 font-semibold shadow-md hover:shadow-lg transition-all duration-300"
+            data-filter="jasa"
+            data-section="UMKM"
+            onclick="filterData(this)"
+          >
+            <i data-lucide="briefcase" class="w-4 h-4 inline mr-2"></i>
+            Jasa
+          </button>
+        </div>
+
+        <!-- Loading spinner -->
+        <div id="loading-UMKM" class="flex justify-center py-12 hidden">
+          <div class="spinner"></div>
+        </div>
+
+        <!-- UMKM list -->
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto"
+          id="UMKM-list"
+        >
+          <!-- Cards will be loaded here -->
+        </div>
+
+        <!-- CTA -->
+        <div class="text-center mt-12 reveal" style="animation-delay: 0.4s">
+          <a
+            href="#kontak"
+            class="inline-flex items-center px-8 py-4 bg-accent text-white font-bold rounded-full hover:bg-teal-700 hover:shadow-xl transform hover:scale-105 transition-all duration-300"
+          >
+            <i data-lucide="store" class="w-5 h-5 mr-2"></i>
+            Daftarkan UMKM Anda
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonial Section (NEW) -->
+    <section class="py-20 bg-white">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16 reveal">
+          <h2 class="text-3xl md:text-4xl font-black text-gray-900 mb-4">
+            Apa Kata Mereka?
+          </h2>
+          <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+            Testimoni dari pengguna yang puas dengan layanan kami
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <!-- Testimonial 1 -->
+          <div
+            class="reveal-left bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-8 shadow-lg card-enhanced"
+          >
+            <div class="flex items-center mb-4">
+              <div
+                class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white font-bold"
+              >
+                R
+              </div>
+              <div class="ml-4">
+                <h4 class="font-bold text-gray-900">Rina Wijaya</h4>
+                <p class="text-sm text-gray-600">Ibu Rumah Tangga</p>
+              </div>
+            </div>
+            <div class="flex mb-3">
+              <i
+                data-lucide="star"
+                class="w-5 h-5 text-yellow-400 fill-current"
+              ></i>
+              <i
+                data-lucide="star"
+                class="w-5 h-5 text-yellow-400 fill-current"
+              ></i>
+              <i
+                data-lucide="star"
+                class="w-5 h-5 text-yellow-400 fill-current"
+              ></i>
+              <i
+                data-lucide="star"
+                class="w-5 h-5 text-yellow-400 fill-current"
+              ></i>
+              <i
+                data-lucide="star"
+                class="w-5 h-5 text-yellow-400 fill-current"
+              ></i>
+            </div>
+            <p class="text-gray-700 leading-relaxed">
+              "Sangat membantu! Saya bisa menemukan UMKM makanan lokal dengan
+              mudah dan produknya berkualitas."
+            </p>
+          </div>
+
+          <!-- Testimonial 2 -->
+          <div
+            class="reveal bg-gradient-to-br from-teal-50 to-teal-100 rounded-2xl p-8 shadow-lg card-enhanced"
+            style="animation-delay: 0.1s"
+          >
+            <div class="flex items-center mb-4">
+              <div
+                class="w-12 h-12 bg-accent rounded-full flex items-center justify-center text-white font-bold"
+              >
+                B
+              </div>
+              <div class="ml-4">
+                <h4 class="font-bold text-gray-900">Budi Santoso</h4>
+                <p class="text-sm text-gray-600">Pengusaha</p>
+              </div>
+            </div>
+            <div class="flex mb-3">
+              <i
+                data-lucide="star"
+                class="w-5 h-5 text-yellow-400 fill-current"
+              ></i>
+              <i
+                data-lucide="star"
+                class="w-5 h-5 text-yellow-400 fill-current"
+              ></i>
+              <i
+                data-lucide="star"
+                class="w-5 h-5 text-yellow-400 fill-current"
+              ></i>
+              <i
+                data-lucide="star"
+                class="w-5 h-5 text-yellow-400 fill-current"
+              ></i>
+              <i
+                data-lucide="star"
+                class="w-5 h-5 text-yellow-400 fill-current"
+              ></i>
+            </div>
+            <p class="text-gray-700 leading-relaxed">
+              "Platform yang luar biasa untuk mempromosikan produk UMKM saya.
+              Traffic meningkat 200%!"
+            </p>
+          </div>
+
+          <!-- Testimonial 3 -->
+          <div
+            class="reveal-right bg-gradient-to-br from-yellow-50 to-yellow-100 rounded-2xl p-8 shadow-lg card-enhanced"
+            style="animation-delay: 0.2s"
+          >
+            <div class="flex items-center mb-4">
+              <div
+                class="w-12 h-12 bg-yellow-500 rounded-full flex items-center justify-center text-white font-bold"
+              >
+                A
+              </div>
+              <div class="ml-4">
+                <h4 class="font-bold text-gray-900">Ani Lestari</h4>
+                <p class="text-sm text-gray-600">Mahasiswa</p>
+              </div>
+            </div>
+            <div class="flex mb-3">
+              <i
+                data-lucide="star"
+                class="w-5 h-5 text-yellow-400 fill-current"
+              ></i>
+              <i
+                data-lucide="star"
+                class="w-5 h-5 text-yellow-400 fill-current"
+              ></i>
+              <i
+                data-lucide="star"
+                class="w-5 h-5 text-yellow-400 fill-current"
+              ></i>
+              <i
+                data-lucide="star"
+                class="w-5 h-5 text-yellow-400 fill-current"
+              ></i>
+              <i
+                data-lucide="star"
+                class="w-5 h-5 text-yellow-400 fill-current"
+              ></i>
+            </div>
+            <p class="text-gray-700 leading-relaxed">
+              "Praktis banget! Sekarang saya tahu layanan apa aja yang ada di
+              sekitar kampus."
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Peta Section -->
+    <section
+      id="peta"
+      class="relative py-20 bg-gradient-to-br from-gray-50 to-slate-100"
+    >
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12 reveal">
+          <div
+            class="inline-flex items-center px-4 py-2 bg-yellow-100 rounded-full mb-4 border border-yellow-200"
+          >
+            <i data-lucide="map-pin" class="w-4 h-4 mr-2 text-yellow-700"></i>
+            <span class="text-sm font-bold text-yellow-700">Lokasi</span>
+          </div>
+          <h2 class="text-3xl md:text-5xl font-black text-gray-900 mb-4">
+            Peta Interaktif
+          </h2>
+          <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+            Temukan lokasi layanan publik dan UMKM terdekat dengan mudah
+          </p>
+        </div>
+
+        <div class="max-w-5xl mx-auto reveal" style="animation-delay: 0.2s">
+          <div
+            class="rounded-3xl overflow-hidden shadow-2xl border-8 border-white"
+          >
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15821.062470968426!2d111.0638118!3d-8.1813982!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7961bc2b61a3b9%3A0xa01cdca45579ebf5!2sPacitan%2C%20Kec.%20Pacitan%2C%20Kabupaten%20Pacitan%2C%20Jawa%20Timur!5e0!3m2!1sid!2sid!4v1718047260712!5m2!1sid!2sid"
+              width="100%"
+              height="500"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Peta Lokasi Layanan dan UMKM"
+            ></iframe>
+          </div>
+
+          <!-- Map info -->
+          <div class="grid md:grid-cols-3 gap-4 mt-8">
+            <div class="bg-white rounded-xl p-4 shadow-md text-center">
+              <i
+                data-lucide="navigation"
+                class="w-8 h-8 text-primary mx-auto mb-2"
+              ></i>
+              <p class="text-sm font-semibold text-gray-900">Navigasi GPS</p>
+              <p class="text-xs text-gray-600">Akurat & Real-time</p>
+            </div>
+            <div class="bg-white rounded-xl p-4 shadow-md text-center">
+              <i data-lucide="map" class="w-8 h-8 text-accent mx-auto mb-2"></i>
+              <p class="text-sm font-semibold text-gray-900">Lokasi Lengkap</p>
+              <p class="text-xs text-gray-600">500+ Titik Lokasi</p>
+            </div>
+            <div class="bg-white rounded-xl p-4 shadow-md text-center">
+              <i
+                data-lucide="route"
+                class="w-8 h-8 text-yellow-600 mx-auto mb-2"
+              ></i>
+              <p class="text-sm font-semibold text-gray-900">Rute Tercepat</p>
+              <p class="text-xs text-gray-600">Hemat Waktu & Biaya</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section (NEW) -->
+    <section
+      class="relative py-20 bg-gradient-to-r from-primary via-blue-700 to-accent overflow-hidden"
+    >
+      <div class="absolute inset-0 bg-dots opacity-20"></div>
+
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="max-w-4xl mx-auto text-center text-white">
+          <h2 class="text-3xl md:text-5xl font-black mb-6 reveal">
+            Siap Bergabung dengan Kami?
+          </h2>
+          <p
+            class="text-lg md:text-xl mb-10 opacity-90 reveal"
+            style="animation-delay: 0.2s"
+          >
+            Daftarkan layanan atau UMKM Anda sekarang dan jangkau lebih banyak
+            pelanggan
+          </p>
+
+          <div
+            class="flex flex-col sm:flex-row gap-4 justify-center reveal"
+            style="animation-delay: 0.4s"
+          >
+            <a
+              href="#kontak"
+              class="inline-flex items-center px-8 py-4 bg-white text-primary font-bold rounded-full hover:bg-gray-100 hover:shadow-2xl transform hover:scale-105 transition-all duration-300 group"
+            >
+              <i
+                data-lucide="user-plus"
+                class="w-5 h-5 mr-2 group-hover:rotate-12 transition-transform duration-300"
+              ></i>
+              Daftar Sekarang
+              <i
+                data-lucide="arrow-right"
+                class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300"
+              ></i>
+            </a>
+            <a
+              href="#layanan"
+              class="inline-flex items-center px-8 py-4 bg-transparent border-2 border-white text-white font-bold rounded-full hover:bg-white hover:text-primary hover:shadow-2xl transform hover:scale-105 transition-all duration-300"
+            >
+              <i data-lucide="book-open" class="w-5 h-5 mr-2"></i>
+              Pelajari Lebih Lanjut
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer
+      id="kontak"
+      class="relative bg-gradient-to-br from-gray-900 via-slate-900 to-gray-900 text-white py-16"
+    >
+      <div
+        class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary via-accent to-secondary"
+      ></div>
+
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12"
+        >
+          <!-- Company info -->
+          <div class="lg:col-span-2">
+            <div class="flex items-center space-x-3 mb-6">
+              <div
+                class="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-xl flex items-center justify-center"
+              >
+                <i data-lucide="building-2" class="w-7 h-7 text-white"></i>
+              </div>
+              <div>
+                <h3 class="text-2xl font-black">Direktori Layanan</h3>
+                <p class="text-sm text-gray-400">Publik & UMKM Lokal</p>
+              </div>
+            </div>
+            <p class="text-gray-400 mb-6 leading-relaxed max-w-md">
+              Platform terpadu untuk menghubungkan masyarakat dengan layanan
+              publik dan UMKM lokal berkualitas. Bersama membangun ekonomi yang
+              lebih kuat.
+            </p>
+
+            <!-- Social media -->
+            <div class="flex space-x-4">
+              <a
+                href="#"
+                class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-primary hover:scale-110 transition-all duration-300"
+                aria-label="Facebook"
+              >
+                <i data-lucide="facebook" class="w-5 h-5"></i>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-accent hover:scale-110 transition-all duration-300"
+                aria-label="Instagram"
+              >
+                <i data-lucide="instagram" class="w-5 h-5"></i>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-primary hover:scale-110 transition-all duration-300"
+                aria-label="Twitter"
+              >
+                <i data-lucide="twitter" class="w-5 h-5"></i>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-accent hover:scale-110 transition-all duration-300"
+                aria-label="LinkedIn"
+              >
+                <i data-lucide="linkedin" class="w-5 h-5"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Quick links -->
+          <div>
+            <h4 class="text-lg font-bold mb-6 text-secondary">
+              Navigasi Cepat
+            </h4>
+            <ul class="space-y-3">
+              <li>
+                <a
+                  href="#layanan"
+                  class="text-gray-400 hover:text-white transition-colors duration-300 flex items-center group"
+                >
+                  <i
+                    data-lucide="chevron-right"
+                    class="w-4 h-4 mr-2 group-hover:translate-x-1 transition-transform duration-300"
+                  ></i>
+                  Layanan Publik
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#UMKM"
+                  class="text-gray-400 hover:text-white transition-colors duration-300 flex items-center group"
+                >
+                  <i
+                    data-lucide="chevron-right"
+                    class="w-4 h-4 mr-2 group-hover:translate-x-1 transition-transform duration-300"
+                  ></i>
+                  UMKM Lokal
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#peta"
+                  class="text-gray-400 hover:text-white transition-colors duration-300 flex items-center group"
+                >
+                  <i
+                    data-lucide="chevron-right"
+                    class="w-4 h-4 mr-2 group-hover:translate-x-1 transition-transform duration-300"
+                  ></i>
+                  Peta Lokasi
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#kontak"
+                  class="text-gray-400 hover:text-white transition-colors duration-300 flex items-center group"
+                >
+                  <i
+                    data-lucide="chevron-right"
+                    class="w-4 h-4 mr-2 group-hover:translate-x-1 transition-transform duration-300"
+                  ></i>
+                  Hubungi Kami
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Contact info -->
+          <div>
+            <h4 class="text-lg font-bold mb-6 text-secondary">Hubungi Kami</h4>
+            <ul class="space-y-4 text-gray-400">
+              <li class="flex items-start">
+                <i
+                  data-lucide="mail"
+                  class="w-5 h-5 mr-3 mt-0.5 text-accent flex-shrink-0"
+                ></i>
+                <a
+                  href="mailto:info@direktori.id"
+                  class="hover:text-white transition-colors duration-300"
+                  >info@direktori.id</a
+                >
+              </li>
+              <li class="flex items-start">
+                <i
+                  data-lucide="phone"
+                  class="w-5 h-5 mr-3 mt-0.5 text-accent flex-shrink-0"
+                ></i>
+                <a
+                  href="tel:+62211234567"
+                  class="hover:text-white transition-colors duration-300"
+                  >(021) 123-4567</a
+                >
+              </li>
+              <li class="flex items-start">
+                <i
+                  data-lucide="map-pin"
+                  class="w-5 h-5 mr-3 mt-0.5 text-accent flex-shrink-0"
+                ></i>
+                <span>Jl. Inovasi No. 1<br />Jakarta, Indonesia</span>
+              </li>
+              <li class="flex items-start">
+                <i
+                  data-lucide="clock"
+                  class="w-5 h-5 mr-3 mt-0.5 text-accent flex-shrink-0"
+                ></i>
+                <span>Senin - Jumat<br />08:00 - 17:00 WIB</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Bottom bar -->
+        <div class="border-t border-gray-800 pt-8">
+          <div
+            class="flex flex-col md:flex-row justify-between items-center gap-4"
+          >
+            <p class="text-gray-400 text-sm text-center md:text-left">
+              © 2025 Direktori Layanan. Semua hak cipta dilindungi.
+            </p>
+            <div class="flex gap-6 text-sm">
+              <a
+                href="#"
+                class="text-gray-400 hover:text-white transition-colors duration-300"
+                >Kebijakan Privasi</a
+              >
+              <a
+                href="#"
+                class="text-gray-400 hover:text-white transition-colors duration-300"
+                >Syarat & Ketentuan</a
+              >
+              <a
+                href="#"
+                class="text-gray-400 hover:text-white transition-colors duration-300"
+                >Bantuan</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button
+      id="back-to-top"
+      class="fixed bottom-8 right-8 w-14 h-14 bg-gradient-to-br from-primary to-accent text-white rounded-full shadow-2xl hover:shadow-primary/50 transform hover:scale-110 transition-all duration-300 z-50 opacity-0 invisible"
+      aria-label="Kembali ke atas"
+    >
+      <i data-lucide="arrow-up" class="w-6 h-6 mx-auto"></i>
+    </button>
+
+    <!-- WhatsApp Float Button (NEW) -->
+    <a
+      href="https://wa.me/6281234567890"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="fixed bottom-8 left-8 w-14 h-14 bg-green-500 text-white rounded-full shadow-2xl hover:shadow-green-500/50 transform hover:scale-110 transition-all duration-300 z-50 flex items-center justify-center group"
+      aria-label="Chat WhatsApp"
+    >
+      <i
+        data-lucide="message-circle"
+        class="w-7 h-7 group-hover:rotate-12 transition-transform duration-300"
+      ></i>
+    </a>
+
+    <script>
+      // Initialize Lucide icons
+      document.addEventListener("DOMContentLoaded", () => {
+        lucide.createIcons();
+        loadLayananData();
+        loadUMKMData();
+        initScrollAnimations();
+        initBackToTop();
+        initHeaderScroll();
+      });
+
+      // Load Layanan data
+      async function loadLayananData() {
+        try {
+          document.getElementById("loading-layanan").classList.remove("hidden");
+
+          const response = await fetch("data/LayananPemerintah.json");
+          if (!response.ok) throw new Error("Failed to load data");
+
+          const data = await response.json();
+          displayLayananData(data);
+
+          document.getElementById("loading-layanan").classList.add("hidden");
+        } catch (error) {
+          console.error("Error:", error);
+          document.getElementById("layanan-list").innerHTML = `
+            <div class="col-span-full text-center py-12">
+              <i data-lucide="alert-circle" class="w-16 h-16 text-gray-400 mx-auto mb-4"></i>
+              <p class="text-gray-500 text-lg">Gagal memuat data layanan</p>
+              <button onclick="loadLayananData()" class="mt-4 px-6 py-2 bg-primary text-white rounded-full hover:bg-blue-700 transition-all duration-300">
+                Coba Lagi
+              </button>
+            </div>
+          `;
+          lucide.createIcons();
+          document.getElementById("loading-layanan").classList.add("hidden");
+        }
+      }
+
+      // Load UMKM data
+      async function loadUMKMData() {
+        try {
+          document.getElementById("loading-UMKM").classList.remove("hidden");
+
+          const response = await fetch("data/UmkmLokal.json");
+          if (!response.ok) throw new Error("Failed to load UMKM data");
+
+          const data = await response.json();
+          displayUMKMData(data);
+
+          document.getElementById("loading-UMKM").classList.add("hidden");
+        } catch (error) {
+          console.error("Error:", error);
+          document.getElementById("UMKM-list").innerHTML = `
+            <div class="col-span-full text-center py-12">
+              <i data-lucide="alert-circle" class="w-16 h-16 text-gray-400 mx-auto mb-4"></i>
+              <p class="text-gray-500 text-lg">Gagal memuat data UMKM</p>
+              <button onclick="loadUMKMData()" class="mt-4 px-6 py-2 bg-accent text-white rounded-full hover:bg-teal-700 transition-all duration-300">
+                Coba Lagi
+              </button>
+            </div>
+          `;
+          lucide.createIcons();
+          document.getElementById("loading-UMKM").classList.add("hidden");
+        }
+      }
+
+      // Display Layanan data
+      function displayLayananData(data) {
+        const layananList = document.getElementById("layanan-list");
+        layananList.innerHTML = "";
+
+        document.getElementById("layanan-count").textContent =
+          data.length + "+";
+
+        data.forEach((layanan, index) => {
+          const card = document.createElement("div");
+          card.className =
+            "card reveal bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-500 card-enhanced";
+          card.style.animationDelay = `${index * 0.1}s`;
+          card.setAttribute("data-nama", layanan.nama);
+          card.setAttribute("data-kategori", layanan.kategori || "lainnya");
+
+          card.innerHTML = `
+            <div class="relative mb-4">
+              <div class="w-16 h-16 bg-gradient-to-br from-primary to-blue-600 rounded-xl flex items-center justify-center shadow-lg transform group-hover:scale-110 transition-all duration-300">
+                <i data-lucide="${layanan.icon}" class="w-8 h-8 text-white"></i>
+              </div>
+              <div class="absolute -top-2 -right-2 w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
+                <i data-lucide="check" class="w-5 h-5 text-white"></i>
+              </div>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-2">${
+              layanan.nama
+            }</h3>
+            <div class="inline-block px-3 py-1 bg-blue-100 text-primary text-xs font-semibold rounded-full mb-3">
+              ${
+                (layanan.kategori || "Layanan").charAt(0).toUpperCase() +
+                (layanan.kategori || "Layanan").slice(1)
+              }
+            </div>
+            <p class="text-gray-600 mb-4 leading-relaxed line-clamp-3">${
+              layanan.deskripsi
+            }</p>
+            <div class="flex items-start text-sm text-gray-500 mb-4">
+              <i data-lucide="map-pin" class="w-5 h-5 mr-2 flex-shrink-0 text-primary"></i>
+              <span>${layanan.lokasi}</span>
+            </div>
+            <button onclick="showDetail('${
+              layanan.nama
+            }', 'layanan')" class="w-full mt-2 px-4 py-2 bg-gradient-to-r from-primary to-blue-600 text-white font-semibold rounded-lg hover:shadow-lg transform hover:scale-105 transition-all duration-300 flex items-center justify-center group">
+              Lihat Detail
+              <i data-lucide="arrow-right" class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300"></i>
+            </button>
+          `;
+
+          layananList.appendChild(card);
+        });
+
+        lucide.createIcons();
+        initScrollAnimations();
+      }
+
+      // Display UMKM data
+      function displayUMKMData(data) {
+        const UMKMList = document.getElementById("UMKM-list");
+        UMKMList.innerHTML = "";
+
+        document.getElementById("UMKM-count").textContent = data.length + "+";
+
+        data.forEach((UMKM, index) => {
+          const card = document.createElement("div");
+          card.className =
+            "card reveal bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-500 card-enhanced";
+          card.style.animationDelay = `${index * 0.1}s`;
+          card.setAttribute("data-nama", UMKM.nama);
+          card.setAttribute("data-kategori", UMKM.kategori);
+
+          let contactInfo = "";
+          if (UMKM.kontak.instagram) {
+            contactInfo = `
+              <a href="https://instagram.com/${UMKM.kontak.instagram.replace(
+                "@",
+                ""
+              )}" target="_blank" rel="noopener noreferrer" class="flex items-center text-sm text-accent font-medium mb-2 hover:text-teal-700 transition-colors duration-300">
+                <i data-lucide="instagram" class="w-5 h-5 mr-2"></i>
+                <span>${UMKM.kontak.instagram}</span>
+              </a>
+            `;
+          } else if (UMKM.kontak.telepon) {
+            contactInfo = `
+              <a href="tel:${UMKM.kontak.telepon}" class="flex items-center text-sm text-accent font-medium mb-2 hover:text-teal-700 transition-colors duration-300">
+                <i data-lucide="phone" class="w-5 h-5 mr-2"></i>
+                <span>${UMKM.kontak.telepon}</span>
+              </a>
+            `;
+          }
+
+          card.innerHTML = `
+            <div class="relative mb-4">
+              <div class="w-16 h-16 bg-gradient-to-br from-accent to-teal-600 rounded-xl flex items-center justify-center shadow-lg transform group-hover:scale-110 transition-all duration-300">
+                <i data-lucide="${UMKM.icon}" class="w-8 h-8 text-white"></i>
+              </div>
+              <div class="absolute -top-2 -right-2 w-8 h-8 bg-yellow-400 rounded-full flex items-center justify-center">
+                <i data-lucide="star" class="w-5 h-5 text-white fill-current"></i>
+              </div>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-2">${UMKM.nama}</h3>
+            <div class="inline-block px-3 py-1 bg-teal-100 text-accent text-xs font-semibold rounded-full mb-3">
+              ${UMKM.kategori.charAt(0).toUpperCase() + UMKM.kategori.slice(1)}
+            </div>
+            <p class="text-gray-600 mb-4 leading-relaxed line-clamp-3">${
+              UMKM.deskripsi
+            }</p>
+            ${contactInfo}
+            <div class="flex items-start text-sm text-gray-500 mb-4">
+              <i data-lucide="map-pin" class="w-5 h-5 mr-2 flex-shrink-0 text-accent"></i>
+              <span>${UMKM.lokasi}</span>
+            </div>
+            <button onclick="showDetail('${
+              UMKM.nama
+            }', 'UMKM')" class="w-full mt-2 px-4 py-2 bg-gradient-to-r from-accent to-teal-600 text-white font-semibold rounded-lg hover:shadow-lg transform hover:scale-105 transition-all duration-300 flex items-center justify-center group">
+              Lihat Detail
+              <i data-lucide="arrow-right" class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300"></i>
+            </button>
+          `;
+
+          UMKMList.appendChild(card);
+        });
+
+        lucide.createIcons();
+        initScrollAnimations();
+      }
+
+      // Search function
+      function cariData() {
+        const input = document.getElementById("search");
+        const filter = input.value.toLowerCase();
+        const cards = document.querySelectorAll(
+          "#layanan-list .card, #UMKM-list .card"
+        );
+
+        let visibleCount = 0;
+
+        cards.forEach((card) => {
+          const nama = card.dataset.nama ? card.dataset.nama.toLowerCase() : "";
+          const kategori = card.dataset.kategori
+            ? card.dataset.kategori.toLowerCase()
+            : "";
+          const text = card.innerText.toLowerCase();
+
+          if (
+            nama.includes(filter) ||
+            text.includes(filter) ||
+            kategori.includes(filter)
+          ) {
+            card.style.display = "";
+            card.classList.add("animate-scale-in");
+            setTimeout(() => card.classList.remove("animate-scale-in"), 500);
+            visibleCount++;
+          } else {
+            card.style.display = "none";
+          }
+        });
+
+        // Show no results message
+        if (filter && visibleCount === 0) {
+          showNoResults();
+        } else {
+          hideNoResults();
+        }
+      }
+
+      // Filter function
+      function filterData(button) {
+        const section = button.dataset.section;
+        const filter = button.dataset.filter;
+        const cards = document.querySelectorAll(`#${section}-list .card`);
+        const sectionButtons = document.querySelectorAll(
+          `button[data-section="${section}"]`
+        );
+
+        // Update active button
+        sectionButtons.forEach((btn) => btn.classList.remove("active"));
+        button.classList.add("active");
+
+        // Filter cards
+        cards.forEach((card, index) => {
+          if (
+            filter === "all" ||
+            card.getAttribute("data-kategori") === filter
+          ) {
+            card.style.display = "";
+            card.style.animationDelay = `${index * 0.1}s`;
+            card.classList.add("animate-scale-in");
+            setTimeout(() => card.classList.remove("animate-scale-in"), 500);
+          } else {
+            card.style.display = "none";
+          }
+        });
+
+        // Reinitialize Lucide icons
+        lucide.createIcons();
+      }
+
+      // Show detail modal (placeholder)
+      function showDetail(nama, type) {
+        alert(`Detail ${type}: ${nama}\n\nFitur detail akan segera hadir!`);
+      }
+
+      // No results functions
+      function showNoResults() {
+        const existing = document.getElementById("no-results");
+        if (existing) return;
+
+        const layananList = document.getElementById("layanan-list");
+        const UMKMList = document.getElementById("UMKM-list");
+
+        const noResults = document.createElement("div");
+        noResults.id = "no-results";
+        noResults.className = "col-span-full text-center py-12 animate-fade-in";
+        noResults.innerHTML = `
+          <i data-lucide="search-x" class="w-16 h-16 text-gray-400 mx-auto mb-4"></i>
+          <p class="text-gray-500 text-lg font-semibold mb-2">Tidak ada hasil ditemukan</p>
+          <p class="text-gray-400">Coba kata kunci lain atau ubah filter pencarian</p>
+        `;
+
+        layananList.appendChild(noResults.cloneNode(true));
+        UMKMList.appendChild(noResults);
+        lucide.createIcons();
+      }
+
+      function hideNoResults() {
+        const noResults = document.querySelectorAll("#no-results");
+        noResults.forEach((el) => el.remove());
+      }
+
+      // Toggle mobile menu
+      function toggleMobileMenu() {
+        const menu = document.getElementById("mobile-menu");
+        const button = document.getElementById("mobile-menu-button");
+        const isHidden = menu.classList.contains("hidden");
+
+        menu.classList.toggle("hidden");
+        button.setAttribute("aria-expanded", isHidden ? "true" : "false");
+
+        // Close menu when clicking outside
+        if (isHidden) {
+          setTimeout(() => {
+            document.addEventListener("click", closeMobileMenuOnClickOutside);
+          }, 100);
+        }
+      }
+
+      function closeMobileMenuOnClickOutside(event) {
+        const menu = document.getElementById("mobile-menu");
+        const button = document.getElementById("mobile-menu-button");
+
+        if (!menu.contains(event.target) && !button.contains(event.target)) {
+          menu.classList.add("hidden");
+          button.setAttribute("aria-expanded", "false");
+          document.removeEventListener("click", closeMobileMenuOnClickOutside);
+        }
+      }
+
+      // Scroll animations
+      function initScrollAnimations() {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("active");
+              }
+            });
+          },
+          {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px",
+          }
+        );
+
+        const elements = document.querySelectorAll(
+          ".reveal, .reveal-left, .reveal-right"
+        );
+        elements.forEach((el) => observer.observe(el));
+      }
+
+      // Back to top button
+      function initBackToTop() {
+        const backToTopButton = document.getElementById("back-to-top");
+
+        window.addEventListener("scroll", () => {
+          if (window.pageYOffset > 300) {
+            backToTopButton.style.opacity = "1";
+            backToTopButton.style.visibility = "visible";
+          } else {
+            backToTopButton.style.opacity = "0";
+            backToTopButton.style.visibility = "hidden";
+          }
+        });
+
+        backToTopButton.addEventListener("click", () => {
+          window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+          });
+        });
+      }
+
+      // Header scroll effect
+      function initHeaderScroll() {
+        const header = document.getElementById("header");
+        let lastScroll = 0;
+
+        window.addEventListener("scroll", () => {
+          const currentScroll = window.pageYOffset;
+
+          if (currentScroll > 100) {
+            header.classList.add("shadow-xl");
+          } else {
+            header.classList.remove("shadow-xl");
+          }
+
+          lastScroll = currentScroll;
+        });
+      }
+
+      // Smooth scroll for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+
+          if (target) {
+            const headerOffset = 80;
+            const elementPosition = target.getBoundingClientRect().top;
+            const offsetPosition =
+              elementPosition + window.pageYOffset - headerOffset;
+
+            window.scrollTo({
+              top: offsetPosition,
+              behavior: "smooth",
+            });
+          }
+        });
+      });
+
+      // Preload critical resources
+      window.addEventListener("load", () => {
+        // Add loaded class to body for additional animations
+        document.body.classList.add("loaded");
+
+        // Preload images if needed
+        const images = document.querySelectorAll("img[data-src]");
+        images.forEach((img) => {
+          img.src = img.dataset.src;
+        });
+      });
+
+      // Handle form submissions (if any)
+      document.querySelectorAll("form").forEach((form) => {
+        form.addEventListener("submit", (e) => {
+          e.preventDefault();
+          // Add your form submission logic here
+          alert("Terima kasih! Pesan Anda telah diterima.");
+        });
+      });
+
+      // Add keyboard navigation support
+      document.addEventListener("keydown", (e) => {
+        // Press 'S' to focus search
+        if (e.key === "s" || e.key === "S") {
+          if (document.activeElement.tagName !== "INPUT") {
+            e.preventDefault();
+            document.getElementById("search").focus();
+          }
+        }
+
+        // Press 'Escape' to close mobile menu
+        if (e.key === "Escape") {
+          const menu = document.getElementById("mobile-menu");
+          if (!menu.classList.contains("hidden")) {
+            toggleMobileMenu();
+          }
+        }
+      });
+
+      // Performance optimization: Debounce search
+      let searchTimeout;
+      const originalCariData = cariData;
+      cariData = function () {
+        clearTimeout(searchTimeout);
+        searchTimeout = setTimeout(originalCariData, 300);
+      };
+
+      // Add loading animation for page transitions
+      window.addEventListener("beforeunload", () => {
+        document.body.style.opacity = "0";
+        document.body.style.transition = "opacity 0.3s ease-out";
+      });
+
+      // Console easter egg
+      console.log(
+        "%c🚀 Direktori Layanan",
+        "color: #1E40AF; font-size: 24px; font-weight: bold;"
+      );
+      console.log(
+        "%cPlatform Terpadu untuk Layanan Publik & UMKM Lokal",
+        "color: #14B8A6; font-size: 14px;"
+      );
+      console.log(
+        "%cDeveloped with ❤️ by Our Team",
+        "color: #666; font-size: 12px;"
+      );
+    </script>
+
+    <!-- Schema.org structured data for SEO -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Direktori Layanan Publik & UMKM Lokal",
+        "description": "Platform terpadu untuk mengakses layanan publik dan menemukan UMKM lokal terbaik",
+        "url": "https://direktori-layanan.id",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://direktori-layanan.id/?s={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      }
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Direktori Layanan",
+        "url": "https://direktori-layanan.id",
+        "logo": "https://direktori-layanan.id/logo.png",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+62-21-123-4567",
+          "contactType": "Customer Service",
+          "areaServed": "ID",
+          "availableLanguage": "Indonesian"
+        },
+        "sameAs": [
+          "https://facebook.com/direktori-layanan",
+          "https://instagram.com/direktori-layanan",
+          "https://twitter.com/direktori-layanan"
+        ]
+      }
+    </script>
+  </body>
+</html>

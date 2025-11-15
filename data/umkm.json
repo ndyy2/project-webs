@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "nama": "Kerajinan Tangan Bu Rini",
+    "deskripsi": "Menjual berbagai kerajinan tangan seperti tas anyaman, hiasan dinding, dan aksesoris dari bahan alami dengan kualitas terbaik.",
+    "kategori": "Kerajinan",
+    "telepon": "0812-3456-7890",
+    "instagram": "@kerajinan_burini"
+  },
+  {
+    "id": 2,
+    "nama": "Warung Makan Sederhana",
+    "deskripsi": "Menyajikan masakan rumahan dengan cita rasa autentik. Menu andalan: nasi campur, soto ayam, dan gado-gado.",
+    "kategori": "Kuliner",
+    "telepon": "0813-4567-8901",
+    "instagram": "@warung_sederhana"
+  }
+]
