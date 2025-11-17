@@ -6,6 +6,8 @@
     <title>Detail UMKM - Warung Kopi Nusantara</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Motion One -->
+    <script src="https://cdn.jsdelivr.net/npm/motion@latest/dist/motion.js"></script>
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
@@ -83,88 +85,6 @@
         }
         66% {
           transform: translateY(10px) rotate(240deg);
-        }
-      }
-
-      /* Custom animations */
-      @keyframes fadeIn {
-        from {
-          opacity: 0;
-          transform: translateY(20px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      @keyframes slideDown {
-        from {
-          transform: translateY(-100px);
-          opacity: 0;
-        }
-        to {
-          transform: translateY(0);
-          opacity: 1;
-        }
-      }
-
-      @keyframes slideRight {
-        from {
-          transform: translateX(-50px);
-          opacity: 0;
-        }
-        to {
-          transform: translateX(0);
-          opacity: 1;
-        }
-      }
-
-      @keyframes slideUp {
-        from {
-          transform: translateY(50px);
-          opacity: 0;
-        }
-        to {
-          transform: translateY(0);
-          opacity: 1;
-        }
-      }
-
-      /* Hero image animation */
-      .hero-image {
-        animation: float 6s ease-in-out infinite;
-      }
-
-      @keyframes float {
-        0%,
-        100% {
-          transform: translateY(0px);
-        }
-        50% {
-          transform: translateY(-10px);
-        }
-      }
-
-      .hero-image::before {
-        content: "";
-        position: absolute;
-        width: 200%;
-        height: 200%;
-        background: radial-gradient(
-          circle,
-          rgba(255, 255, 255, 0.1) 0%,
-          transparent 70%
-        );
-        animation: rotate 20s linear infinite;
-      }
-
-      @keyframes rotate {
-        from {
-          transform: rotate(0deg);
-        }
-        to {
-          transform: rotate(360deg);
         }
       }
 
@@ -266,6 +186,209 @@
       .parallax-sidebar {
         transform: translateY(var(--scroll-offset));
       }
+
+      /* Hide scrollbar */
+      html,
+      body {
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+      }
+      html::-webkit-scrollbar,
+      body::-webkit-scrollbar {
+        display: none;
+      }
+
+      /* Hero card improvements */
+      .hero-container {
+        position: relative;
+        overflow: hidden;
+        border-radius: 1.5rem;
+      }
+
+      .hero-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(
+          to top,
+          rgba(0, 0, 0, 0.7) 0%,
+          rgba(0, 0, 0, 0) 100%
+        );
+        padding: 2rem;
+        color: white;
+        z-index: 2;
+      }
+
+      .hero-image {
+        position: relative;
+        z-index: 1;
+      }
+
+      .hero-icon {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 2;
+        opacity: 0.2;
+      }
+
+      /* Improved rating display */
+      .rating-container {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-bottom: 1rem;
+      }
+
+      .rating-stars {
+        display: flex;
+        gap: 0.25rem;
+      }
+
+      .rating-star {
+        color: #fbbf24;
+      }
+
+      .rating-text {
+        color: rgba(255, 255, 255, 0.9);
+        font-weight: 500;
+      }
+
+      /* Enhanced category items */
+      .category-icon {
+        transition: transform 0.3s ease;
+      }
+
+      .category-item:hover .category-icon {
+        transform: scale(1.2);
+      }
+
+      /* Improved contact items */
+      .contact-icon {
+        transition: transform 0.3s ease;
+      }
+
+      .contact-item:hover .contact-icon {
+        transform: scale(1.1);
+      }
+
+      /* Enhanced menu items */
+      .menu-image {
+        transition: transform 0.3s ease;
+      }
+
+      .menu-item:hover .menu-image {
+        transform: scale(1.1) rotate(5deg);
+      }
+
+      /* Improved gallery items */
+      .gallery-icon {
+        transition: transform 0.3s ease;
+      }
+
+      .gallery-item:hover .gallery-icon {
+        transform: scale(1.2);
+      }
+
+      /* Floating action button */
+      .fab {
+        position: fixed;
+        bottom: 2rem;
+        right: 2rem;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #1e40af 0%, #14b8a6 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        box-shadow: 0 10px 25px rgba(30, 64, 175, 0.3);
+        cursor: pointer;
+        z-index: 100;
+        transition: all 0.3s ease;
+      }
+
+      .fab:hover {
+        transform: scale(1.1);
+        box-shadow: 0 15px 30px rgba(30, 64, 175, 0.4);
+      }
+
+      /* Back to top button */
+      .back-to-top {
+        position: fixed;
+        bottom: 2rem;
+        left: 2rem;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #1e40af 0%, #14b8a6 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        box-shadow: 0 5px 15px rgba(30, 64, 175, 0.3);
+        cursor: pointer;
+        z-index: 100;
+        transition: all 0.3s ease;
+        opacity: 0;
+        visibility: hidden;
+      }
+
+      .back-to-top.visible {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .back-to-top:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(30, 64, 175, 0.4);
+      }
+
+      /* Enhanced info cards */
+      .info-icon {
+        transition: transform 0.3s ease;
+      }
+
+      .info-card:hover .info-icon {
+        transform: scale(1.1) rotate(5deg);
+      }
+
+      /* Improved feature items */
+      .feature-icon {
+        transition: transform 0.3s ease;
+      }
+
+      .feature-item:hover .feature-icon {
+        transform: scale(1.1) rotate(5deg);
+      }
+
+      /* Responsive improvements */
+      @media (max-width: 768px) {
+        .hero-overlay {
+          padding: 1.5rem;
+        }
+
+        .hero-title {
+          font-size: 1.75rem;
+        }
+
+        .fab {
+          bottom: 1rem;
+          right: 1rem;
+          width: 50px;
+          height: 50px;
+        }
+
+        .back-to-top {
+          bottom: 1rem;
+          left: 1rem;
+          width: 45px;
+          height: 45px;
+        }
+      }
     </style>
     <script>
       tailwind.config = {
@@ -285,12 +408,6 @@
                 900: "#0c4a6e",
               },
             },
-            animation: {
-              "fade-in": "fadeIn 0.8s ease",
-              "slide-down": "slideDown 0.6s ease",
-              "slide-right": "slideRight 0.6s ease",
-              "slide-up": "slideUp 0.8s ease",
-            },
           },
         },
       };
@@ -304,10 +421,21 @@
       <div class="bg-shape"></div>
     </div>
 
-    <div class="max-w-[1400px] mx-auto animate-fade-in">
+    <!-- Floating Action Button -->
+    <div class="fab" onclick="scrollToContact()">
+      <i data-lucide="message-circle"></i>
+    </div>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top" onclick="scrollToTop()">
+      <i data-lucide="arrow-up"></i>
+    </div>
+
+    <div class="max-w-[1400px] mx-auto">
       <!-- Navbar (not sticky) -->
       <div
-        class="bg-white/95 backdrop-blur-xl py-4 px-6 rounded-2xl mb-8 shadow-xl animate-slide-down flex items-center gap-4"
+        id="navbar"
+        class="bg-white/95 backdrop-blur-xl py-4 px-6 rounded-2xl mb-8 shadow-xl flex items-center gap-4"
       >
         <button
           class="bg-gradient-to-br from-blue-700 to-teal-500 text-white border-none py-2.5 px-5 rounded-xl font-semibold cursor-pointer transition-all duration-300 text-sm flex items-center gap-2 hover:-translate-x-1 hover:shadow-2xl"
@@ -324,15 +452,14 @@
       </div>
 
       <!-- Content Grid -->
-      <div
-        class="grid grid-cols-1 lg:grid-cols-[320px_1fr] gap-6 animate-fade-in animation-delay-200"
-      >
+      <div class="grid grid-cols-1 lg:grid-cols-[320px_1fr] gap-6">
         <!-- Sidebar -->
         <aside class="flex flex-col gap-5 order-2 lg:order-1">
           <div class="sidebar-sticky flex flex-col gap-5">
             <!-- Category Card -->
             <div
-              class="bg-white/95 backdrop-blur-xl rounded-2xl p-6 shadow-xl transition-all duration-300 animate-slide-right hover:shadow-2xl"
+              id="category-card"
+              class="sidebar-card bg-white/95 backdrop-blur-xl rounded-2xl p-6 shadow-xl transition-all duration-300"
             >
               <h3
                 class="text-lg font-bold text-blue-700 mb-4 flex items-center gap-2"
@@ -344,37 +471,37 @@
                 <div
                   class="category-item bg-gradient-to-br from-slate-100 to-slate-200 py-3 px-4 rounded-xl text-blue-700 font-semibold text-sm cursor-pointer flex items-center gap-2 active"
                 >
-                  <i data-lucide="coffee"></i>
+                  <i data-lucide="coffee" class="category-icon"></i>
                   Kopi & Minuman
                 </div>
                 <div
                   class="category-item bg-gradient-to-br from-slate-100 to-slate-200 py-3 px-4 rounded-xl text-blue-700 font-semibold text-sm cursor-pointer flex items-center gap-2"
                 >
-                  <i data-lucide="croissant"></i>
+                  <i data-lucide="croissant" class="category-icon"></i>
                   Makanan Ringan
                 </div>
                 <div
                   class="category-item bg-gradient-to-br from-slate-100 to-slate-200 py-3 px-4 rounded-xl text-blue-700 font-semibold text-sm cursor-pointer flex items-center gap-2"
                 >
-                  <i data-lucide="leaf"></i>
+                  <i data-lucide="leaf" class="category-icon"></i>
                   Ramah Lingkungan
                 </div>
                 <div
                   class="category-item bg-gradient-to-br from-slate-100 to-slate-200 py-3 px-4 rounded-xl text-blue-700 font-semibold text-sm cursor-pointer flex items-center gap-2"
                 >
-                  <i data-lucide="award"></i>
+                  <i data-lucide="award" class="category-icon"></i>
                   Terpopuler
                 </div>
                 <div
                   class="category-item bg-gradient-to-br from-slate-100 to-slate-200 py-3 px-4 rounded-xl text-blue-700 font-semibold text-sm cursor-pointer flex items-center gap-2"
                 >
-                  <i data-lucide="wifi"></i>
+                  <i data-lucide="wifi" class="category-icon"></i>
                   Tempat Kerja
                 </div>
                 <div
                   class="category-item bg-gradient-to-br from-slate-100 to-slate-200 py-3 px-4 rounded-xl text-blue-700 font-semibold text-sm cursor-pointer flex items-center gap-2"
                 >
-                  <i data-lucide="users"></i>
+                  <i data-lucide="users" class="category-icon"></i>
                   Pertemuan
                 </div>
               </div>
@@ -382,7 +509,8 @@
 
             <!-- Contact Card -->
             <div
-              class="bg-white/95 backdrop-blur-xl rounded-2xl p-6 shadow-xl transition-all duration-300 animate-slide-right hover:shadow-2xl"
+              id="contact-card"
+              class="sidebar-card bg-white/95 backdrop-blur-xl rounded-2xl p-6 shadow-xl transition-all duration-300"
             >
               <h3
                 class="text-lg font-bold text-blue-700 mb-4 flex items-center gap-2"
@@ -474,31 +602,38 @@
         <main class="flex flex-col gap-6 order-1 lg:order-2">
           <!-- Hero Card -->
           <div
-            class="bg-white/95 backdrop-blur-xl rounded-3xl overflow-hidden shadow-2xl animate-slide-up"
+            id="hero-card"
+            class="hero-container bg-white/95 backdrop-blur-xl rounded-3xl overflow-hidden shadow-2xl"
           >
             <div
-              class="hero-image w-full h-80 md:h-[400px] bg-gradient-to-br from-blue-700 to-teal-500 flex items-center justify-center text-6xl md:text-8xl text-white relative overflow-hidden"
+              class="hero-image w-full h-80 md:h-[400px] bg-gradient-to-br from-blue-700 to-teal-500 relative overflow-hidden"
             >
               <i
                 data-lucide="coffee"
-                class="text-6xl md:text-8xl text-white"
+                class="hero-icon text-6xl md:text-8xl text-white"
               ></i>
+              <div class="hero-overlay">
+                <h1
+                  id="hero-title"
+                  class="hero-title text-3xl md:text-4xl font-black text-white mb-2 leading-tight"
+                >
+                  Warung Kopi Nusantara
+                </h1>
+                <div class="rating-container">
+                  <div class="rating-stars">
+                    <span class="rating-star">★</span>
+                    <span class="rating-star">★</span>
+                    <span class="rating-star">★</span>
+                    <span class="rating-star">★</span>
+                    <span class="rating-star">★</span>
+                  </div>
+                  <span class="rating-text">4.9 (2,847 ulasan)</span>
+                </div>
+              </div>
             </div>
             <div class="p-8 md:p-10">
-              <h1
-                class="text-3xl md:text-4xl font-black bg-gradient-to-br from-blue-700 to-teal-500 bg-clip-text text-transparent mb-4 leading-tight"
-              >
-                Warung Kopi Nusantara
-              </h1>
-              <div class="rating flex items-center gap-2 mb-6">
-                <span class="stars text-yellow-400 text-xl tracking-widest"
-                  >★★★★★</span
-                >
-                <span class="rating-text text-slate-500 font-semibold text-sm"
-                  >4.9 (2,847 ulasan)</span
-                >
-              </div>
               <p
+                id="hero-description"
                 class="description text-slate-600 leading-relaxed text-base font-normal"
               >
                 Warung Kopi Nusantara adalah destinasi kopi artisan terbaik di
@@ -524,12 +659,15 @@
           </div>
 
           <!-- Info Grid -->
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div
+            id="info-grid"
+            class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4"
+          >
             <div
-              class="info-card bg-white/95 backdrop-blur-xl rounded-xl p-6 shadow-lg transition-all duration-300 flex flex-col animate-fade-in animation-delay-600"
+              class="info-card bg-white/95 backdrop-blur-xl rounded-xl p-6 shadow-lg transition-all duration-300 flex flex-col"
             >
               <div
-                class="icon w-12 h-12 bg-gradient-to-br from-blue-700 to-teal-500 rounded-xl flex items-center justify-center text-2xl text-white mb-4"
+                class="info-icon w-12 h-12 bg-gradient-to-br from-blue-700 to-teal-500 rounded-xl flex items-center justify-center text-2xl text-white mb-4"
               >
                 <i data-lucide="clock"></i>
               </div>
@@ -540,10 +678,10 @@
               <p class="text-sm text-slate-500 mt-2">Setiap Hari</p>
             </div>
             <div
-              class="info-card bg-white/95 backdrop-blur-xl rounded-xl p-6 shadow-lg transition-all duration-300 flex flex-col animate-fade-in animation-delay-700"
+              class="info-card bg-white/95 backdrop-blur-xl rounded-xl p-6 shadow-lg transition-all duration-300 flex flex-col"
             >
               <div
-                class="icon w-12 h-12 bg-gradient-to-br from-blue-700 to-teal-500 rounded-xl flex items-center justify-center text-2xl text-white mb-4"
+                class="info-icon w-12 h-12 bg-gradient-to-br from-blue-700 to-teal-500 rounded-xl flex items-center justify-center text-2xl text-white mb-4"
               >
                 <i data-lucide="map-pin"></i>
               </div>
@@ -554,10 +692,10 @@
               <p class="text-sm text-slate-500 mt-2">Dekat Stasiun Gubeng</p>
             </div>
             <div
-              class="info-card bg-white/95 backdrop-blur-xl rounded-xl p-6 shadow-lg transition-all duration-300 flex flex-col animate-fade-in animation-delay-800"
+              class="info-card bg-white/95 backdrop-blur-xl rounded-xl p-6 shadow-lg transition-all duration-300 flex flex-col"
             >
               <div
-                class="icon w-12 h-12 bg-gradient-to-br from-blue-700 to-teal-500 rounded-xl flex items-center justify-center text-2xl text-white mb-4"
+                class="info-icon w-12 h-12 bg-gradient-to-br from-blue-700 to-teal-500 rounded-xl flex items-center justify-center text-2xl text-white mb-4"
               >
                 <i data-lucide="dollar-sign"></i>
               </div>
@@ -570,10 +708,10 @@
               <p class="text-sm text-slate-500 mt-2">Minuman & Makanan</p>
             </div>
             <div
-              class="info-card bg-white/95 backdrop-blur-xl rounded-xl p-6 shadow-lg transition-all duration-300 flex flex-col animate-fade-in animation-delay-900"
+              class="info-card bg-white/95 backdrop-blur-xl rounded-xl p-6 shadow-lg transition-all duration-300 flex flex-col"
             >
               <div
-                class="icon w-12 h-12 bg-gradient-to-br from-blue-700 to-teal-500 rounded-xl flex items-center justify-center text-2xl text-white mb-4"
+                class="info-icon w-12 h-12 bg-gradient-to-br from-blue-700 to-teal-500 rounded-xl flex items-center justify-center text-2xl text-white mb-4"
               >
                 <i data-lucide="car"></i>
               </div>
@@ -585,7 +723,8 @@
 
           <!-- Features Section -->
           <div
-            class="features-card bg-white/95 backdrop-blur-xl rounded-2xl p-8 shadow-xl animate-fade-in animation-delay-500"
+            id="features-card"
+            class="features-card bg-white/95 backdrop-blur-xl rounded-2xl p-8 shadow-xl"
           >
             <h2
               class="text-2xl font-extrabold text-blue-700 mb-6 flex items-center gap-3"
@@ -690,7 +829,8 @@
 
           <!-- Menu Section -->
           <div
-            class="menu-card bg-white/95 backdrop-blur-xl rounded-2xl p-8 shadow-xl animate-fade-in animation-delay-600"
+            id="menu-card"
+            class="menu-card bg-white/95 backdrop-blur-xl rounded-2xl p-8 shadow-xl"
           >
             <h2
               class="text-2xl font-extrabold text-blue-700 mb-6 flex items-center gap-3"
@@ -787,7 +927,8 @@
 
           <!-- Gallery -->
           <div
-            class="gallery-card bg-white/95 backdrop-blur-xl rounded-2xl p-8 shadow-xl animate-fade-in animation-delay-400"
+            id="gallery-card"
+            class="gallery-card bg-white/95 backdrop-blur-xl rounded-2xl p-8 shadow-xl"
           >
             <h2
               class="text-2xl font-extrabold text-blue-700 mb-6 flex items-center gap-3"
@@ -799,42 +940,42 @@
               <div
                 class="gallery-item aspect-square bg-gradient-to-br from-slate-100 to-slate-200 rounded-xl flex items-center justify-center text-5xl cursor-pointer transition-all duration-300 relative overflow-hidden"
               >
-                <i data-lucide="coffee"></i>
+                <i data-lucide="coffee" class="gallery-icon"></i>
               </div>
               <div
                 class="gallery-item aspect-square bg-gradient-to-br from-slate-100 to-slate-200 rounded-xl flex items-center justify-center text-5xl cursor-pointer transition-all duration-300 relative overflow-hidden"
               >
-                <i data-lucide="croissant"></i>
+                <i data-lucide="croissant" class="gallery-icon"></i>
               </div>
               <div
                 class="gallery-item aspect-square bg-gradient-to-br from-slate-100 to-slate-200 rounded-xl flex items-center justify-center text-5xl cursor-pointer transition-all duration-300 relative overflow-hidden"
               >
-                <i data-lucide="home"></i>
+                <i data-lucide="home" class="gallery-icon"></i>
               </div>
               <div
                 class="gallery-item aspect-square bg-gradient-to-br from-slate-100 to-slate-200 rounded-xl flex items-center justify-center text-5xl cursor-pointer transition-all duration-300 relative overflow-hidden"
               >
-                <i data-lucide="leaf"></i>
+                <i data-lucide="leaf" class="gallery-icon"></i>
               </div>
               <div
                 class="gallery-item aspect-square bg-gradient-to-br from-slate-100 to-slate-200 rounded-xl flex items-center justify-center text-5xl cursor-pointer transition-all duration-300 relative overflow-hidden"
               >
-                <i data-lucide="users"></i>
+                <i data-lucide="users" class="gallery-icon"></i>
               </div>
               <div
                 class="gallery-item aspect-square bg-gradient-to-br from-slate-100 to-slate-200 rounded-xl flex items-center justify-center text-5xl cursor-pointer transition-all duration-300 relative overflow-hidden"
               >
-                <i data-lucide="palette"></i>
+                <i data-lucide="palette" class="gallery-icon"></i>
               </div>
               <div
                 class="gallery-item aspect-square bg-gradient-to-br from-slate-100 to-slate-200 rounded-xl flex items-center justify-center text-5xl cursor-pointer transition-all duration-300 relative overflow-hidden"
               >
-                <i data-lucide="cookie"></i>
+                <i data-lucide="cookie" class="gallery-icon"></i>
               </div>
               <div
                 class="gallery-item aspect-square bg-gradient-to-br from-slate-100 to-slate-200 rounded-xl flex items-center justify-center text-5xl cursor-pointer transition-all duration-300 relative overflow-hidden"
               >
-                <i data-lucide="lightbulb"></i>
+                <i data-lucide="lightbulb" class="gallery-icon"></i>
               </div>
             </div>
           </div>
@@ -855,20 +996,253 @@
           this.classList.add("active");
         });
       });
-    </script>
 
-    <style>
-      /* Hilangkan scrollbar di berbagai browser */
-      html,
-      body {
-        /* Untuk Chrome, Safari, dan Opera */
-        scrollbar-width: none; /* Firefox */
-        -ms-overflow-style: none; /* Internet Explorer and Edge */
+      // Scroll to contact section
+      function scrollToContact() {
+        document.getElementById("contact-card").scrollIntoView({
+          behavior: "smooth",
+        });
       }
-      html::-webkit-scrollbar,
-      body::-webkit-scrollbar {
-        display: none;
+
+      // Scroll to top
+      function scrollToTop() {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
       }
-    </style>
+
+      // Show/hide back to top button
+      window.addEventListener("scroll", function () {
+        const backToTop = document.querySelector(".back-to-top");
+        if (window.scrollY > 300) {
+          backToTop.classList.add("visible");
+        } else {
+          backToTop.classList.remove("visible");
+        }
+      });
+
+      // Motion One animations
+      document.addEventListener("DOMContentLoaded", function () {
+        // Navbar animation
+        motion.animate(
+          "#navbar",
+          {
+            opacity: [0, 1],
+            y: [-50, 0],
+          },
+          {
+            duration: 0.8,
+            easing: "ease-out",
+          }
+        );
+
+        // Sidebar cards animation
+        motion.animate(
+          "#category-card",
+          {
+            opacity: [0, 1],
+            x: [-30, 0],
+          },
+          {
+            duration: 0.6,
+            delay: 0.2,
+            easing: "ease-out",
+          }
+        );
+
+        motion.animate(
+          "#contact-card",
+          {
+            opacity: [0, 1],
+            x: [-30, 0],
+          },
+          {
+            duration: 0.6,
+            delay: 0.3,
+            easing: "ease-out",
+          }
+        );
+
+        // Hero card animation
+        motion.animate(
+          "#hero-card",
+          {
+            opacity: [0, 1],
+            y: [30, 0],
+          },
+          {
+            duration: 0.8,
+            easing: "ease-out",
+          }
+        );
+
+        // Staggered hero content animation
+        motion.animate(
+          "#hero-title",
+          {
+            opacity: [0, 1],
+            y: [20, 0],
+          },
+          {
+            duration: 0.7,
+            delay: 0.2,
+            easing: "ease-out",
+          }
+        );
+
+        motion.animate(
+          ".rating-container",
+          {
+            opacity: [0, 1],
+            x: [-20, 0],
+          },
+          {
+            duration: 0.6,
+            delay: 0.4,
+            easing: "ease-out",
+          }
+        );
+
+        motion.animate(
+          "#hero-description",
+          {
+            opacity: [0, 1],
+            y: [20, 0],
+          },
+          {
+            duration: 0.8,
+            delay: 0.6,
+            easing: "ease-out",
+          }
+        );
+
+        // Info grid cards animation with stagger
+        const infoCards = document.querySelectorAll(".info-card");
+        infoCards.forEach((card, index) => {
+          motion.animate(
+            card,
+            {
+              opacity: [0, 1],
+              y: [30, 0],
+            },
+            {
+              duration: 0.6,
+              delay: 0.8 + index * 0.1,
+              easing: "ease-out",
+            }
+          );
+        });
+
+        // Features card animation
+        motion.animate(
+          "#features-card",
+          {
+            opacity: [0, 1],
+            y: [30, 0],
+          },
+          {
+            duration: 0.7,
+            delay: 1.2,
+            easing: "ease-out",
+          }
+        );
+
+        // Menu card animation
+        motion.animate(
+          "#menu-card",
+          {
+            opacity: [0, 1],
+            y: [30, 0],
+          },
+          {
+            duration: 0.7,
+            delay: 1.4,
+            easing: "ease-out",
+          }
+        );
+
+        // Gallery card animation
+        motion.animate(
+          "#gallery-card",
+          {
+            opacity: [0, 1],
+            y: [30, 0],
+          },
+          {
+            duration: 0.7,
+            delay: 1.6,
+            easing: "ease-out",
+          }
+        );
+
+        // Add hover animations to interactive elements
+        document
+          .querySelectorAll(
+            ".category-item, .contact-item, .sidebar-card, .info-card, .feature-item, .menu-item, .gallery-item"
+          )
+          .forEach((item) => {
+            item.addEventListener("mouseenter", () => {
+              motion.animate(
+                item,
+                {
+                  scale: [1, 1.02],
+                },
+                {
+                  duration: 0.2,
+                  easing: "ease-out",
+                }
+              );
+            });
+
+            item.addEventListener("mouseleave", () => {
+              motion.animate(
+                item,
+                {
+                  scale: [1.02, 1],
+                },
+                {
+                  duration: 0.2,
+                  easing: "ease-out",
+                }
+              );
+            });
+          });
+
+        // Add scroll-triggered animations for cards
+        const observerOptions = {
+          threshold: 0.1,
+          rootMargin: "0px 0px -50px 0px",
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              motion.animate(
+                entry.target,
+                {
+                  opacity: [0, 1],
+                  y: [30, 0],
+                },
+                {
+                  duration: 0.6,
+                  easing: "ease-out",
+                }
+              );
+              observer.unobserve(entry.target);
+            }
+          });
+        }, observerOptions);
+
+        // Observe all cards for scroll animations
+        document
+          .querySelectorAll(
+            ".sidebar-card, .info-card, .features-card, .menu-card, .gallery-card"
+          )
+          .forEach((card) => {
+            observer.observe(card);
+          });
+      });
+    </script>
   </body>
 </html>
