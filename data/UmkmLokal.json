@@ -1,72 +1,79 @@
 [
   {
     "id": 1,
-    "nama": "Kopi Nusantara",
+    "nama": "Kopi Senja Nusantara",
     "kategori": "makanan",
-    "deskripsi": "Produk kopi asli dari petani lokal, biji pilihan 100% arabika. Diolah dengan teknik roasting terbaik untuk menghasilkan cita rasa yang khas.",
+    "description": "Kedai kopi artisan yang menghadirkan biji kopi pilihan dari petani lokal dengan suasana hangat dan modern.",
     "kontak": {
-      "instagram": "@kopinusantara",
-      "telepon": "08123456789"
+      "instagram": "@kopisenja",
+      "telepon": "0812-8899-2211"
     },
-    "lokasi": "Jl. Merdeka No. 10",
-    "icon": "coffee"
+    "lokasi": "Jl. Mawar No. 12, Bandung",
+    "icon": "coffee",
+    "gambar": "https://images.unsplash.com/photo-1511920170033-f8396924c348"
   },
   {
     "id": 2,
-    "nama": "Batik Canting Rasa",
-    "kategori": "fashion",
-    "deskripsi": "Usaha batik tradisional dengan motif khas daerah. Menggunakan teknik canting tulis untuk menghasilkan karya yang bernilai seni tinggi.",
+    "nama": "Bakso Juara Malang",
+    "kategori": "makanan",
+    "description": "Bakso homemade dengan kuah gurih dan pilihan topping lengkap.",
     "kontak": {
-      "instagram": "@batikcantingrasa",
-      "telepon": "08123456788"
+      "whatsapp": "0851-7712-3321",
+      "telepon": "0851-7712-3321"
     },
-    "lokasi": "Jl. Melati No. 3",
-    "icon": "shirt"
+    "lokasi": "Jl. Ijen No. 20, Malang",
+    "icon": "beef",
+    "gambar": "https://images.unsplash.com/photo-1604908813026-0e6c8aa1f8fb"
   },
   {
     "id": 3,
-    "nama": "Kuliner Bu Tini",
-    "kategori": "makanan",
-    "deskripsi": "Masakan rumahan dan catering lokal dengan cita rasa khas. Menggunakan bahan-bahan segar dan resep turun temurun.",
+    "nama": "CraftyWood Studio",
+    "kategori": "kerajinan",
+    "description": "UMKM pengrajin kayu dengan produk custom seperti meja, kursi, dan dekorasi.",
     "kontak": {
-      "telepon": "08123456787"
+      "instagram": "@craftywood.id",
+      "telepon": "0838-1122-4455"
     },
-    "lokasi": "Jl. Mangga No. 5",
-    "icon": "utensils"
+    "lokasi": "Jl. Melati No. 5, Yogyakarta, Indonesia",
+    "icon": "hammer",
+    "gambar": "https://images.unsplash.com/photo-1503387762-592deb58ef4e"
   },
   {
     "id": 4,
-    "nama": "Kerajinan Rotan Alam",
-    "kategori": "kerajinan",
-    "deskripsi": "Produk kerajinan rotan berkualitas dengan desain modern dan tradisional. Tahan lama dan ramah lingkungan.",
+    "nama": "Lurik Nusantara",
+    "kategori": "fashion",
+    "description": "UMKM fashion lokal yang memproduksi kain lurik dan baju etnik modern khas Indonesia.",
     "kontak": {
-      "instagram": "@rotanalam",
-      "telepon": "08123456786"
+      "instagram": "@luriknusantara",
+      "telepon": "0812-3344-5566"
     },
-    "lokasi": "Jl. Bambu No. 15",
-    "icon": "package"
+    "lokasi": "Jl. Batik No. 9, Solo",
+    "icon": "shirt",
+    "gambar": "https://images.unsplash.com/photo-1512436991641-6745cdb1723f"
   },
   {
     "id": 5,
-    "nama": "Tas Rajut Klasik",
-    "kategori": "fashion",
-    "deskripsi": "Tas rajut dengan desain klasik dan modern. Dibuat dengan teknik rajut tradisional yang teliti.",
+    "nama": "GlowSkin Aesthetic",
+    "kategori": "kecantikan",
+    "description": "Produk skincare UMKM dermatology grade dengan bahan aman dan BPOM.",
     "kontak": {
-      "instagram": "@tasrajutklasik",
-      "telepon": "08123456785"
+      "instagram": "@glowskin.id",
+      "telepon": "0822-5454-1981"
     },
-    "lokasi": "Jl. Sutera No. 8",
-    "icon": "shopping-bag"
+    "lokasi": "-",
+    "icon": "droplet",
+    "gambar": "https://images.unsplash.com/photo-1600185365483-26d7a4ea8efc"
   },
   {
     "id": 6,
-    "nama": "Jasa Service Elektronik",
+    "nama": "TechFix Gadget Repair",
     "kategori": "jasa",
-    "deskripsi": "Layanan perbaikan elektronik rumah tangga dengan teknisi berpengalaman. Gratis konsultasi dan pengecekan.",
+    "description": "Jasa servis smartphone, laptop, dan perangkat elektronik.",
     "kontak": {
-      "telepon": "08123456784"
+      "telepon": "0813-4411-9002"
     },
-    "lokasi": "Jl. Listrik No. 22",
-    "icon": "settings"
+    "lokasi": "Jl. Anggrek No. 9, Jakarta",
+    "icon": "tool",
+    "gambar": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8"
   }
 ]

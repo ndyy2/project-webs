@@ -1,0 +1,1897 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Detail Layanan Masyarakat - Pusat Layanan Kota</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+    <style>
+      * {
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+      }
+
+      *::-webkit-scrollbar {
+        display: none;
+      }
+
+      body {
+        overflow-x: hidden;
+        max-width: 100vw;
+        height: 100vh;
+        overflow-y: auto;
+      }
+
+      .card-gradient {
+        background: linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.95) 0%,
+          rgba(255, 255, 255, 0.9) 100%
+        );
+      }
+
+      .glass-shadow {
+        box-shadow: 0 8px 32px 0 rgba(30, 64, 175, 0.1);
+      }
+
+      .fun-bg {
+        background: linear-gradient(
+          135deg,
+          #eff6ff 0%,
+          #f0fdfa 50%,
+          #fffbeb 100%
+        );
+      }
+
+      .teal-gradient {
+        background: linear-gradient(135deg, #14b8a6 0%, #0d9488 100%);
+      }
+
+      .blue-gradient {
+        background: linear-gradient(135deg, #1e40af 0%, #1d4ed8 100%);
+      }
+
+      .yellow-gradient {
+        background: linear-gradient(135deg, #fcd34d 0%, #f59e0b 100%);
+      }
+
+      .soft-blue-gradient {
+        background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+      }
+
+      .soft-teal-gradient {
+        background: linear-gradient(135deg, #f0fdfa 0%, #ccfbf1 100%);
+      }
+
+      /* Hover effect yang lebih halus dengan fill masuk */
+      .hover-fill {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hover-fill::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          135deg,
+          rgba(30, 64, 175, 0.15) 0%,
+          rgba(20, 184, 166, 0.15) 100%
+        );
+        transition: left 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 0;
+      }
+
+      .hover-fill:hover::before {
+        left: 0;
+      }
+
+      .hover-fill > * {
+        position: relative;
+        z-index: 1;
+      }
+
+      /* Hover effect untuk kategori sidebar */
+      .category-item {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .category-item::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, #1e40af 0%, #14b8a6 100%);
+        transition: left 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 0;
+      }
+
+      .category-item:hover::before {
+        left: 0;
+      }
+
+      .category-item > * {
+        position: relative;
+        z-index: 1;
+        transition: color 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .category-item:hover > * {
+        color: white;
+      }
+
+      /* Active category */
+      .category-active::before {
+        left: 0;
+      }
+
+      .category-active > * {
+        color: white;
+      }
+
+      /* Infinite scroll animations */
+      @keyframes scrollLeft {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-50%);
+        }
+      }
+
+      @keyframes scrollRight {
+        0% {
+          transform: translateX(-50%);
+        }
+        100% {
+          transform: translateX(0);
+        }
+      }
+
+      .animate-scroll-left {
+        animation: scrollLeft 30s linear infinite;
+      }
+
+      .animate-scroll-right {
+        animation: scrollRight 30s linear infinite;
+      }
+
+      /* Modal styles */
+      .modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.9);
+        z-index: 9999;
+        padding: 1rem;
+        overflow-y: auto;
+      }
+
+      .modal.active {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        animation: fadeIn 0.3s ease;
+      }
+
+      .modal-content {
+        position: relative;
+        max-width: 90vw;
+        max-height: 90vh;
+        animation: scaleIn 0.3s ease;
+      }
+
+      @keyframes scaleIn {
+        0% {
+          transform: scale(0.8);
+          opacity: 0;
+        }
+        100% {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+
+      @keyframes fadeIn {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+
+      .bounce-soft {
+        animation: bounceSoft 3s ease-in-out infinite;
+      }
+
+      @keyframes bounceSoft {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-5px);
+        }
+      }
+
+      /* Responsive container */
+      .container-responsive {
+        max-width: 100%;
+        width: 100%;
+        box-sizing: border-box;
+      }
+
+      /* Gallery item hover */
+      .gallery-item {
+        position: relative;
+        overflow: hidden;
+        cursor: pointer;
+      }
+
+      .gallery-item::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          135deg,
+          rgba(30, 64, 175, 0.3) 0%,
+          rgba(20, 184, 166, 0.3) 100%
+        );
+        opacity: 0;
+        transition: opacity 0.4s ease;
+      }
+
+      .gallery-item:hover::after {
+        opacity: 1;
+      }
+
+      .gallery-item .icon-container {
+        transition: transform 0.4s ease;
+      }
+
+      .gallery-item:hover .icon-container {
+        transform: scale(1.2);
+      }
+
+      /* Gallery grid layout */
+      .gallery-scroll-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+        gap: 1rem;
+      }
+
+      /* Image gallery modal */
+      .modal-image {
+        display: none;
+        width: 100%;
+        height: auto;
+        max-height: 80vh;
+        object-fit: contain;
+        border-radius: 1rem;
+      }
+
+      .modal-image.active {
+        display: block;
+      }
+
+      .modal-nav {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(10px);
+        border: none;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        z-index: 10;
+        transition: all 0.3s ease;
+      }
+
+      .modal-nav:hover {
+        background: rgba(255, 255, 255, 0.3);
+        transform: translateY(-50%) scale(1.1);
+      }
+
+      .modal-nav.prev {
+        left: 20px;
+      }
+
+      .modal-nav.next {
+        right: 20px;
+      }
+
+      .modal-counter {
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: rgba(0, 0, 0, 0.5);
+        color: white;
+        padding: 5px 15px;
+        border-radius: 20px;
+        font-size: 0.9rem;
+      }
+
+      /* Container untuk infinite scroll yang tidak keluar */
+      .scroll-container {
+        overflow: hidden;
+        position: relative;
+      }
+
+      .scroll-container::before,
+      .scroll-container::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        width: 100px;
+        height: 100%;
+        z-index: 2;
+        pointer-events: none;
+      }
+
+      .scroll-container::before {
+        left: 0;
+        background: linear-gradient(
+          to right,
+          rgba(255, 255, 255, 1) 0%,
+          rgba(255, 255, 255, 0) 100%
+        );
+      }
+
+      .scroll-container::after {
+        right: 0;
+        background: linear-gradient(
+          to left,
+          rgba(255, 255, 255, 1) 0%,
+          rgba(255, 255, 255, 0) 100%
+        );
+      }
+
+      /* Main content height restriction */
+      .main-content-container {
+        height: calc(100vh - 140px);
+        overflow-y: auto;
+      }
+
+      @media (min-width: 1024px) {
+        .main-content-container {
+          height: calc(100vh - 140px);
+        }
+      }
+    </style>
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ["Inter", "sans-serif"],
+            },
+            colors: {
+              primary: {
+                DEFAULT: "#1E40AF",
+                50: "#EFF6FF",
+                100: "#DBEAFE",
+                200: "#BFDBFE",
+                300: "#93C5FD",
+                400: "#60A5FA",
+                500: "#3B82F6",
+                600: "#2563EB",
+                700: "#1D4ED8",
+                800: "#1E40AF",
+                900: "#1E3A8A",
+              },
+              accent: {
+                DEFAULT: "#14B8A6",
+                50: "#F0FDFA",
+                100: "#CCFBF1",
+                200: "#99F6E4",
+                300: "#5EEAD4",
+                400: "#2DD4BF",
+                500: "#14B8A6",
+                600: "#0D9488",
+                700: "#0F766E",
+                800: "#115E59",
+                900: "#134E4A",
+              },
+              success: "#10B981",
+              warning: "#F59E0B",
+            },
+            keyframes: {
+              fadeIn: {
+                "0%": { opacity: "0", transform: "translateY(20px)" },
+                "100%": { opacity: "1", transform: "translateY(0)" },
+              },
+              slideDown: {
+                "0%": { opacity: "0", transform: "translateY(-100px)" },
+                "100%": { opacity: "1", transform: "translateY(0)" },
+              },
+              slideRight: {
+                "0%": { opacity: "0", transform: "translateX(-50px)" },
+                "100%": { opacity: "1", transform: "translateX(0)" },
+              },
+              slideUp: {
+                "0%": { opacity: "0", transform: "translateY(50px)" },
+                "100%": { opacity: "1", transform: "translateY(0)" },
+              },
+            },
+            animation: {
+              fadeIn: "fadeIn 0.8s ease forwards",
+              slideDown: "slideDown 0.6s ease forwards",
+              slideRight: "slideRight 0.6s ease forwards",
+              slideUp: "slideUp 0.8s ease forwards",
+            },
+          },
+        },
+      };
+
+      document.addEventListener("DOMContentLoaded", function () {
+        lucide.createIcons();
+      });
+    </script>
+  </head>
+  <body class="min-h-screen fun-bg p-3 font-sans md:p-5 container-responsive">
+    <div
+      class="mx-auto max-w-[1400px] animate-fadeIn container-responsive h-full"
+    >
+      <!-- Header dengan breadcrumb -->
+      <div
+        class="mb-4 flex animate-slideDown items-center gap-4 rounded-3xl card-gradient p-4 px-6 glass-shadow backdrop-blur-lg container-responsive"
+      >
+        <button
+          class="hover-fill group flex cursor-pointer items-center gap-2 rounded-xl blue-gradient px-5 py-2.5 text-sm font-semibold text-white transition-all duration-300 ease-in-out hover:shadow-xl bounce-soft"
+          onclick="history.back()"
+        >
+          <i data-lucide="arrow-left" class="h-4 w-4"></i>
+          Kembali
+        </button>
+        <div class="text-sm text-slate-500 truncate">
+          Beranda / Layanan Masyarakat /
+          <span class="font-semibold text-primary">Detail</span>
+        </div>
+      </div>
+
+      <div
+        class="grid grid-cols-1 gap-4 lg:grid-cols-[320px_1fr] lg:animate-fadeIn container-responsive h-[calc(100vh-140px)]"
+      >
+        <!-- Sidebar -->
+        <aside
+          class="order-2 flex flex-col gap-4 lg:order-1 lg:sticky lg:top-6 lg:max-h-[calc(100vh-48px)] lg:overflow-y-auto"
+        >
+          <!-- Kategori Layanan -->
+          <div
+            class="animate-slideRight rounded-3xl card-gradient border border-white/50 p-6 glass-shadow backdrop-blur-lg transition-all duration-300 ease-in-out hover:shadow-xl"
+          >
+            <h3
+              class="mb-4 flex items-center gap-2 text-lg font-bold text-primary"
+            >
+              <i data-lucide="list" class="h-5 w-5"></i>
+              Kategori Layanan
+            </h3>
+            <div class="flex flex-col gap-2.5">
+              <div
+                class="category-item category-active flex cursor-pointer items-center gap-3 rounded-xl px-4 py-3 text-sm font-semibold transition-all duration-300 ease-in-out"
+              >
+                <i data-lucide="graduation-cap" class="h-4 w-4"></i>
+                <span>Pendidikan</span>
+              </div>
+              <div
+                class="category-item flex cursor-pointer items-center gap-3 rounded-xl soft-blue-gradient px-4 py-3 text-sm font-semibold text-primary transition-all duration-300 ease-in-out"
+              >
+                <i data-lucide="file-text" class="h-4 w-4"></i>
+                <span>Administrasi</span>
+              </div>
+              <div
+                class="category-item flex cursor-pointer items-center gap-3 rounded-xl soft-blue-gradient px-4 py-3 text-sm font-semibold text-primary transition-all duration-300 ease-in-out"
+              >
+                <i data-lucide="heart" class="h-4 w-4"></i>
+                <span>Kesehatan</span>
+              </div>
+              <div
+                class="category-item flex cursor-pointer items-center gap-3 rounded-xl soft-blue-gradient px-4 py-3 text-sm font-semibold text-primary transition-all duration-300 ease-in-out"
+              >
+                <i data-lucide="home" class="h-4 w-4"></i>
+                <span>Perumahan</span>
+              </div>
+              <div
+                class="category-item flex cursor-pointer items-center gap-3 rounded-xl soft-blue-gradient px-4 py-3 text-sm font-semibold text-primary transition-all duration-300 ease-in-out"
+              >
+                <i data-lucide="shield" class="h-4 w-4"></i>
+                <span>Keamanan</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hubungi Kami -->
+          <div
+            class="animate-slideRight rounded-3xl card-gradient border border-white/50 p-6 glass-shadow backdrop-blur-lg transition-all duration-300 ease-in-out hover:shadow-xl"
+          >
+            <h3
+              class="mb-4 flex items-center gap-2 text-lg font-bold text-primary"
+            >
+              <i data-lucide="phone" class="h-5 w-5"></i>
+              Hubungi Kami
+            </h3>
+            <div
+              class="hover-fill group mb-3 flex cursor-pointer items-center gap-3 rounded-xl soft-teal-gradient p-[14px] transition-all duration-300 ease-in-out hover:shadow-md"
+              data-contact-item="whatsapp"
+            >
+              <div
+                class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-white text-accent transition-all duration-300"
+              >
+                <i data-lucide="message-circle" class="h-5 w-5"></i>
+              </div>
+              <div class="flex-1">
+                <div class="text-xs font-medium text-slate-500">WhatsApp</div>
+                <div class="mt-0.5 text-sm font-bold text-slate-800">
+                  +62 812-3456-7890
+                </div>
+              </div>
+            </div>
+            <div
+              class="hover-fill group mb-3 flex cursor-pointer items-center gap-3 rounded-xl soft-teal-gradient p-[14px] transition-all duration-300 ease-in-out hover:shadow-md"
+              data-contact-item="instagram"
+            >
+              <div
+                class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-white text-accent transition-all duration-300"
+              >
+                <i data-lucide="instagram" class="h-5 w-5"></i>
+              </div>
+              <div class="flex-1">
+                <div class="text-xs font-medium text-slate-500">Instagram</div>
+                <div class="mt-0.5 text-sm font-bold text-slate-800">
+                  @layanankota_sby
+                </div>
+              </div>
+            </div>
+            <div
+              class="hover-fill group flex cursor-pointer items-center gap-3 rounded-xl soft-teal-gradient p-[14px] transition-all duration-300 ease-in-out hover:shadow-md"
+              data-contact-item="email"
+            >
+              <div
+                class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-white text-accent transition-all duration-300"
+              >
+                <i data-lucide="mail" class="h-5 w-5"></i>
+              </div>
+              <div class="flex-1">
+                <div class="text-xs font-medium text-slate-500">Email</div>
+                <div class="mt-0.5 text-sm font-bold text-slate-800">
+                  info@layanankota-sby.id
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Info Cepat -->
+          <div
+            class="animate-slideRight rounded-3xl card-gradient border border-white/50 p-6 glass-shadow backdrop-blur-lg transition-all duration-300 ease-in-out hover:shadow-xl"
+          >
+            <h3
+              class="mb-4 flex items-center gap-2 text-lg font-bold text-primary"
+            >
+              <i data-lucide="info" class="h-5 w-5"></i>
+              Info Cepat
+            </h3>
+            <div class="space-y-3" data-quick-info>
+              <div class="flex items-center gap-3 text-sm text-slate-600">
+                <i
+                  data-lucide="clock"
+                  class="h-4 w-4 text-accent flex-shrink-0"
+                ></i>
+                <span>Senin - Jumat, 08:00 - 16:00 WIB</span>
+              </div>
+              <div class="flex items-center gap-3 text-sm text-slate-600">
+                <i
+                  data-lucide="map-pin"
+                  class="h-4 w-4 text-accent flex-shrink-0"
+                ></i>
+                <span>Jl. Merdeka No. 45, Surabaya</span>
+              </div>
+              <div class="flex items-center gap-3 text-sm text-slate-600">
+                <i
+                  data-lucide="car"
+                  class="h-4 w-4 text-accent flex-shrink-0"
+                ></i>
+                <span>Parkir tersedia gratis</span>
+              </div>
+              <div class="flex items-center gap-3 text-sm text-slate-600">
+                <i
+                  data-lucide="wheelchair"
+                  class="h-4 w-4 text-accent flex-shrink-0"
+                ></i>
+                <span>Akses difabel tersedia</span>
+              </div>
+            </div>
+          </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main
+          class="order-1 flex flex-col gap-4 lg:order-2 container-responsive main-content-container"
+        >
+          <!-- Hero Section -->
+          <div
+            style="border-radius: 20px; min-height: 600px"
+            class="animate-slideUp overflow-hidden rounded-4xl card-gradient glass-shadow backdrop-blur-lg container-responsive"
+          >
+            <div
+              class="h-[200px] w-full md:h-[250px] relative"
+              data-hero-banner
+            >
+              <img
+                src="gambar.jpg"
+                alt="Gedung Pusat Layanan Masyarakat"
+                class="h-full w-full object-cover"
+                data-hero-image
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent flex items-end"
+              >
+                <div class="p-6 text-white">
+                  <div
+                    class="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm rounded-full px-4 py-1.5 mb-3 bounce-soft"
+                    data-hero-badge
+                  >
+                    <i
+                      data-lucide="star"
+                      class="h-4 w-4 text-yellow-300"
+                      data-hero-badge-icon
+                    ></i>
+                    <span class="text-sm font-medium" data-hero-badge-text
+                      >Layanan Terbaik 2023</span
+                    >
+                  </div>
+                  <h1
+                    class="text-2xl md:text-3xl font-black leading-tight max-w-2xl"
+                    data-service-name
+                  >
+                    Sedang Memuat Data
+                  </h1>
+                </div>
+              </div>
+            </div>
+            <div class="p-6 md:p-8">
+              <div
+                class="space-y-3 text-base font-normal leading-relaxed text-slate-600"
+                data-service-description
+              >
+                <p>Sedang Memuat Data</p>
+              </div>
+
+              <!-- CTA Buttons -->
+              <div class="mt-6 flex flex-wrap gap-3">
+                <a href="#galery">
+                  <button
+                    class="hover-fill flex items-center gap-2 rounded-xl teal-gradient px-5 py-3 text-sm font-semibold text-white transition-all duration-300 ease-in-out hover:shadow-xl bounce-soft"
+                  >
+                    <i data-lucide="calendar" class="h-4 w-4"></i>
+                    Lihat Galeri
+                  </button>
+                </a>
+                <button
+                  class="hover-fill flex items-center gap-2 rounded-xl yellow-gradient px-5 py-3 text-sm font-semibold text-slate-800 transition-all duration-300 ease-in-out hover:shadow-xl bounce-soft"
+                >
+                  <i data-lucide="download" class="h-4 w-4"></i>
+                  Unduh Brosur
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Informasi Utama dengan Infinite Scroll -->
+          <div
+            style="min-height: 400px"
+            class="animate-fadeIn rounded-3xl card-gradient p-6 glass-shadow backdrop-blur-lg [animation-delay:'0.4s'] [animation-fill-mode:'both'] overflow-hidden container-responsive"
+          >
+            <h2
+              class="mb-4 flex items-center gap-3 text-xl font-extrabold text-primary"
+            >
+              <i data-lucide="info" class="h-5 w-5"></i>
+              Informasi Layanan
+            </h2>
+
+            <!-- First Row - Scroll Left -->
+            <div class="scroll-container mb-4 overflow-hidden">
+              <div class="flex animate-scroll-left gap-4">
+                <!-- Duplicate items untuk seamless loop -->
+                <div class="flex gap-4">
+                  <!-- Jam Operasional -->
+                  <div
+                    class="hover-fill group flex items-start gap-3 rounded-2xl soft-blue-gradient p-4 transition-all duration-300 ease-in-out hover:shadow-md w-[280px] flex-shrink-0"
+                  >
+                    <div
+                      class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl blue-gradient text-white"
+                    >
+                      <i data-lucide="clock" class="h-5 w-5"></i>
+                    </div>
+                    <div>
+                      <h3 class="mb-1 text-sm font-semibold text-slate-500">
+                        Jam Operasional
+                      </h3>
+                      <p class="text-base font-bold text-slate-800">
+                        Senin - Jumat
+                      </p>
+                      <p class="text-base font-bold text-slate-800">
+                        08:00 - 16:00 WIB
+                      </p>
+                      <p class="mt-1 text-xs text-slate-500">
+                        Sabtu: 08:00 - 12:00 WIB
+                      </p>
+                    </div>
+                  </div>
+
+                  <!-- Lokasi -->
+                  <div
+                    class="hover-fill group flex items-start gap-3 rounded-2xl soft-blue-gradient p-4 transition-all duration-300 ease-in-out hover:shadow-md w-[280px] flex-shrink-0"
+                  >
+                    <div
+                      class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl blue-gradient text-white"
+                    >
+                      <i data-lucide="map-pin" class="h-5 w-5"></i>
+                    </div>
+                    <div>
+                      <h3 class="mb-1 text-sm font-semibold text-slate-500">
+                        Lokasi
+                      </h3>
+                      <p class="text-base font-bold text-slate-800">
+                        Jl. Merdeka No. 45
+                      </p>
+                      <p class="text-base font-bold text-slate-800">
+                        Surabaya, Jawa Timur
+                      </p>
+                      <button
+                        class="mt-2 flex items-center gap-1 text-xs font-medium text-accent hover:text-accent-600 transition-colors"
+                      >
+                        <i data-lucide="navigation" class="h-3 w-3"></i>
+                        Lihat di Peta
+                      </button>
+                    </div>
+                  </div>
+
+                  <!-- Layanan Utama -->
+                  <div
+                    class="hover-fill group flex items-start gap-3 rounded-2xl soft-blue-gradient p-4 transition-all duration-300 ease-in-out hover:shadow-md w-[280px] flex-shrink-0"
+                  >
+                    <div
+                      class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl blue-gradient text-white"
+                    >
+                      <i data-lucide="clipboard-list" class="h-5 w-5"></i>
+                    </div>
+                    <div>
+                      <h3 class="mb-1 text-sm font-semibold text-slate-500">
+                        Layanan Utama
+                      </h3>
+                      <div class="flex flex-wrap gap-1 mt-2">
+                        <span
+                          class="inline-flex items-center gap-1 rounded-full bg-accent/10 px-2 py-1 text-xs font-medium text-accent"
+                        >
+                          <i data-lucide="file-text" class="h-3 w-3"></i>
+                          Administrasi
+                        </span>
+                        <span
+                          class="inline-flex items-center gap-1 rounded-full bg-accent/10 px-2 py-1 text-xs font-medium text-accent"
+                        >
+                          <i data-lucide="heart" class="h-3 w-3"></i>
+                          Kesehatan
+                        </span>
+                        <span
+                          class="inline-flex items-center gap-1 rounded-full bg-accent/10 px-2 py-1 text-xs font-medium text-accent"
+                        >
+                          <i data-lucide="graduation-cap" class="h-3 w-3"></i>
+                          Pendidikan
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Fasilitas -->
+                  <div
+                    class="hover-fill group flex items-start gap-3 rounded-2xl soft-blue-gradient p-4 transition-all duration-300 ease-in-out hover:shadow-md w-[280px] flex-shrink-0"
+                  >
+                    <div
+                      class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl blue-gradient text-white"
+                    >
+                      <i data-lucide="car" class="h-5 w-5"></i>
+                    </div>
+                    <div>
+                      <h3 class="mb-1 text-sm font-semibold text-slate-500">
+                        Fasilitas
+                      </h3>
+                      <div class="space-y-1">
+                        <div
+                          class="flex items-center gap-2 text-slate-700 text-xs"
+                        >
+                          <i
+                            data-lucide="check-circle"
+                            class="h-3 w-3 text-success"
+                          ></i>
+                          <span>Parkir Gratis</span>
+                        </div>
+                        <div
+                          class="flex items-center gap-2 text-slate-700 text-xs"
+                        >
+                          <i
+                            data-lucide="check-circle"
+                            class="h-3 w-3 text-success"
+                          ></i>
+                          <span>Ruang Tunggu Nyaman</span>
+                        </div>
+                        <div
+                          class="flex items-center gap-2 text-slate-700 text-xs"
+                        >
+                          <i
+                            data-lucide="check-circle"
+                            class="h-3 w-3 text-success"
+                          ></i>
+                          <span>Akses Difabel</span>
+                        </div>
+                        <div
+                          class="flex items-center gap-2 text-slate-700 text-xs"
+                        >
+                          <i
+                            data-lucide="check-circle"
+                            class="h-3 w-3 text-success"
+                          ></i>
+                          <span>WiFi Gratis</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Duplicate for seamless loop -->
+                <div class="flex gap-4">
+                  <!-- Jam Operasional -->
+                  <div
+                    class="hover-fill group flex items-start gap-3 rounded-2xl soft-blue-gradient p-4 transition-all duration-300 ease-in-out hover:shadow-md w-[280px] flex-shrink-0"
+                  >
+                    <div
+                      class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl blue-gradient text-white"
+                    >
+                      <i data-lucide="clock" class="h-5 w-5"></i>
+                    </div>
+                    <div>
+                      <h3 class="mb-1 text-sm font-semibold text-slate-500">
+                        Jam Operasional
+                      </h3>
+                      <p class="text-base font-bold text-slate-800">
+                        Senin - Jumat
+                      </p>
+                      <p class="text-base font-bold text-slate-800">
+                        08:00 - 16:00 WIB
+                      </p>
+                      <p class="mt-1 text-xs text-slate-500">
+                        Sabtu: 08:00 - 12:00 WIB
+                      </p>
+                    </div>
+                  </div>
+
+                  <!-- Lokasi -->
+                  <div
+                    class="hover-fill group flex items-start gap-3 rounded-2xl soft-blue-gradient p-4 transition-all duration-300 ease-in-out hover:shadow-md w-[280px] flex-shrink-0"
+                  >
+                    <div
+                      class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl blue-gradient text-white"
+                    >
+                      <i data-lucide="map-pin" class="h-5 w-5"></i>
+                    </div>
+                    <div>
+                      <h3 class="mb-1 text-sm font-semibold text-slate-500">
+                        Lokasi
+                      </h3>
+                      <p class="text-base font-bold text-slate-800">
+                        Jl. Merdeka No. 45
+                      </p>
+                      <p class="text-base font-bold text-slate-800">
+                        Surabaya, Jawa Timur
+                      </p>
+                      <button
+                        class="mt-2 flex items-center gap-1 text-xs font-medium text-accent hover:text-accent-600 transition-colors"
+                      >
+                        <i data-lucide="navigation" class="h-3 w-3"></i>
+                        Lihat di Peta
+                      </button>
+                    </div>
+                  </div>
+
+                  <!-- Layanan Utama -->
+                  <div
+                    class="hover-fill group flex items-start gap-3 rounded-2xl soft-blue-gradient p-4 transition-all duration-300 ease-in-out hover:shadow-md w-[280px] flex-shrink-0"
+                  >
+                    <div
+                      class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl blue-gradient text-white"
+                    >
+                      <i data-lucide="clipboard-list" class="h-5 w-5"></i>
+                    </div>
+                    <div>
+                      <h3 class="mb-1 text-sm font-semibold text-slate-500">
+                        Layanan Utama
+                      </h3>
+                      <div class="flex flex-wrap gap-1 mt-2">
+                        <span
+                          class="inline-flex items-center gap-1 rounded-full bg-accent/10 px-2 py-1 text-xs font-medium text-accent"
+                        >
+                          <i data-lucide="file-text" class="h-3 w-3"></i>
+                          Administrasi
+                        </span>
+                        <span
+                          class="inline-flex items-center gap-1 rounded-full bg-accent/10 px-2 py-1 text-xs font-medium text-accent"
+                        >
+                          <i data-lucide="heart" class="h-3 w-3"></i>
+                          Kesehatan
+                        </span>
+                        <span
+                          class="inline-flex items-center gap-1 rounded-full bg-accent/10 px-2 py-1 text-xs font-medium text-accent"
+                        >
+                          <i data-lucide="graduation-cap" class="h-3 w-3"></i>
+                          Pendidikan
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Fasilitas -->
+                  <div
+                    class="hover-fill group flex items-start gap-3 rounded-2xl soft-blue-gradient p-4 transition-all duration-300 ease-in-out hover:shadow-md w-[280px] flex-shrink-0"
+                  >
+                    <div
+                      class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl blue-gradient text-white"
+                    >
+                      <i data-lucide="car" class="h-5 w-5"></i>
+                    </div>
+                    <div>
+                      <h3 class="mb-1 text-sm font-semibold text-slate-500">
+                        Fasilitas
+                      </h3>
+                      <div class="space-y-1">
+                        <div
+                          class="flex items-center gap-2 text-slate-700 text-xs"
+                        >
+                          <i
+                            data-lucide="check-circle"
+                            class="h-3 w-3 text-success"
+                          ></i>
+                          <span>Parkir Gratis</span>
+                        </div>
+                        <div
+                          class="flex items-center gap-2 text-slate-700 text-xs"
+                        >
+                          <i
+                            data-lucide="check-circle"
+                            class="h-3 w-3 text-success"
+                          ></i>
+                          <span>Ruang Tunggu Nyaman</span>
+                        </div>
+                        <div
+                          class="flex items-center gap-2 text-slate-700 text-xs"
+                        >
+                          <i
+                            data-lucide="check-circle"
+                            class="h-3 w-3 text-success"
+                          ></i>
+                          <span>Akses Difabel</span>
+                        </div>
+                        <div
+                          class="flex items-center gap-2 text-slate-700 text-xs"
+                        >
+                          <i
+                            data-lucide="check-circle"
+                            class="h-3 w-3 text-success"
+                          ></i>
+                          <span>WiFi Gratis</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Second Row - Scroll Right-->
+            <div class="scroll-container overflow-hidden">
+              <div class="flex animate-scroll-right">
+                <!-- Duplicate items untuk seamless loop -->
+                <div class="flex gap-4 flex-shrink-0">
+                  <!-- Kontak Darurat -->
+                  <div
+                    class="hover-fill group flex items-start gap-3 rounded-2xl soft-teal-gradient p-4 transition-all duration-300 ease-in-out hover:shadow-md w-[280px] flex-shrink-0"
+                  >
+                    <div
+                      class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl teal-gradient text-white"
+                    >
+                      <i data-lucide="phone-call" class="h-5 w-5"></i>
+                    </div>
+                    <div>
+                      <h3 class="mb-1 text-sm font-semibold text-slate-500">
+                        Kontak Darurat
+                      </h3>
+                      <p class="text-base font-bold text-slate-800">
+                        Hotline 24/7
+                      </p>
+                      <p class="text-base font-bold text-slate-800">
+                        (031) 123-4567
+                      </p>
+                      <p class="mt-1 text-xs text-slate-500">
+                        Siap melayani kapanpun
+                      </p>
+                    </div>
+                  </div>
+
+                  <!-- Estimasi Waktu -->
+                  <div
+                    class="hover-fill group flex items-start gap-3 rounded-2xl soft-teal-gradient p-4 transition-all duration-300 ease-in-out hover:shadow-md w-[280px] flex-shrink-0"
+                  >
+                    <div
+                      class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl teal-gradient text-white"
+                    >
+                      <i data-lucide="timer" class="h-5 w-5"></i>
+                    </div>
+                    <div>
+                      <h3 class="mb-1 text-sm font-semibold text-slate-500">
+                        Estimasi Waktu
+                      </h3>
+                      <p class="text-base font-bold text-slate-800">
+                        15-30 Menit
+                      </p>
+                      <p class="text-xs text-slate-500 mt-1">
+                        Per layanan administrasi
+                      </p>
+                      <p class="text-xs text-slate-500">
+                        Dengan sistem antrian digital
+                      </p>
+                    </div>
+                  </div>
+
+                  <!-- Rating -->
+                  <div
+                    class="hover-fill group flex items-start gap-3 rounded-2xl soft-teal-gradient p-4 transition-all duration-300 ease-in-out hover:shadow-md w-[280px] flex-shrink-0"
+                  >
+                    <div
+                      class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl teal-gradient text-white"
+                    >
+                      <i data-lucide="star" class="h-5 w-5"></i>
+                    </div>
+                    <div>
+                      <h3 class="mb-1 text-sm font-semibold text-slate-500">
+                        Rating Layanan
+                      </h3>
+                      <div class="flex items-center gap-2 mb-1">
+                        <p class="text-base font-bold text-slate-800">
+                          4.8/5.0
+                        </p>
+                        <div class="flex text-yellow-400">
+                          <i
+                            data-lucide="star"
+                            class="h-3 w-3 fill-current"
+                          ></i>
+                          <i
+                            data-lucide="star"
+                            class="h-3 w-3 fill-current"
+                          ></i>
+                          <i
+                            data-lucide="star"
+                            class="h-3 w-3 fill-current"
+                          ></i>
+                          <i
+                            data-lucide="star"
+                            class="h-3 w-3 fill-current"
+                          ></i>
+                          <i
+                            data-lucide="star"
+                            class="h-3 w-3 fill-current"
+                          ></i>
+                        </div>
+                      </div>
+                      <p class="text-xs text-slate-500">
+                        Dari 2.450+ review pengguna
+                      </p>
+                    </div>
+                  </div>
+
+                  <!-- Kapasitas -->
+                  <div
+                    class="hover-fill group flex items-start gap-3 rounded-2xl soft-teal-gradient p-4 transition-all duration-300 ease-in-out hover:shadow-md w-[280px] flex-shrink-0"
+                  >
+                    <div
+                      class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl teal-gradient text-white"
+                    >
+                      <i data-lucide="users" class="h-5 w-5"></i>
+                    </div>
+                    <div>
+                      <h3 class="mb-1 text-sm font-semibold text-slate-500">
+                        Kapasitas Harian
+                      </h3>
+                      <p class="text-base font-bold text-slate-800">
+                        500+ Pengunjung
+                      </p>
+                      <p class="text-xs text-slate-500 mt-1">
+                        Melayani rata-rata per hari
+                      </p>
+                      <p class="text-xs text-slate-500">
+                        Dengan protokol kesehatan
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Duplicate for seamless loop -->
+                <div class="flex gap-4 flex-shrink-0">
+                  <!-- Kontak Darurat -->
+                  <div
+                    class="hover-fill group flex items-start gap-3 rounded-2xl soft-teal-gradient p-4 transition-all duration-300 ease-in-out hover:shadow-md w-[280px] flex-shrink-0"
+                  >
+                    <div
+                      class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl teal-gradient text-white"
+                    >
+                      <i data-lucide="phone-call" class="h-5 w-5"></i>
+                    </div>
+                    <div>
+                      <h3 class="mb-1 text-sm font-semibold text-slate-500">
+                        Kontak Darurat
+                      </h3>
+                      <p class="text-base font-bold text-slate-800">
+                        Hotline 24/7
+                      </p>
+                      <p class="text-base font-bold text-slate-800">
+                        (031) 123-4567
+                      </p>
+                      <p class="mt-1 text-xs text-slate-500">
+                        Siap melayani kapanpun
+                      </p>
+                    </div>
+                  </div>
+
+                  <!-- Estimasi Waktu -->
+                  <div
+                    class="hover-fill group flex items-start gap-3 rounded-2xl soft-teal-gradient p-4 transition-all duration-300 ease-in-out hover:shadow-md w-[280px] flex-shrink-0"
+                  >
+                    <div
+                      class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl teal-gradient text-white"
+                    >
+                      <i data-lucide="timer" class="h-5 w-5"></i>
+                    </div>
+                    <div>
+                      <h3 class="mb-1 text-sm font-semibold text-slate-500">
+                        Estimasi Waktu
+                      </h3>
+                      <p class="text-base font-bold text-slate-800">
+                        15-30 Menit
+                      </p>
+                      <p class="text-xs text-slate-500 mt-1">
+                        Per layanan administrasi
+                      </p>
+                      <p class="text-xs text-slate-500">
+                        Dengan sistem antrian digital
+                      </p>
+                    </div>
+                  </div>
+
+                  <!-- Rating -->
+                  <div
+                    class="hover-fill group flex items-start gap-3 rounded-2xl soft-teal-gradient p-4 transition-all duration-300 ease-in-out hover:shadow-md w-[280px] flex-shrink-0"
+                  >
+                    <div
+                      class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl teal-gradient text-white"
+                    >
+                      <i data-lucide="star" class="h-5 w-5"></i>
+                    </div>
+                    <div>
+                      <h3 class="mb-1 text-sm font-semibold text-slate-500">
+                        Rating Layanan
+                      </h3>
+                      <div class="flex items-center gap-2 mb-1">
+                        <p class="text-base font-bold text-slate-800">
+                          4.8/5.0
+                        </p>
+                        <div class="flex text-yellow-400">
+                          <i
+                            data-lucide="star"
+                            class="h-3 w-3 fill-current"
+                          ></i>
+                          <i
+                            data-lucide="star"
+                            class="h-3 w-3 fill-current"
+                          ></i>
+                          <i
+                            data-lucide="star"
+                            class="h-3 w-3 fill-current"
+                          ></i>
+                          <i
+                            data-lucide="star"
+                            class="h-3 w-3 fill-current"
+                          ></i>
+                          <i
+                            data-lucide="star"
+                            class="h-3 w-3 fill-current"
+                          ></i>
+                        </div>
+                      </div>
+                      <p class="text-xs text-slate-500">
+                        Dari 2.450+ review pengguna
+                      </p>
+                    </div>
+                  </div>
+
+                  <!-- Kapasitas -->
+                  <div
+                    class="hover-fill group flex items-start gap-3 rounded-2xl soft-teal-gradient p-4 transition-all duration-300 ease-in-out hover:shadow-md w-[280px] flex-shrink-0"
+                  >
+                    <div
+                      class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl teal-gradient text-white"
+                    >
+                      <i data-lucide="users" class="h-5 w-5"></i>
+                    </div>
+                    <div>
+                      <h3 class="mb-1 text-sm font-semibold text-slate-500">
+                        Kapasitas Harian
+                      </h3>
+                      <p class="text-base font-bold text-slate-800">
+                        500+ Pengunjung
+                      </p>
+                      <p class="text-xs text-slate-500 mt-1">
+                        Melayani rata-rata per hari
+                      </p>
+                      <p class="text-xs text-slate-500">
+                        Dengan protokol kesehatan
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Galeri dengan Horizontal Scroll -->
+          <div
+            style="min-height: 500px"
+            class="animate-fadeIn rounded-3xl card-gradient p-6 glass-shadow backdrop-blur-lg [animation-delay:'0.6s'] [animation-fill-mode:'both'] overflow-hidden container-responsive"
+          >
+            <h2
+              id="galery"
+              class="mb-4 flex items-center gap-3 text-xl font-extrabold text-primary"
+            >
+              <i data-lucide="image" class="h-5 w-5"></i>
+              Galeri
+            </h2>
+
+            <!-- Gallery Horizontal Scroll -->
+            <div class="gallery-scroll-container">
+              <div
+                class="gallery-item aspect-square cursor-pointer overflow-hidden rounded-2xl soft-blue-gradient transition-all duration-300 ease-in-out hover:shadow-xl w-[180px] flex-shrink-0"
+                onclick="openImageModal(1)"
+              >
+                <img
+                  src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80"
+                  alt="Layanan Administrasi"
+                  class="h-full w-full object-cover"
+                />
+              </div>
+
+              <div
+                class="gallery-item aspect-square cursor-pointer overflow-hidden rounded-2xl soft-blue-gradient transition-all duration-300 ease-in-out hover:shadow-xl w-[180px] flex-shrink-0"
+                onclick="openImageModal(3)"
+              >
+                <img
+                  src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80"
+                  alt="Layanan Pendidikan"
+                  class="h-full w-full object-cover"
+                />
+              </div>
+
+              <div
+                class="gallery-item aspect-square cursor-pointer overflow-hidden rounded-2xl soft-blue-gradient transition-all duration-300 ease-in-out hover:shadow-xl w-[180px] flex-shrink-0"
+                onclick="openImageModal(4)"
+              >
+                <img
+                  src="https://images.unsplash.com/photo-1551836026-d5c2e3145b7e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80"
+                  alt="Ruang Tunggu"
+                  class="h-full w-full object-cover"
+                />
+              </div>
+
+              <div
+                class="gallery-item aspect-square cursor-pointer overflow-hidden rounded-2xl soft-blue-gradient transition-all duration-300 ease-in-out hover:shadow-xl w-[180px] flex-shrink-0"
+                onclick="openImageModal(5)"
+              >
+                <img
+                  src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80"
+                  alt="Fasilitas Digital"
+                  class="h-full w-full object-cover"
+                />
+              </div>
+
+              <div
+                class="gallery-item aspect-square cursor-pointer overflow-hidden rounded-2xl soft-blue-gradient transition-all duration-300 ease-in-out hover:shadow-xl w-[180px] flex-shrink-0"
+                onclick="openImageModal(6)"
+              >
+                <img
+                  src="https://images.unsplash.com/photo-1581092160607-ee22731c7d5c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80"
+                  alt="Akses Difabel"
+                  class="h-full w-full object-cover"
+                />
+              </div>
+
+              <div
+                class="gallery-item aspect-square cursor-pointer overflow-hidden rounded-2xl soft-blue-gradient transition-all duration-300 ease-in-out hover:shadow-xl w-[180px] flex-shrink-0"
+                onclick="openImageModal(7)"
+              >
+                <img
+                  src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80"
+                  alt="Testimoni Masyarakat"
+                  class="h-full w-full object-cover"
+                />
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <!-- Modal untuk Gallery Images -->
+    <div id="imageModal" class="modal" onclick="closeImageModal(event)">
+      <div class="modal-content" onclick="event.stopPropagation()">
+        <button
+          onclick="closeImageModal()"
+          class="absolute top-4 right-4 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 backdrop-blur-md text-white hover:bg-white/20 transition-all"
+        >
+          <i data-lucide="x" class="h-6 w-6"></i>
+        </button>
+
+        <button class="modal-nav prev" onclick="changeImage(-1)">
+          <i data-lucide="chevron-left" class="h-6 w-6 text-white"></i>
+        </button>
+
+        <button class="modal-nav next" onclick="changeImage(1)">
+          <i data-lucide="chevron-right" class="h-6 w-6 text-white"></i>
+        </button>
+
+        <div class="modal-counter" id="modalCounter"></div>
+
+        <div class="rounded-3xl overflow-hidden max-w-4xl w-full">
+          <div id="modalImages" class="relative">
+            <!-- Images will be injected here -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Inisialisasi Lucide icons
+      lucide.createIcons();
+
+      // Gallery image data
+      const galleryImages = [
+        {
+          src: "https://images.unsplash.com/photo-1551135049-8a33b42738b4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+          alt: "Gedung Pusat Layanan",
+        },
+        {
+          src: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+          alt: "Layanan Administrasi",
+        },
+        {
+          src: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+          alt: "Layanan Kesehatan",
+        },
+        {
+          src: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+          alt: "Layanan Pendidikan",
+        },
+        {
+          src: "https://images.unsplash.com/photo-1551836026-d5c2e3145b7e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+          alt: "Ruang Tunggu",
+        },
+        {
+          src: "https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+          alt: "Fasilitas Digital",
+        },
+        {
+          src: "https://images.unsplash.com/photo-1581092160607-ee22731c7d5c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+          alt: "Akses Difabel",
+        },
+        {
+          src: "https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+          alt: "Testimoni Masyarakat",
+        },
+      ];
+
+      let currentImageIndex = 0;
+
+      // Image modal functions
+      function openImageModal(index) {
+        const modal = document.getElementById("imageModal");
+        const modalImages = document.getElementById("modalImages");
+        const modalCounter = document.getElementById("modalCounter");
+
+        currentImageIndex = index;
+
+        // Clear previous images
+        modalImages.innerHTML = "";
+
+        // Add all images to modal
+        galleryImages.forEach((image, i) => {
+          const img = document.createElement("img");
+          img.src = image.src;
+          img.alt = image.alt;
+          img.classList.add("modal-image");
+          if (i === index) {
+            img.classList.add("active");
+          }
+          modalImages.appendChild(img);
+        });
+
+        // Update counter
+        modalCounter.textContent = `${index + 1} / ${galleryImages.length}`;
+
+        modal.classList.add("active");
+        document.body.style.overflow = "hidden";
+      }
+
+      function changeImage(direction) {
+        currentImageIndex += direction;
+
+        // Loop around
+        if (currentImageIndex >= galleryImages.length) {
+          currentImageIndex = 0;
+        } else if (currentImageIndex < 0) {
+          currentImageIndex = galleryImages.length - 1;
+        }
+
+        // Update active image
+        const images = document.querySelectorAll(".modal-image");
+        images.forEach((img, i) => {
+          if (i === currentImageIndex) {
+            img.classList.add("active");
+          } else {
+            img.classList.remove("active");
+          }
+        });
+
+        // Update counter
+        document.getElementById("modalCounter").textContent = `${
+          currentImageIndex + 1
+        } / ${galleryImages.length}`;
+      }
+
+      function closeImageModal(event) {
+        if (event && event.target.id !== "imageModal") return;
+
+        const modal = document.getElementById("imageModal");
+        modal.classList.remove("active");
+        document.body.style.overflow = "";
+      }
+
+      // Close modal on Escape key
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") {
+          closeImageModal();
+        }
+
+        // Navigate with arrow keys
+        if (e.key === "ArrowLeft") {
+          changeImage(-1);
+        } else if (e.key === "ArrowRight") {
+          changeImage(1);
+        }
+      });
+
+      // Prevent body scroll when modal is open
+      document.addEventListener("DOMContentLoaded", function () {
+        lucide.createIcons();
+      });
+    </script>
+    <script>
+      // Variabel global untuk data
+      let allServices = [];
+      let currentService = null;
+
+      // Fungsi untuk memuat data JSON
+      async function loadServiceData() {
+        try {
+          const response = await fetch("/data/LayananDetails.json");
+          const data = await response.json();
+          allServices = data.services;
+
+          // Load service berdasarkan URL parameter atau default ke service pertama
+          const urlParams = new URLSearchParams(window.location.search);
+          const serviceSlug = urlParams.get("service");
+          const serviceId = parseInt(urlParams.get("id"), 10);
+
+          if (!serviceSlug && Number.isNaN(serviceId) && allServices.length) {
+            loadService(allServices[0].slug, allServices[0].id);
+          } else {
+            loadService(
+              serviceSlug,
+              Number.isNaN(serviceId) ? null : serviceId
+            );
+          }
+        } catch (error) {
+          console.error("Error loading JSON data:", error);
+        }
+      }
+
+      // Fungsi untuk memuat service tertentu
+      function loadService(slug = null, id = null) {
+        let service;
+
+        if (Number.isInteger(id)) {
+          service = allServices.find((s) => s.id === id);
+        }
+
+        if (!service && slug) {
+          service = allServices.find((s) => s.slug === slug);
+        }
+
+        if (!service) {
+          service = allServices[0];
+        }
+
+        if (service) {
+          currentService = service;
+          populatePage(service);
+          updateActiveCategory(service.category);
+          updateBreadcrumb(service.name);
+        }
+      }
+
+      // Fungsi untuk mengisi halaman dengan data
+      function populatePage(service) {
+        // Populate Hero Section
+        populateHeroSection(service);
+
+        // Populate Contact Info
+        populateContactInfo(service.contact);
+
+        // Populate Quick Info
+        populateQuickInfo(service.quickInfo);
+
+        // Populate Service Information
+        populateServiceInfo(service.serviceInfo);
+
+        // Populate Gallery
+        populateGallery(service.gallery);
+
+        // Update gallery images data untuk modal
+        window.galleryImages = service.gallery || [];
+      }
+
+      // Fungsi untuk mengisi Hero Section
+      function populateHeroSection(service) {
+        // Set hero image
+        const heroImg = document.querySelector("[data-hero-image]");
+        if (heroImg) {
+          heroImg.src = service.image.hero;
+          heroImg.alt = service.name;
+        }
+
+        // Set service name
+        const serviceName = document.querySelector("[data-service-name]");
+        if (serviceName) {
+          serviceName.textContent = service.name;
+        }
+
+        // Set badge
+        const badge = document.querySelector("[data-hero-badge]");
+        if (badge) {
+          const icon = badge.querySelector("[data-hero-badge-icon]");
+          if (icon) {
+            icon.setAttribute("data-lucide", service.badge.icon);
+          }
+          const span = badge.querySelector("[data-hero-badge-text]");
+          if (span) {
+            span.textContent = service.badge.text;
+          }
+        }
+
+        // Set description dynamically (jumlah paragraf fleksibel)
+        const descriptionContainer = document.querySelector(
+          "[data-service-description]"
+        );
+        if (descriptionContainer) {
+          descriptionContainer.innerHTML = "";
+          // Pastikan service.description berupa array, jika bukan, jadikan array
+          const paragraphs = Array.isArray(service.description)
+            ? service.description
+            : [service.description];
+          paragraphs.forEach((paragraph) => {
+            const p = document.createElement("p");
+            p.className =
+              "text-base font-normal leading-relaxed text-slate-600";
+            p.innerHTML = String(paragraph).replace(
+              /<strong class="text-primary">(.*?)<\/strong>/g,
+              '<strong class="text-primary">$1</strong>'
+            );
+            descriptionContainer.appendChild(p);
+          });
+        }
+      }
+
+      // Fungsi untuk mengisi Info Kontak
+      function populateContactInfo(contact) {
+        const contactItems = document.querySelectorAll("[data-contact-item]");
+
+        contactItems.forEach((item) => {
+          const type = item.dataset.contactItem;
+          const contactItem = contact[type];
+          if (!contactItem) return;
+
+          const icon = item.querySelector(".flex-shrink-0 i");
+          const label = item.querySelector(".text-xs");
+          const value = item.querySelector(".text-sm.font-bold");
+
+          if (icon) icon.setAttribute("data-lucide", contactItem.icon);
+          if (label) label.textContent = contactItem.label;
+          if (value) value.textContent = contactItem.value;
+        });
+
+        lucide.createIcons();
+      }
+
+      // Fungsi untuk mengisi Info Cepat
+      function populateQuickInfo(quickInfo) {
+        const quickInfoContainer = document.querySelector("[data-quick-info]");
+        if (quickInfoContainer) {
+          quickInfoContainer.innerHTML = "";
+
+          quickInfo.forEach((info) => {
+            const infoElement = document.createElement("div");
+            infoElement.className =
+              "flex items-center gap-3 text-sm text-slate-600";
+            infoElement.innerHTML = `
+          <i data-lucide="${info.icon}" class="h-4 w-4 text-accent flex-shrink-0"></i>
+          <span>${info.text}</span>
+        `;
+            quickInfoContainer.appendChild(infoElement);
+          });
+
+          lucide.createIcons();
+        }
+      }
+
+      // Fungsi untuk mengisi Informasi Layanan (Infinite Scroll)
+      function populateServiceInfo(serviceInfo) {
+        // Update infinite scroll content dengan data dari serviceInfo
+        updateInfiniteScrollContent(serviceInfo);
+      }
+
+      // Fungsi untuk mengisi Galeri
+      function populateGallery(gallery) {
+        const galleryContainer = document.querySelector(
+          ".gallery-scroll-container"
+        );
+        if (galleryContainer) {
+          galleryContainer.innerHTML = "";
+
+          gallery.forEach((item) => {
+            const galleryItem = document.createElement("div");
+            galleryItem.className =
+              "gallery-item aspect-square cursor-pointer overflow-hidden rounded-2xl soft-blue-gradient transition-all duration-300 ease-in-out hover:shadow-xl w-[180px] flex-shrink-0";
+            galleryItem.onclick = () => openImageModal(item.id - 1);
+
+            galleryItem.innerHTML = `
+          <img
+            src="${item.src}"
+            alt="${item.alt}"
+            class="h-full w-full object-cover"
+          />
+        `;
+
+            galleryContainer.appendChild(galleryItem);
+          });
+        }
+      }
+
+      // Fungsi untuk mengupdate infinite scroll content
+      function updateInfiniteScrollContent(serviceInfo) {
+        // Update first row content
+        const firstRowItems = document.querySelectorAll(
+          ".animate-scroll-left .hover-fill"
+        );
+
+        if (firstRowItems.length >= 4) {
+          // Operating Hours
+          updateInfoCard(firstRowItems[0], serviceInfo.operatingHours);
+          // Location
+          updateInfoCard(firstRowItems[1], serviceInfo.location);
+          // Main Services
+          updateMainServicesCard(firstRowItems[2], serviceInfo.mainServices);
+          // Facilities
+          updateFacilitiesCard(firstRowItems[3], serviceInfo.facilities);
+        }
+
+        // Update second row content
+        const secondRowItems = document.querySelectorAll(
+          ".animate-scroll-right .hover-fill"
+        );
+
+        if (secondRowItems.length >= 4) {
+          // Emergency Contact
+          updateInfoCard(secondRowItems[0], serviceInfo.emergencyContact);
+          // Time Estimate
+          updateInfoCard(secondRowItems[1], serviceInfo.timeEstimate);
+          // Rating
+          updateRatingCard(secondRowItems[2], serviceInfo.rating);
+          // Capacity
+          updateInfoCard(secondRowItems[3], serviceInfo.capacity);
+        }
+      }
+
+      // Helper function untuk update info card
+      function updateInfoCard(cardElement, data) {
+        const icon = cardElement.querySelector(".flex-shrink-0 i");
+        const title = cardElement.querySelector("h3");
+        const mainText = cardElement.querySelectorAll("p.text-base");
+        const note = cardElement.querySelector("p.text-xs");
+
+        if (icon) icon.setAttribute("data-lucide", data.icon);
+        if (title) title.textContent = data.title;
+        if (mainText[0]) mainText[0].textContent = data.main;
+        if (mainText[1]) mainText[1].textContent = data.detail;
+        if (note) note.textContent = data.note;
+      }
+
+      // Helper function untuk update main services card
+      function updateMainServicesCard(cardElement, data) {
+        const icon = cardElement.querySelector(".flex-shrink-0 i");
+        const title = cardElement.querySelector("h3");
+        const servicesContainer = cardElement.querySelector(".flex.flex-wrap");
+
+        if (icon) icon.setAttribute("data-lucide", data.icon);
+        if (title) title.textContent = data.title;
+
+        if (servicesContainer) {
+          servicesContainer.innerHTML = "";
+          data.services.forEach((service) => {
+            const serviceBadge = document.createElement("span");
+            serviceBadge.className =
+              "inline-flex items-center gap-1 rounded-full bg-accent/10 px-2 py-1 text-xs font-medium text-accent";
+            serviceBadge.innerHTML = `
+          <i data-lucide="${service.icon}" class="h-3 w-3"></i>
+          ${service.name}
+        `;
+            servicesContainer.appendChild(serviceBadge);
+          });
+        }
+      }
+
+      // Helper function untuk update facilities card
+      function updateFacilitiesCard(cardElement, data) {
+        const icon = cardElement.querySelector(".flex-shrink-0 i");
+        const title = cardElement.querySelector("h3");
+        const facilitiesContainer = cardElement.querySelector(".space-y-1");
+
+        if (icon) icon.setAttribute("data-lucide", data.icon);
+        if (title) title.textContent = data.title;
+
+        if (facilitiesContainer) {
+          facilitiesContainer.innerHTML = "";
+          data.items.forEach((item) => {
+            const facilityItem = document.createElement("div");
+            facilityItem.className =
+              "flex items-center gap-2 text-slate-700 text-xs";
+            facilityItem.innerHTML = `
+          <i data-lucide="check-circle" class="h-3 w-3 text-success"></i>
+          <span>${item}</span>
+        `;
+            facilitiesContainer.appendChild(facilityItem);
+          });
+        }
+      }
+
+      // Helper function untuk update rating card
+      function updateRatingCard(cardElement, data) {
+        const icon = cardElement.querySelector(".flex-shrink-0 i");
+        const title = cardElement.querySelector("h3");
+        const score = cardElement.querySelector(".text-base.font-bold");
+        const starsContainer = cardElement.querySelector(
+          ".flex.text-yellow-400"
+        );
+        const note = cardElement.querySelector("p.text-xs");
+
+        if (icon) icon.setAttribute("data-lucide", data.icon);
+        if (title) title.textContent = data.title;
+        if (score) score.textContent = data.score;
+        if (note) note.textContent = data.note;
+
+        if (starsContainer) {
+          starsContainer.innerHTML = "";
+          for (let i = 0; i < 5; i++) {
+            const star = document.createElement("i");
+            star.setAttribute("data-lucide", "star");
+            star.className = `h-3 w-3 ${i < data.stars ? "fill-current" : ""}`;
+            starsContainer.appendChild(star);
+          }
+        }
+      }
+
+      // Fungsi untuk mengupdate kategori aktif
+      function updateActiveCategory(categoryName) {
+        const categoryItems = document.querySelectorAll(".category-item");
+        categoryItems.forEach((item) => {
+          const span = item.querySelector("span");
+          if (span && span.textContent === categoryName) {
+            item.classList.add("category-active");
+            item.classList.remove("soft-blue-gradient", "text-primary");
+          } else {
+            item.classList.remove("category-active");
+            item.classList.add("soft-blue-gradient", "text-primary");
+          }
+        });
+      }
+
+      // Fungsi untuk mengupdate breadcrumb
+      function updateBreadcrumb(serviceName) {
+        const breadcrumb = document.querySelector(".text-sm.text-slate-500");
+        if (breadcrumb) {
+          breadcrumb.innerHTML = `
+        Beranda / Layanan Masyarakat /
+        <span class="font-semibold text-primary">${serviceName}</span>
+      `;
+        }
+      }
+
+      // Fungsi untuk navigasi ke service lain
+      function navigateToService(serviceSlug) {
+        const newUrl = `${window.location.pathname}?service=${serviceSlug}`;
+        window.history.pushState({}, "", newUrl);
+        loadService(serviceSlug);
+      }
+
+      // Event listener untuk kategori
+      document.addEventListener("DOMContentLoaded", function () {
+        // Load data saat halaman dimuat
+        loadServiceData();
+
+        // Event listener untuk kategori
+        const categoryItems = document.querySelectorAll(".category-item");
+        categoryItems.forEach((item) => {
+          item.addEventListener("click", function () {
+            const categoryName = this.querySelector("span").textContent;
+
+            // Cari service pertama dengan kategori ini
+            const serviceInCategory = allServices.find(
+              (service) => service.category === categoryName
+            );
+
+            if (serviceInCategory) {
+              navigateToService(serviceInCategory.slug);
+            }
+          });
+        });
+
+        // Handle browser back/forward buttons
+        window.addEventListener("popstate", function () {
+          const urlParams = new URLSearchParams(window.location.search);
+          const serviceSlug = urlParams.get("service");
+          if (serviceSlug) {
+            loadService(serviceSlug);
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

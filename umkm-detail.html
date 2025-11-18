@@ -1,0 +1,1724 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Detail UMKM - Warung Kopi Nusantara</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Motion One -->
+    <script src="https://cdn.jsdelivr.net/npm/motion@latest/dist/motion.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+    />
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <style>
+      /* Semua style CSS sebelumnya tetap sama */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        min-height: 100vh;
+        scroll-behavior: smooth;
+        overflow-x: hidden;
+      }
+
+      /* Motion Background Elements */
+      .bg-motion {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        overflow: hidden;
+      }
+
+      .bg-shape {
+        position: absolute;
+        border-radius: 50%;
+        background: linear-gradient(
+          135deg,
+          rgba(13, 148, 136, 0.05) 0%,
+          rgba(15, 118, 110, 0.03) 100%
+        );
+        animation: float 15s infinite ease-in-out;
+      }
+
+      .bg-shape:nth-child(1) {
+        width: 300px;
+        height: 300px;
+        top: 10%;
+        left: 5%;
+        animation-delay: 0s;
+      }
+
+      .bg-shape:nth-child(2) {
+        width: 200px;
+        height: 200px;
+        top: 60%;
+        right: 10%;
+        animation-delay: -5s;
+      }
+
+      .bg-shape:nth-child(3) {
+        width: 150px;
+        height: 150px;
+        bottom: 10%;
+        left: 20%;
+        animation-delay: -10s;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0) rotate(0deg);
+        }
+        33% {
+          transform: translateY(-20px) rotate(120deg);
+        }
+        66% {
+          transform: translateY(10px) rotate(240deg);
+        }
+      }
+
+      /* Custom hover effects */
+      .category-item {
+        transition: all 0.3s ease;
+      }
+
+      .category-item:hover {
+        background: linear-gradient(to right, #0d9488, #0f766e);
+        color: white;
+        transform: translateX(8px);
+      }
+
+      .category-item.active {
+        background: linear-gradient(to right, #0d9488, #0f766e);
+        color: white;
+        transform: translateX(8px);
+      }
+
+      .contact-item {
+        transition: all 0.3s ease;
+      }
+
+      .contact-item:hover {
+        background: linear-gradient(to right, #0d9488, #0f766e);
+        transform: scale(1.03);
+      }
+
+      .contact-item:hover .contact-icon,
+      .contact-item:hover .contact-text {
+        color: white;
+      }
+
+      .gallery-item {
+        transition: all 0.3s ease;
+      }
+
+      .gallery-item::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          135deg,
+          rgba(13, 148, 136, 0) 0%,
+          rgba(15, 118, 110, 0.1) 100%
+        );
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      .gallery-item:hover {
+        transform: scale(1.05) rotate(2deg);
+      }
+
+      .gallery-item:hover::before {
+        opacity: 1;
+      }
+
+      .sidebar-card {
+        transition: all 0.3s ease;
+      }
+
+      .sidebar-card:hover {
+        transform: translateY(-4px);
+      }
+
+      .info-card {
+        transition: all 0.3s ease;
+      }
+
+      .info-card:hover {
+        transform: translateY(-6px);
+      }
+
+      .feature-item {
+        transition: all 0.3s ease;
+      }
+
+      .feature-item:hover {
+        transform: translateY(-4px);
+      }
+
+      .menu-item {
+        transition: all 0.3s ease;
+      }
+
+      .menu-item:hover {
+        transform: translateY(-4px);
+      }
+
+      /* Sticky sidebar with parallax effect */
+      .sidebar-sticky {
+        position: sticky;
+        top: 20px;
+        transition: transform 0.2s ease-out;
+      }
+
+      .parallax-sidebar {
+        transform: translateY(var(--scroll-offset));
+      }
+
+      /* Hide scrollbar */
+      html,
+      body {
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+      }
+      html::-webkit-scrollbar,
+      body::-webkit-scrollbar {
+        display: none;
+      }
+
+      /* Hero card improvements */
+      .hero-container {
+        position: relative;
+        overflow: hidden;
+        border-radius: 1.5rem;
+      }
+
+      .hero-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(
+          to top,
+          rgba(0, 0, 0, 0.7) 0%,
+          rgba(0, 0, 0, 0) 100%
+        );
+        padding: 2rem;
+        color: white;
+        z-index: 2;
+      }
+
+      .hero-image {
+        position: relative;
+        z-index: 1;
+      }
+
+      .hero-icon {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 2;
+        opacity: 0.2;
+      }
+
+      /* Improved rating display */
+      .rating-container {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-bottom: 1rem;
+      }
+
+      .rating-stars {
+        display: flex;
+        gap: 0.25rem;
+      }
+
+      .rating-star {
+        color: #fbbf24;
+      }
+
+      .rating-text {
+        color: rgba(255, 255, 255, 0.9);
+        font-weight: 500;
+      }
+
+      /* Enhanced category items */
+      .category-icon {
+        transition: transform 0.3s ease;
+      }
+
+      .category-item:hover .category-icon {
+        transform: scale(1.2);
+      }
+
+      /* Improved contact items */
+      .contact-icon {
+        transition: transform 0.3s ease;
+      }
+
+      .contact-item:hover .contact-icon {
+        transform: scale(1.1);
+      }
+
+      /* Enhanced menu items */
+      .menu-image {
+        transition: transform 0.3s ease;
+      }
+
+      .menu-item:hover .menu-image {
+        transform: scale(1.1) rotate(5deg);
+      }
+
+      /* Improved gallery items */
+      .gallery-icon {
+        transition: transform 0.3s ease;
+      }
+
+      .gallery-item:hover .gallery-icon {
+        transform: scale(1.2);
+      }
+
+      /* Floating action button */
+      .fab {
+        position: fixed;
+        bottom: 2rem;
+        right: 2rem;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background: linear-gradient(to right, #0d9488, #0f766e);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        box-shadow: 0 10px 25px rgba(13, 148, 136, 0.3);
+        cursor: pointer;
+        z-index: 100;
+        transition: all 0.3s ease;
+      }
+
+      .fab:hover {
+        transform: scale(1.1);
+        box-shadow: 0 15px 30px rgba(13, 148, 136, 0.4);
+      }
+
+      /* Back to top button */
+      .back-to-top {
+        position: fixed;
+        bottom: 2rem;
+        left: 2rem;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background: linear-gradient(to right, #0d9488, #0f766e);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        box-shadow: 0 5px 15px rgba(13, 148, 136, 0.3);
+        cursor: pointer;
+        z-index: 100;
+        transition: all 0.3s ease;
+        opacity: 0;
+        visibility: hidden;
+      }
+
+      .back-to-top.visible {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .back-to-top:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(13, 148, 136, 0.4);
+      }
+
+      /* Enhanced info cards */
+      .info-icon {
+        transition: transform 0.3s ease;
+      }
+
+      .info-card:hover .info-icon {
+        transform: scale(1.1) rotate(5deg);
+      }
+
+      /* Improved feature items */
+      .feature-icon {
+        transition: transform 0.3s ease;
+      }
+
+      .feature-item:hover .feature-icon {
+        transform: scale(1.1) rotate(5deg);
+      }
+
+      /* Responsive improvements */
+      @media (max-width: 768px) {
+        .hero-overlay {
+          padding: 1.5rem;
+        }
+
+        .hero-title {
+          font-size: 1.75rem;
+        }
+
+        .fab {
+          bottom: 1rem;
+          right: 1rem;
+          width: 50px;
+          height: 50px;
+        }
+
+        .back-to-top {
+          bottom: 1rem;
+          left: 1rem;
+          width: 45px;
+          height: 45px;
+        }
+      }
+
+      /* UMKM Specific Styles */
+      .umkm-gradient {
+        background: linear-gradient(to right, #0d9488, #0f766e);
+      }
+
+      .umkm-gradient-light {
+        background: linear-gradient(135deg, #f0fdfa 0%, #ccfbf1 100%);
+      }
+
+      .umkm-gradient-card {
+        background: linear-gradient(135deg, #f0fdfa 0%, #ccfbf1 100%);
+      }
+
+      .umkm-text-gradient {
+        background: linear-gradient(to right, #0d9488, #0f766e);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .umkm-badge {
+        background: linear-gradient(to right, #0d9488, #0f766e);
+        color: white;
+      }
+
+      .umkm-badge-accent {
+        background: linear-gradient(to right, #14b8a6, #0f766e);
+        color: white;
+      }
+
+      .umkm-badge-secondary {
+        background: linear-gradient(to right, #a855f7, #9333ea);
+        color: white;
+      }
+
+      /* Gallery Modal Styles */
+      .gallery-modal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.9);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1000;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+      }
+
+      .gallery-modal.active {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .modal-content {
+        position: relative;
+        max-width: 90%;
+        max-height: 90%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .modal-image {
+        max-width: 100%;
+        max-height: 80vh;
+        object-fit: contain;
+        border-radius: 12px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+      }
+
+      .modal-caption {
+        color: white;
+        text-align: center;
+        margin-top: 20px;
+        font-size: 1.2rem;
+        font-weight: 500;
+      }
+
+      .modal-close {
+        position: absolute;
+        top: -40px;
+        right: 0;
+        background: rgba(255, 255, 255, 0.2);
+        border: none;
+        color: white;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-size: 1.5rem;
+      }
+
+      .modal-close:hover {
+        background: rgba(255, 255, 255, 0.3);
+        transform: scale(1.1);
+      }
+
+      .modal-nav {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(255, 255, 255, 0.2);
+        border: none;
+        color: white;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-size: 1.5rem;
+      }
+
+      .modal-nav:hover {
+        background: rgba(255, 255, 255, 0.3);
+        transform: translateY(-50%) scale(1.1);
+      }
+
+      .modal-prev {
+        left: 20px;
+      }
+
+      .modal-next {
+        right: 20px;
+      }
+
+      @media (max-width: 768px) {
+        .modal-nav {
+          width: 40px;
+          height: 40px;
+          font-size: 1.2rem;
+        }
+
+        .modal-prev {
+          left: 10px;
+        }
+
+        .modal-next {
+          right: 10px;
+        }
+
+        .modal-caption {
+          font-size: 1rem;
+          margin-top: 15px;
+        }
+      }
+
+      /* Loading state */
+      .loading {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 200px;
+      }
+
+      .loading-spinner {
+        width: 40px;
+        height: 40px;
+        border: 4px solid rgba(13, 148, 136, 0.2);
+        border-left: 4px solid #0d9488;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      .error-message {
+        text-align: center;
+        padding: 40px;
+        color: #ef4444;
+        background-color: #fef2f2;
+        border-radius: 12px;
+        margin: 20px 0;
+      }
+
+      /* Image placeholder styles */
+      .image-placeholder {
+        background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e1 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #64748b;
+        font-weight: 500;
+      }
+
+      .gallery-image {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+      }
+
+      .menu-image-container {
+        position: relative;
+        overflow: hidden;
+        border-radius: 12px;
+      }
+
+      .image-overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.3);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      .menu-item:hover .image-overlay {
+        opacity: 1;
+      }
+
+      .zoom-icon {
+        color: white;
+        font-size: 1.5rem;
+      }
+    </style>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              /* Primary UMKM Colors */
+              umkm: {
+                // Main brand colors for UMKM section
+                50: "#F0FDFA", // Light teal background
+                100: "#CCFBF1", // Very light teal
+                200: "#99F6E4", // Light teal
+                300: "#5EEAD4", // Teal
+                400: "#2DD4BF", // Medium teal
+                500: "#14B8A6", // Primary UMKM teal
+                600: "#0D9488", // Dark teal
+                700: "#0F766E", // Darker teal
+                800: "#115E59", // Very dark teal
+                900: "#134E4A", // Deep teal
+
+                // Accent colors for UMKM
+                accent: {
+                  50: "#F0FDFA", // Light teal
+                  100: "#CCFBF1", // Very light teal
+                  200: "#99F6E4", // Light teal
+                  300: "#5EEAD4", // Teal
+                  400: "#2DD4BF", // Medium teal
+                  500: "#14B8A6", // Teal accent
+                  600: "#0D9488", // Dark teal
+                  700: "#0F766E", // Darker teal
+                },
+
+                // Secondary colors
+                secondary: {
+                  50: "#FEF7FF", // Light purple
+                  100: "#F3E8FF", // Very light purple
+                  200: "#E9D5FF", // Light purple
+                  300: "#D8B4FE", // Purple
+                  400: "#C084FC", // Medium purple
+                  500: "#A855F7", // Purple accent
+                  600: "#9333EA", // Dark purple
+                },
+              },
+              // Legacy colors for compatibility
+              primary: "#0D9488", // UMKM Teal
+              accent: "#0F766E", // UMKM Dark Teal
+              secondary: "#A855F7", // UMKM Purple
+              success: "#10B981",
+              warning: "#F59E0B",
+              white: "#FFFFFF",
+              gray: {
+                50: "#F9FAFB",
+                100: "#F3F4F6",
+                200: "#E5E7EB",
+                300: "#D1D5DB",
+                400: "#9CA3AF",
+                500: "#6B7280",
+                600: "#4B5563",
+                700: "#374151",
+                800: "#1F2937",
+                900: "#111827",
+              },
+              slate: {
+                50: "#F8FAFC",
+                100: "#F1F5F9",
+                220: "#E2E8F0",
+                300: "#CBD5E1",
+                400: "#94A3B8",
+                500: "#64748B",
+                600: "#475569",
+                700: "#334155",
+                800: "#1E293B",
+                900: "#0F172A",
+              },
+            },
+            fontFamily: {
+              sans: ["Inter", "sans-serif"],
+            },
+            animation: {
+              float: "float 6s ease-in-out infinite",
+              "fade-in": "fadeIn 0.8s ease-out forwards",
+              "slide-up": "slideUp 0.8s ease-out forwards",
+              "slide-down": "slideDown 0.5s ease-out forwards",
+              "pulse-soft": "pulseSoft 3s ease-in-out infinite",
+              "bounce-soft": "bounceSoft 2s ease-in-out infinite",
+              "scale-in": "scaleIn 0.5s ease-out forwards",
+            },
+            keyframes: {
+              float: {
+                "0%, 100%": { transform: "translateY(0px)" },
+                "50%": { transform: "translateY(-20px)" },
+              },
+              fadeIn: {
+                "0%": { opacity: "0" },
+                "100%": { opacity: "1" },
+              },
+              slideUp: {
+                "0%": {
+                  transform: "translateY(30px)",
+                  opacity: "0",
+                },
+                "100%": {
+                  transform: "translateY(0)",
+                  opacity: "1",
+                },
+              },
+              slideDown: {
+                "0%": {
+                  transform: "translateY(-20px)",
+                  opacity: "0",
+                },
+                "100%": {
+                  transform: "translateY(0)",
+                  opacity: "1",
+                },
+              },
+              pulseSoft: {
+                "0%, 100%": { opacity: "1" },
+                "50%": { opacity: "0.7" },
+              },
+              bounceSoft: {
+                "0%, 100%": { transform: "translateY(0)" },
+                "50%": { transform: "translateY(-10px)" },
+              },
+              scaleIn: {
+                "0%": {
+                  transform: "scale(0.95)",
+                  opacity: "0",
+                },
+                "100%": { transform: "scale(1)", opacity: "1" },
+              },
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body class="p-5">
+    <!-- Motion Background Elements -->
+    <div class="bg-motion">
+      <div class="bg-shape"></div>
+      <div class="bg-shape"></div>
+      <div class="bg-shape"></div>
+    </div>
+
+    <!-- Gallery Modal -->
+    <div class="gallery-modal" id="galleryModal">
+      <div class="modal-content">
+        <button class="modal-close" id="modalClose">
+          <i data-lucide="x"></i>
+        </button>
+        <button class="modal-nav modal-prev" id="modalPrev">
+          <i data-lucide="chevron-left"></i>
+        </button>
+        <button class="modal-nav modal-next" id="modalNext">
+          <i data-lucide="chevron-right"></i>
+        </button>
+        <img class="modal-image" id="modalImage" src="" alt="" />
+        <div class="modal-caption" id="modalCaption"></div>
+      </div>
+    </div>
+
+    <!-- Floating Action Button -->
+    <div class="fab" onclick="scrollToContact()">
+      <i data-lucide="message-circle"></i>
+    </div>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top" onclick="scrollToTop()">
+      <i data-lucide="arrow-up"></i>
+    </div>
+
+    <div class="max-w-[1400px] mx-auto">
+      <!-- Navbar (not sticky) -->
+      <div
+        id="navbar"
+        class="bg-white/95 backdrop-blur-xl py-4 px-6 rounded-2xl mb-8 shadow-xl flex items-center gap-4"
+      >
+        <button
+          class="umkm-gradient text-white border-none py-2.5 px-5 rounded-xl font-semibold cursor-pointer transition-all duration-300 text-sm flex items-center gap-2 hover:-translate-x-1 hover:shadow-2xl"
+          onclick="history.back()"
+          aria-label="Kembali ke halaman sebelumnya"
+        >
+          <i data-lucide="arrow-left"></i>
+          Kembali
+        </button>
+        <div class="text-slate-500 text-sm">
+          Beranda / UMKM /
+          <span class="text-umkm-600 font-semibold">Detail</span>
+        </div>
+      </div>
+
+      <!-- Content Grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-[320px_1fr] gap-6">
+        <!-- Sidebar -->
+        <aside class="flex flex-col gap-5 order-2 lg:order-1">
+          <div class="sidebar-sticky flex flex-col gap-5">
+            <!-- Category Card -->
+            <div
+              id="category-card"
+              class="sidebar-card bg-white/95 backdrop-blur-xl rounded-2xl p-6 shadow-xl transition-all duration-300"
+            >
+              <h3
+                class="text-lg font-bold text-umkm-600 mb-4 flex items-center gap-2"
+              >
+                <i data-lucide="folder-open"></i>
+                Kategori
+              </h3>
+              <div class="flex flex-col gap-2.5" id="categories-container">
+                <!-- Categories will be populated by JavaScript -->
+                <div class="loading">
+                  <div class="loading-spinner"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Contact Card -->
+            <div
+              id="contact-card"
+              class="sidebar-card bg-white/95 backdrop-blur-xl rounded-2xl p-6 shadow-xl transition-all duration-300"
+            >
+              <h3
+                class="text-lg font-bold text-umkm-600 mb-4 flex items-center gap-2"
+              >
+                <i data-lucide="phone"></i>
+                Hubungi Kami
+              </h3>
+              <div id="contacts-container">
+                <!-- Contacts will be populated by JavaScript -->
+                <div class="loading">
+                  <div class="loading-spinner"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex flex-col gap-6 order-1 lg:order-2">
+          <!-- Loading State -->
+          <div id="loading-state" class="loading">
+            <div class="loading-spinner"></div>
+          </div>
+
+          <!-- Error State -->
+          <div id="error-state" class="error-message hidden">
+            <i data-lucide="alert-triangle" class="w-12 h-12 mx-auto mb-4"></i>
+            <h3 class="text-xl font-bold mb-2">Gagal Memuat Data</h3>
+            <p id="error-message">Terjadi kesalahan saat memuat data UMKM.</p>
+            <button
+              onclick="loadUmkmData()"
+              class="mt-4 umkm-gradient text-white py-2 px-4 rounded-lg font-semibold"
+            >
+              Coba Lagi
+            </button>
+          </div>
+
+          <!-- Hero Card -->
+          <div
+            id="hero-card"
+            class="hero-container bg-white/95 backdrop-blur-xl rounded-3xl overflow-hidden shadow-2xl hidden"
+          >
+            <div
+              class="hero-image w-full h-80 md:h-[400px] umkm-gradient relative overflow-hidden flex items-center justify-center"
+            >
+              <div
+                class="absolute inset-0 flex items-center justify-center z-10 flex-col"
+              >
+                <img
+                  id="hero-image"
+                  src=""
+                  alt="Foto UMKM"
+                  class="object-cover w-full h-80 md:h-[400px] block"
+                  style="display: block"
+                  onerror="this.src='https://via.placeholder.com/800x400/0d9488/ffffff?text=UMKM+Image'"
+                />
+
+                <div class="hero-overlay">
+                  <h1
+                    id="hero-title"
+                    class="hero-title text-3xl md:text-4xl font-black text-white mb-2 leading-tight"
+                  >
+                    Memuat...
+                  </h1>
+                  <div class="rating-container">
+                    <div class="rating-stars">
+                      <span class="rating-star">★</span>
+                      <span class="rating-star">★</span>
+                      <span class="rating-star">★</span>
+                      <span class="rating-star">★</span>
+                      <span class="rating-star">★</span>
+                    </div>
+                    <span class="rating-text" id="rating-text"
+                      >4.9 (2,847 ulasan)</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="p-8 md:p-10">
+              <p
+                id="hero-description"
+                class="description text-slate-600 leading-relaxed text-base font-normal"
+                style="white-space: pre-line"
+              >
+                Memuat deskripsi UMKM...
+              </p>
+            </div>
+          </div>
+
+          <!-- Info Grid -->
+          <div
+            id="info-grid"
+            class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 hidden"
+          >
+            <!-- Info cards will be populated by JavaScript -->
+          </div>
+
+          <!-- Features Section -->
+          <div
+            id="features-card"
+            class="features-card bg-white/95 backdrop-blur-xl rounded-2xl p-8 shadow-xl hidden"
+          >
+            <h2
+              class="text-2xl font-extrabold text-umkm-600 mb-6 flex items-center gap-3"
+            >
+              <i data-lucide="zap"></i>
+              Fasilitas & Layanan
+            </h2>
+            <div
+              class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
+              id="features-container"
+            >
+              <!-- Features will be populated by JavaScript -->
+            </div>
+          </div>
+
+          <!-- Menu Section -->
+          <div
+            id="menu-card"
+            class="menu-card bg-white/95 backdrop-blur-xl rounded-2xl p-8 shadow-xl hidden"
+          >
+            <h2
+              class="text-2xl font-extrabold text-umkm-600 mb-6 flex items-center gap-3"
+            >
+              <i data-lucide="coffee"></i>
+              Menu Rekomendasi
+            </h2>
+            <div
+              class="grid grid-cols-1 md:grid-cols-2 gap-5"
+              id="menu-container"
+            >
+              <!-- Menu items will be populated by JavaScript -->
+            </div>
+          </div>
+
+          <!-- Gallery -->
+          <div
+            id="gallery-card"
+            class="gallery-card bg-white/95 backdrop-blur-xl rounded-2xl p-8 shadow-xl hidden"
+          >
+            <h2
+              class="text-2xl font-extrabold text-umkm-600 mb-6 flex items-center gap-3"
+            >
+              <i data-lucide="image"></i>
+              Galeri Foto
+            </h2>
+            <div
+              class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4"
+              id="gallery-container"
+            >
+              <!-- Gallery items will be populated by JavaScript -->
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <script>
+      // Initialize Lucide icons
+      lucide.createIcons();
+
+      // Get URL parameters
+      function getUrlParams() {
+        const urlParams = new URLSearchParams(window.location.search);
+        return {
+          id: urlParams.get("id") || "1", // Default to ID 1 if not provided
+        };
+      }
+
+      // Global variable to store UMKM data
+      let umkmData = null;
+
+      // Fetch UMKM data from JSON file
+      async function loadUmkmData() {
+        const params = getUrlParams();
+        const umkmId = params.id;
+
+        // Show loading state
+        document.getElementById("loading-state").classList.remove("hidden");
+        document.getElementById("error-state").classList.add("hidden");
+        document.getElementById("hero-card").classList.add("hidden");
+        document.getElementById("info-grid").classList.add("hidden");
+        document.getElementById("features-card").classList.add("hidden");
+        document.getElementById("menu-card").classList.add("hidden");
+        document.getElementById("gallery-card").classList.add("hidden");
+
+        try {
+          // Fetch data from JSON file
+          const response = await fetch(`/data/UmkmDetails.json`);
+
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+
+          const data = await response.json();
+
+          // Find UMKM by ID
+          const umkm = data.find((item) => item.id === parseInt(umkmId));
+
+          if (!umkm) {
+            throw new Error(`UMKM dengan ID ${umkmId} tidak ditemukan`);
+          }
+
+          // Store data globally
+          umkmData = umkm;
+
+          // Populate the page with data
+          populatePageData(umkm);
+
+          // Hide loading state and show content
+          document.getElementById("loading-state").classList.add("hidden");
+          document.getElementById("hero-card").classList.remove("hidden");
+          document.getElementById("info-grid").classList.remove("hidden");
+          document.getElementById("features-card").classList.remove("hidden");
+          document.getElementById("menu-card").classList.remove("hidden");
+          document.getElementById("gallery-card").classList.remove("hidden");
+
+          // Initialize animations after data is loaded
+          initializeAnimations();
+        } catch (error) {
+          console.error("Error loading UMKM data:", error);
+
+          // Show error state
+          document.getElementById("loading-state").classList.add("hidden");
+          document.getElementById("error-state").classList.remove("hidden");
+          document.getElementById("error-message").textContent = error.message;
+        }
+      }
+
+      // Populate page with UMKM data
+      function populatePageData(umkm) {
+        // Update page title
+        document.title = `Detail UMKM - ${umkm.name}`;
+
+        // Update breadcrumb
+        document.querySelector(".text-umkm-600.font-semibold").textContent =
+          umkm.name;
+
+        // Populate hero section
+        document.getElementById("hero-title").textContent = umkm.name;
+        document.getElementById("hero-description").innerHTML = (
+          umkm.description || ""
+        ).replace(/\n/g, "<br>");
+        document.getElementById(
+          "rating-text"
+        ).textContent = `${umkm.rating} (${umkm.reviewCount} ulasan)`;
+
+        // Update hero image
+        const heroImage = document.getElementById("hero-image");
+        if (umkm.heroImage) {
+          heroImage.src = umkm.heroImage;
+          heroImage.alt = umkm.name;
+        }
+
+        // Update rating stars
+        updateRatingStars(umkm.rating);
+
+        // Populate categories
+        populateCategories(umkm.categories);
+
+        // Populate contacts
+        populateContacts(umkm.contacts);
+
+        // Populate info grid
+        populateInfoGrid(umkm.info);
+
+        // Populate features
+        populateFeatures(umkm.features);
+
+        // Populate menu
+        populateMenu(umkm.menu);
+
+        // Populate gallery
+        populateGallery(umkm.gallery);
+      }
+
+      // Update rating stars based on rating value
+      function updateRatingStars(rating) {
+        const starsContainer = document.querySelector(".rating-stars");
+        starsContainer.innerHTML = "";
+
+        const fullStars = Math.floor(rating);
+        const hasHalfStar = rating % 1 >= 0.5;
+
+        // Add full stars
+        for (let i = 0; i < fullStars; i++) {
+          const star = document.createElement("span");
+          star.className = "rating-star";
+          star.textContent = "★";
+          starsContainer.appendChild(star);
+        }
+
+        // Add half star if needed
+        if (hasHalfStar) {
+          const star = document.createElement("span");
+          star.className = "rating-star";
+          star.textContent = "★";
+          starsContainer.appendChild(star);
+        }
+
+        // Add empty stars to complete 5 stars
+        const totalStars = fullStars + (hasHalfStar ? 1 : 0);
+        for (let i = totalStars; i < 5; i++) {
+          const star = document.createElement("span");
+          star.className = "rating-star";
+          star.style.opacity = "0.3";
+          star.textContent = "★";
+          starsContainer.appendChild(star);
+        }
+      }
+
+      // Populate categories
+      function populateCategories(categories) {
+        const container = document.getElementById("categories-container");
+        container.innerHTML = "";
+
+        categories.forEach((category, index) => {
+          const categoryItem = document.createElement("div");
+          categoryItem.className = `category-item umkm-gradient-card py-3 px-4 rounded-xl text-umkm-600 font-semibold text-sm cursor-pointer flex items-center gap-2 ${
+            index === 0 ? "active" : ""
+          }`;
+          categoryItem.innerHTML = `
+            <i data-lucide="${category.icon}" class="category-icon"></i>
+            ${category.name}
+          `;
+          container.appendChild(categoryItem);
+        });
+
+        // Re-initialize Lucide icons for new elements
+        lucide.createIcons();
+
+        // Add click event listeners to category items
+        document.querySelectorAll(".category-item").forEach((item) => {
+          item.addEventListener("click", function () {
+            document.querySelectorAll(".category-item").forEach((i) => {
+              i.classList.remove("active");
+            });
+            this.classList.add("active");
+          });
+        });
+      }
+
+      // Populate contacts
+      function populateContacts(contacts) {
+        const container = document.getElementById("contacts-container");
+        container.innerHTML = "";
+
+        contacts.forEach((contact) => {
+          const contactItem = document.createElement("div");
+          contactItem.className =
+            "contact-item flex items-center gap-3 py-3.5 px-4 umkm-gradient-card rounded-xl mb-3 cursor-pointer group";
+          contactItem.innerHTML = `
+            <div class="contact-icon w-10 h-10 bg-white rounded-xl flex items-center justify-center text-xl text-umkm-600 transition-colors duration-200 group-hover:text-umkm-700">
+              <i data-lucide="${contact.icon}" class="!text-umkm-600 transition-colors duration-200 group-hover:!text-umkm-700"></i>
+            </div>
+            <div class="contact-text flex-1">
+              <div class="contact-label text-xs text-slate-500 font-medium transition-colors duration-200 group-hover:text-umkm-700 group-hover:text-white">
+                ${contact.type}
+              </div>
+              <div class="contact-value text-sm text-umkm-600 font-bold mt-0.5 transition-colors duration-200 group-hover:text-white">
+                ${contact.value}
+              </div>
+            </div>
+          `;
+          container.appendChild(contactItem);
+        });
+
+        // Re-initialize Lucide icons for new elements
+        lucide.createIcons();
+      }
+
+      // Populate info grid
+      function populateInfoGrid(info) {
+        const container = document.getElementById("info-grid");
+        container.innerHTML = "";
+
+        info.forEach((item) => {
+          const infoCard = document.createElement("div");
+          infoCard.className =
+            "info-card bg-white/95 backdrop-blur-xl rounded-xl p-6 shadow-lg transition-all duration-300 flex flex-col";
+          infoCard.innerHTML = `
+            <div class="info-icon w-12 h-12 umkm-gradient rounded-xl flex items-center justify-center text-2xl text-white mb-4">
+              <i data-lucide="${item.icon}"></i>
+            </div>
+            <h3 class="text-sm text-slate-500 font-semibold mb-2">${item.title}</h3>
+            <p class="text-lg text-umkm-600 font-bold">${item.value}</p>
+            <p class="text-sm text-slate-500 mt-2">${item.subtitle}</p>
+          `;
+          container.appendChild(infoCard);
+        });
+
+        // Re-initialize Lucide icons for new elements
+        lucide.createIcons();
+      }
+
+      // Populate features
+      function populateFeatures(features) {
+        const container = document.getElementById("features-container");
+        container.innerHTML = "";
+
+        features.forEach((feature) => {
+          const featureItem = document.createElement("div");
+          featureItem.className =
+            "feature-item flex flex-col items-center text-center p-5 umkm-gradient-card rounded-xl transition-all duration-300";
+          featureItem.innerHTML = `
+            <div class="feature-icon w-15 h-15 umkm-gradient rounded-xl flex items-center justify-center mb-4 text-white">
+              <i data-lucide="${feature.icon}"></i>
+            </div>
+            <h3 class="text-base font-bold text-umkm-600 mb-2">${feature.name}</h3>
+            <p class="text-sm text-slate-500 leading-relaxed">${feature.description}</p>
+          `;
+          container.appendChild(featureItem);
+        });
+
+        // Re-initialize Lucide icons for new elements
+        lucide.createIcons();
+      }
+
+      // Populate menu
+      function populateMenu(menuItems) {
+        const container = document.getElementById("menu-container");
+        container.innerHTML = "";
+
+        menuItems.forEach((item) => {
+          const menuItem = document.createElement("div");
+          menuItem.className =
+            "menu-item flex gap-4 p-4 umkm-gradient-card rounded-xl transition-all duration-300";
+
+          // Check if the menu item has an image
+          if (item.image) {
+            menuItem.innerHTML = `
+              <div class="menu-image-container w-20 h-20 rounded-xl flex-shrink-0 overflow-hidden">
+                <img 
+                  src="${item.image}" 
+                  alt="${item.name}" 
+                  class="gallery-image w-full h-full object-cover"
+                  onerror="this.src='https://via.placeholder.com/80x80/0d9488/ffffff?text=${encodeURIComponent(
+                    item.name
+                  )}'"
+                >
+                <div class="image-overlay">
+                  <i data-lucide="zoom-in" class="zoom-icon"></i>
+                </div>
+              </div>
+              <div class="menu-details flex-1">
+                <h3 class="text-base font-bold text-umkm-600 mb-1">${
+                  item.name
+                }</h3>
+                <p class="text-sm text-slate-500 mb-2 leading-relaxed">${
+                  item.description
+                }</p>
+                <div class="menu-price text-base font-bold text-umkm-600">${
+                  item.price
+                }</div>
+              </div>
+            `;
+          } else {
+            // Fallback to icon if no image
+            menuItem.innerHTML = `
+              <div class="menu-image w-20 h-20 umkm-gradient rounded-xl flex items-center justify-center text-white text-2xl flex-shrink-0">
+                <i data-lucide="${item.icon}"></i>
+              </div>
+              <div class="menu-details flex-1">
+                <h3 class="text-base font-bold text-umkm-600 mb-1">${item.name}</h3>
+                <p class="text-sm text-slate-500 mb-2 leading-relaxed">${item.description}</p>
+                <div class="menu-price text-base font-bold text-umkm-600">${item.price}</div>
+              </div>
+            `;
+          }
+
+          container.appendChild(menuItem);
+        });
+
+        // Re-initialize Lucide icons for new elements
+        lucide.createIcons();
+      }
+
+      // Populate gallery
+      function populateGallery(galleryItems) {
+        const container = document.getElementById("gallery-container");
+        container.innerHTML = "";
+
+        galleryItems.forEach((item, index) => {
+          const galleryItem = document.createElement("div");
+          galleryItem.className =
+            "gallery-item aspect-square rounded-xl cursor-pointer transition-all duration-300 relative overflow-hidden";
+          galleryItem.setAttribute("data-image", item.image);
+          galleryItem.setAttribute("data-caption", item.caption);
+
+          // Check if the gallery item has an image
+          if (item.image) {
+            galleryItem.innerHTML = `
+              <img 
+                src="${item.image}" 
+                alt="${item.caption}" 
+                class="gallery-image w-full h-full object-cover"
+                onerror="this.src='https://via.placeholder.com/300x300/0d9488/ffffff?text=Gallery+Image'"
+              >
+              <div class="absolute inset-0 bg-black/20 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <i data-lucide="zoom-in" class="text-white text-2xl"></i>
+              </div>
+            `;
+          } else {
+            // Fallback to icon if no image
+            galleryItem.className +=
+              " umkm-gradient-card flex items-center justify-center";
+            galleryItem.innerHTML = `
+              <i data-lucide="${item.icon}" class="gallery-icon text-umkm-600"></i>
+            `;
+          }
+
+          container.appendChild(galleryItem);
+        });
+
+        // Re-initialize Lucide icons for new elements
+        lucide.createIcons();
+
+        // Re-initialize gallery modal functionality
+        initializeGalleryModal();
+      }
+
+      // Initialize gallery modal functionality
+      function initializeGalleryModal() {
+        const galleryModal = document.getElementById("galleryModal");
+        const modalImage = document.getElementById("modalImage");
+        const modalCaption = document.getElementById("modalCaption");
+        const modalClose = document.getElementById("modalClose");
+        const modalPrev = document.getElementById("modalPrev");
+        const modalNext = document.getElementById("modalNext");
+
+        // Gallery data
+        const galleryItems = document.querySelectorAll(".gallery-item");
+        let currentIndex = 0;
+
+        // Remove existing event listeners
+        galleryItems.forEach((item) => {
+          const newItem = item.cloneNode(true);
+          item.parentNode.replaceChild(newItem, item);
+        });
+
+        // Add new event listeners
+        document.querySelectorAll(".gallery-item").forEach((item, index) => {
+          item.addEventListener("click", () => {
+            openModal(index);
+          });
+        });
+
+        // Open modal function
+        function openModal(index) {
+          currentIndex = index;
+          const item = galleryItems[index];
+          const imageSrc = item.getAttribute("data-image");
+          const caption = item.getAttribute("data-caption");
+
+          // Set image
+          modalImage.src =
+            imageSrc ||
+            "https://via.placeholder.com/800x600/0d9488/ffffff?text=Gallery+Image";
+          modalCaption.textContent = caption;
+
+          // Show modal with animation
+          galleryModal.classList.add("active");
+          document.body.style.overflow = "hidden";
+
+          // Animate modal content
+          motion.animate(
+            ".modal-content",
+            {
+              opacity: [0, 1],
+              scale: [0.9, 1],
+            },
+            {
+              duration: 0.3,
+              easing: "ease-out",
+            }
+          );
+        }
+
+        // Close modal function
+        function closeModal() {
+          galleryModal.classList.remove("active");
+          document.body.style.overflow = "auto";
+        }
+
+        // Navigate to previous image
+        function prevImage() {
+          currentIndex =
+            (currentIndex - 1 + galleryItems.length) % galleryItems.length;
+          openModal(currentIndex);
+        }
+
+        // Navigate to next image
+        function nextImage() {
+          currentIndex = (currentIndex + 1) % galleryItems.length;
+          openModal(currentIndex);
+        }
+
+        // Event listeners for modal controls
+        modalClose.addEventListener("click", closeModal);
+        modalPrev.addEventListener("click", prevImage);
+        modalNext.addEventListener("click", nextImage);
+
+        // Close modal when clicking outside the image
+        galleryModal.addEventListener("click", (e) => {
+          if (e.target === galleryModal) {
+            closeModal();
+          }
+        });
+
+        // Keyboard navigation
+        document.addEventListener("keydown", (e) => {
+          if (galleryModal.classList.contains("active")) {
+            if (e.key === "Escape") {
+              closeModal();
+            } else if (e.key === "ArrowLeft") {
+              prevImage();
+            } else if (e.key === "ArrowRight") {
+              nextImage();
+            }
+          }
+        });
+      }
+
+      // Initialize animations after data is loaded
+      function initializeAnimations() {
+        // Navbar animation
+        Motion.animate(
+          "#navbar",
+          {
+            opacity: [0, 1],
+            y: [-50, 0],
+          },
+          {
+            duration: 0.8,
+            easing: "ease-out",
+          }
+        );
+
+        // Sidebar cards animation
+        Motion.animate(
+          "#category-card",
+          {
+            opacity: [0, 1],
+            x: [-30, 0],
+          },
+          {
+            duration: 0.6,
+            delay: 0.2,
+            easing: "ease-out",
+          }
+        );
+
+        Motion.animate(
+          "#contact-card",
+          {
+            opacity: [0, 1],
+            x: [-30, 0],
+          },
+          {
+            duration: 0.6,
+            delay: 0.3,
+            easing: "ease-out",
+          }
+        );
+
+        // Hero card animation
+        Motion.animate(
+          "#hero-card",
+          {
+            opacity: [0, 1],
+            y: [30, 0],
+          },
+          {
+            duration: 0.8,
+            easing: "ease-out",
+          }
+        );
+
+        // Staggered hero content animation
+        Motion.animate(
+          "#hero-title",
+          {
+            opacity: [0, 1],
+            y: [20, 0],
+          },
+          {
+            duration: 0.7,
+            delay: 0.2,
+            easing: "ease-out",
+          }
+        );
+
+        Motion.animate(
+          ".rating-container",
+          {
+            opacity: [0, 1],
+            x: [-20, 0],
+          },
+          {
+            duration: 0.6,
+            delay: 0.4,
+            easing: "ease-out",
+          }
+        );
+
+        Motion.animate(
+          "#hero-description",
+          {
+            opacity: [0, 1],
+            y: [20, 0],
+          },
+          {
+            duration: 0.8,
+            delay: 0.6,
+            easing: "ease-out",
+          }
+        );
+
+        // Info grid cards animation with stagger
+        const infoCards = document.querySelectorAll(".info-card");
+        infoCards.forEach((card, index) => {
+          Motion.animate(
+            card,
+            {
+              opacity: [0, 1],
+              y: [30, 0],
+            },
+            {
+              duration: 0.6,
+              delay: 0.8 + index * 0.1,
+              easing: "ease-out",
+            }
+          );
+        });
+
+        // Features card animation
+        Motion.animate(
+          "#features-card",
+          {
+            opacity: [0, 1],
+            y: [30, 0],
+          },
+          {
+            duration: 0.7,
+            delay: 1.2,
+            easing: "ease-out",
+          }
+        );
+
+        // Menu card animation
+        Motion.animate(
+          "#menu-card",
+          {
+            opacity: [0, 1],
+            y: [30, 0],
+          },
+          {
+            duration: 0.7,
+            delay: 1.4,
+            easing: "ease-out",
+          }
+        );
+
+        // Gallery card animation
+        Motion.animate(
+          "#gallery-card",
+          {
+            opacity: [0, 1],
+            y: [30, 0],
+          },
+          {
+            duration: 0.7,
+            delay: 1.6,
+            easing: "ease-out",
+          }
+        );
+
+        // Add hover animations to interactive elements
+        document
+          .querySelectorAll(
+            ".category-item, .contact-item, .sidebar-card, .info-card, .feature-item, .menu-item, .gallery-item"
+          )
+          .forEach((item) => {
+            item.addEventListener("mouseenter", () => {
+              Motion.animate(
+                item,
+                {
+                  scale: [1, 1.02],
+                },
+                {
+                  duration: 0.2,
+                  easing: "ease-out",
+                }
+              );
+            });
+
+            item.addEventListener("mouseleave", () => {
+              Motion.animate(
+                item,
+                {
+                  scale: [1.02, 1],
+                },
+                {
+                  duration: 0.2,
+                  easing: "ease-out",
+                }
+              );
+            });
+          });
+
+        // Add scroll-triggered animations for cards
+        const observerOptions = {
+          threshold: 0.1,
+          rootMargin: "0px 0px -50px 0px",
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              Motion.animate(
+                entry.target,
+                {
+                  opacity: [0, 1],
+                  y: [30, 0],
+                },
+                {
+                  duration: 0.6,
+                  easing: "ease-out",
+                }
+              );
+              observer.unobserve(entry.target);
+            }
+          });
+        }, observerOptions);
+
+        // Observe all cards for scroll animations
+        document
+          .querySelectorAll(
+            ".sidebar-card, .info-card, .features-card, .menu-card, .gallery-card"
+          )
+          .forEach((card) => {
+            observer.observe(card);
+          });
+      }
+
+      // Scroll to contact section
+      function scrollToContact() {
+        document.getElementById("contact-card").scrollIntoView({
+          behavior: "smooth",
+        });
+      }
+
+      // Scroll to top
+      function scrollToTop() {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      }
+
+      // Show/hide back to top button
+      window.addEventListener("scroll", function () {
+        const backToTop = document.querySelector(".back-to-top");
+        if (window.scrollY > 300) {
+          backToTop.classList.add("visible");
+        } else {
+          backToTop.classList.remove("visible");
+        }
+      });
+
+      // Load UMKM data when page loads
+      document.addEventListener("DOMContentLoaded", function () {
+        loadUmkmData();
+      });
+    </script>
+  </body>
+</html>

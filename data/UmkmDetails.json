@@ -1,0 +1,373 @@
+[
+  {
+    "id": 1,
+    "name": "Kopi Senja Nusantara",
+    "description": "Kopi Senja Nusantara berdiri sejak tahun 2015 di sebuah bangunan bersejarah peninggalan kolonial yang telah direnovasi dengan sentuhan modern tanpa menghilangkan nuansa aslinya. Awalnya, kedai ini didirikan oleh tiga sahabat pecinta kopi yang ingin mengangkat potensi biji kopi lokal Indonesia ke panggung nasional. Sejak awal berdirinya, setiap sudut ruangan masih mempertahankan tembok bata ekspos, jendela kayu besar dan koleksi foto-foto Bandung tempo dulu, memberikan suasana hangat, penuh cerita, dan nyaman bagi setiap pengunjung.<br><br>Salah satu keunikan Kopi Senja Nusantara adalah komitmennya untuk hanya menggunakan biji kopi terbaik yang dipetik langsung dari para petani di berbagai pelosok Nusantara, mulai Aceh, Toraja, hingga Papua. Proses roasting dilakukan di tempat secara terbuka, sehingga pengunjung dapat langsung menyaksikan transformasi biji kopi mentah menjadi racikan yang harum dan khas. Tak hanya menghadirkan kopi, Kopi Senja juga menyuguhkan berbagai makanan rumahan khas Indonesia yang diolah dari resep keluarga para pendiri.<br><br>Tempat ini juga sering menjadi titik temu para seniman, musisi, dan komunitas kreatif Bandung yang ingin berdiskusi, berkarya, atau sekadar menikmati senja bersama secangkir kopi. Acara musik akustik dan pameran seni rutin diadakan setiap bulannya, menjadikan Kopi Senja Nusantara bukan sekadar kedai kopi, melainkan ruang interaksi dan pelestarian budaya lokal. Ketika senja tiba, aroma kopi dan suara obrolan ramah akan mengingatkan Anda pada kehangatan rumah di tengah hiruk-pikuk kota.",
+    "rating": 4.8,
+    "reviewCount": 312,
+    "heroImage": "https://images.unsplash.com/photo-1511920170033-f8396924c348",
+    "categories": [
+      { "name": "Coffee Shop", "icon": "coffee" },
+      { "name": "Cafe", "icon": "cup-soda" }
+    ],
+    "contacts": [
+      { "type": "phone", "value": "0812-8899-2211", "icon": "phone" },
+      { "type": "instagram", "value": "@kopisenja", "icon": "instagram" },
+      {
+        "type": "address",
+        "value": "Jl. Mawar No. 12, Bandung",
+        "icon": "map-pin"
+      }
+    ],
+    "info": [
+      { "title": "Buka", "value": "08:00–22:00", "icon": "clock" },
+      { "title": "Tipe", "value": "Non-Smoking, Indoor", "icon": "home" },
+      { "title": "Pembayaran", "value": "Cash, QRIS", "icon": "wallet" }
+    ],
+    "features": [
+      {
+        "name": "Wi-Fi Gratis",
+        "description": "Internet stabil untuk kerja atau belajar.",
+        "icon": "wifi"
+      },
+      {
+        "name": "Roastery",
+        "description": "Biji kopi dipanggang langsung di tempat.",
+        "icon": "flame"
+      }
+    ],
+    "menu": [
+      {
+        "name": "Latte",
+        "description": "Kombinasi espresso dan steamed milk.",
+        "price": "28.000",
+        "icon": "cup-soda"
+      },
+      {
+        "name": "Americano",
+        "description": "Espresso dengan air panas.",
+        "price": "22.000",
+        "icon": "cup-soda"
+      },
+      {
+        "name": "Croissant",
+        "description": "Pastry lembut panggang harian.",
+        "price": "18.000",
+        "icon": "croissant"
+      }
+    ],
+    "gallery": [
+      {
+        "caption": "Interior Warm",
+        "image": "https://images.unsplash.com/photo-1504754524776-8f4f37790ca0",
+        "icon": "image"
+      },
+      {
+        "caption": "Coffee Bar",
+        "image": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085",
+        "icon": "image"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Bakso Juara Malang",
+    "description": "Bakso Juara Malang berawal dari sebuah kios kecil di sudut Jalan Ijen yang telah melayani para pecinta bakso sejak tahun 1998. Dengan resep turun-temurun asli keluarga, bakso di sini dibuat sepenuhnya homemade dari daging sapi segar yang dipilih setiap pagi oleh pemilik sendiri di pasar tradisional Malang, menjamin kualitas rasa dan tekstur kenyal yang tiada duanya.<br><br>Setiap mangkuk Bakso Juara Malang disajikan dengan kuah kaldu sapi bening hasil rebusan tulang dan rempah-rempah khas Jawa Timur selama berjam-jam. Uniknya, pelanggan bisa memilih beragam topping sesuai selera, mulai dari pentol urat, bakso halus, tahu isi, siomay, gorengan renyah, hingga sambal pedas legendaris khas Malang yang dibuat sendiri setiap hari.<br><br>Selain cita rasa yang otentik dan bahan baku premium, tempat ini juga dikenal akan keramahan pelayanannya serta suasana nostalgia yang mengingatkan banyak pengunjung pada masa kecil mereka menikmati bakso bersama keluarga. Area makan yang bersih dan nyaman, serta sentuhan dekorasi tempo dulu, menjadikan Bakso Juara Malang bukan hanya tempat makan, tetapi juga destinasi kuliner bersejarah yang telah menjadi bagian dari kehidupan masyarakat Malang selama lebih dari dua dekade.",
+    "rating": 4.6,
+    "reviewCount": 188,
+    "heroImage": "https://images.unsplash.com/photo-1604908813026-0e6c8aa1f8fb",
+    "categories": [
+      { "name": "Kuliner", "icon": "utensils-crossed" },
+      { "name": "Bakso", "icon": "beef" }
+    ],
+    "contacts": [
+      { "type": "phone", "value": "0851-7712-3321", "icon": "phone" },
+      {
+        "type": "whatsapp",
+        "value": "0851-7712-3321",
+        "icon": "message-circle"
+      },
+      {
+        "type": "address",
+        "value": "Jl. Ijen No. 20, Malang",
+        "icon": "map-pin"
+      }
+    ],
+    "info": [
+      { "title": "Buka", "value": "10:00–21:00", "icon": "clock" },
+      { "title": "Delivery", "value": "GrabFood, GoFood", "icon": "bike" }
+    ],
+    "features": [
+      {
+        "name": "Daging Premium",
+        "description": "Menggunakan daging sapi segar pilihan.",
+        "icon": "badge-check"
+      }
+    ],
+    "menu": [
+      {
+        "name": "Bakso Urat",
+        "description": "Kenyal dengan rasa daging kuat.",
+        "price": "20.000",
+        "icon": "beef"
+      },
+      {
+        "name": "Bakso Halus",
+        "description": "Tekstur lembut dan gurih.",
+        "price": "18.000",
+        "icon": "beef"
+      },
+      {
+        "name": "Bakso Mercon",
+        "description": "Pedas meledak, favorit anak muda.",
+        "price": "22.000",
+        "icon": "flame"
+      }
+    ],
+    "gallery": [
+      {
+        "caption": "Semangkuk Bakso",
+        "image": "https://images.unsplash.com/photo-1617196034796-73abf5d0b893",
+        "icon": "image"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "CraftyWood Studio",
+    "description": "UMKM pengrajin kayu dengan produk custom seperti meja, kursi, dan dekorasi.",
+    "rating": 4.9,
+    "reviewCount": 122,
+    "heroImage": "https://images.unsplash.com/photo-1503387762-592deb58ef4e",
+    "categories": [
+      { "name": "Kerajinan", "icon": "hammer" },
+      { "name": "Furniture", "icon": "sofa" }
+    ],
+    "contacts": [
+      { "type": "phone", "value": "0838-1122-4455", "icon": "phone" },
+      { "type": "instagram", "value": "@craftywood.id", "icon": "instagram" },
+      {
+        "type": "address",
+        "value": "Jl. Melati No. 5, Yogyakarta, Indonesia",
+        "icon": "map-pin"
+      }
+    ],
+    "info": [
+      {
+        "title": "Jenis Kayu",
+        "value": "Jati, Mahoni, Pinus",
+        "icon": "trees"
+      },
+      { "title": "Custom", "value": "Bisa request desain", "icon": "pencil" }
+    ],
+    "features": [
+      {
+        "name": "Kayu Oven",
+        "description": "Anti rayap dan lembab.",
+        "icon": "shield"
+      }
+    ],
+    "menu": [
+      {
+        "name": "Rak Buku Minimalis",
+        "description": "Kayu jati solid.",
+        "price": "450.000",
+        "icon": "book"
+      },
+      {
+        "name": "Meja Belajar",
+        "description": "Ukuran custom.",
+        "price": "650.000",
+        "icon": "ruler"
+      }
+    ],
+    "gallery": [
+      {
+        "caption": "Workshop",
+        "image": "https://images.unsplash.com/photo-1519710164239-da123dc03ef4",
+        "icon": "image"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Lurik Nusantara",
+    "description": "UMKM fashion lokal yang memproduksi kain lurik dan baju etnik modern khas Indonesia.",
+    "rating": 4.7,
+    "reviewCount": 176,
+    "heroImage": "https://images.unsplash.com/photo-1512436991641-6745cdb1723f",
+    "categories": [
+      { "name": "Fashion", "icon": "shirt" },
+      { "name": "Kain Lurik", "icon": "waves" }
+    ],
+    "contacts": [
+      { "type": "phone", "value": "0812-3344-5566", "icon": "phone" },
+      { "type": "instagram", "value": "@luriknusantara", "icon": "instagram" },
+      {
+        "type": "address",
+        "value": "Jl. Batik No. 9, Solo",
+        "icon": "map-pin"
+      }
+    ],
+    "info": [
+      {
+        "title": "Jenis Produk",
+        "value": "Kain Lurik, Busana Etnik, Aksesori",
+        "icon": "tags"
+      },
+      {
+        "title": "Ukuran",
+        "value": "Tersedia all size & custom",
+        "icon": "ruler"
+      }
+    ],
+    "features": [
+      {
+        "name": "Bahan Alami",
+        "description": "Menggunakan pewarna alami ramah lingkungan.",
+        "icon": "leaf"
+      },
+      {
+        "name": "Motif Tradisional",
+        "description": "Motif lurik klasik dan modern.",
+        "icon": "star"
+      }
+    ],
+    "menu": [
+      {
+        "name": "Kain Lurik Meteran",
+        "description": "Kain lurik tenun tradisional Jawa.",
+        "price": "55.000 / meter",
+        "icon": "waves"
+      },
+      {
+        "name": "Baju Lurik Pria",
+        "description": "Bahan adem, tersedia berbagai ukuran.",
+        "price": "140.000",
+        "icon": "shirt"
+      },
+      {
+        "name": "Outer Lurik Wanita",
+        "description": "Model modern, warna alami.",
+        "price": "165.000",
+        "icon": "shirt"
+      }
+    ],
+    "gallery": [
+      {
+        "caption": "Toko & Workshop",
+        "image": "https://images.unsplash.com/photo-1512436991641-6745cdb1723f",
+        "icon": "image"
+      },
+      {
+        "caption": "Baju Lurik Modern",
+        "image": "https://images.unsplash.com/photo-1518544352514-6e3ecf14a9f7",
+        "icon": "image"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "name": "GlowSkin Aesthetic",
+    "description": "Produk skincare UMKM dermatology grade dengan bahan aman dan BPOM.",
+    "rating": 4.7,
+    "reviewCount": 289,
+    "heroImage": "https://images.unsplash.com/photo-1600185365483-26d7a4ea8efc",
+    "categories": [
+      { "name": "Skincare", "icon": "droplet" },
+      { "name": "Beauty", "icon": "sparkles" }
+    ],
+    "contacts": [
+      { "type": "phone", "value": "0822-5454-1981", "icon": "phone" },
+      { "type": "instagram", "value": "@glowskin.id", "icon": "instagram" }
+    ],
+    "info": [
+      { "title": "Sertifikasi", "value": "BPOM", "icon": "badge-check" },
+      {
+        "title": "Jenis",
+        "value": "Brightening, Acne Care",
+        "icon": "sparkle"
+      }
+    ],
+    "features": [
+      {
+        "name": "Non-Paraben",
+        "description": "Aman untuk kulit sensitif.",
+        "icon": "leaf"
+      }
+    ],
+    "menu": [
+      {
+        "name": "Glow Serum",
+        "description": "Mencerahkan kulit kusam.",
+        "price": "85.000",
+        "icon": "sun"
+      },
+      {
+        "name": "Acne Treatment Gel",
+        "description": "Meredakan jerawat cepat.",
+        "price": "65.000",
+        "icon": "droplet"
+      }
+    ],
+    "gallery": [
+      {
+        "caption": "Packaging",
+        "image": "https://images.unsplash.com/photo-1611930022073-b7a4ba5b0a06",
+        "icon": "image"
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "name": "TechFix Gadget Repair",
+    "description": "Jasa servis smartphone, laptop, dan perangkat elektronik.",
+    "rating": 4.9,
+    "reviewCount": 157,
+    "heroImage": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8",
+    "categories": [
+      { "name": "Service", "icon": "tool" },
+      { "name": "Technology", "icon": "cpu" }
+    ],
+    "contacts": [
+      { "type": "phone", "value": "0813-4411-9002", "icon": "phone" },
+      {
+        "type": "address",
+        "value": "Jl. Anggrek No. 9, Jakarta",
+        "icon": "map-pin"
+      }
+    ],
+    "info": [
+      { "title": "Estimasi", "value": "1–3 hari", "icon": "timer" },
+      { "title": "Garansi", "value": "30 hari", "icon": "shield-check" }
+    ],
+    "features": [
+      {
+        "name": "Sparepart Original",
+        "description": "Kualitas tinggi dan bergaransi.",
+        "icon": "layers"
+      }
+    ],
+    "menu": [
+      {
+        "name": "Ganti Baterai",
+        "description": "Smartphone & iPhone.",
+        "price": "150.000",
+        "icon": "battery"
+      },
+      {
+        "name": "Reinstall OS",
+        "description": "Windows / macOS.",
+        "price": "120.000",
+        "icon": "monitor"
+      }
+    ],
+    "gallery": [
+      {
+        "caption": "Workstation",
+        "image": "https://images.unsplash.com/photo-1551033406-611cf9a28f67",
+        "icon": "image"
+      }
+    ]
+  }
+]

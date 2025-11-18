@@ -1,86 +1,56 @@
 [
   {
-    "nama": "Pelayanan KTP dan Adminduk",
-    "deskripsi": "Pengurusan dokumen kependudukan seperti KTP, KK, dan Akta.",
-    "lokasi": "Kantor Dinas Kependudukan",
-    "icon": "wallet-cards",
-    "kategori": "administrasi"
+    "id": 1,
+    "nama": "Pusat Layanan Masyarakat Kota Surabaya",
+    "deskripsi": "Pusat Layanan Masyarakat Kota Surabaya adalah fasilitas terpadu yang didedikasikan untuk memberikan kemudahan akses layanan publik bagi seluruh warga. Kami berkomitmen untuk menyediakan pelayanan yang profesional, transparan, dan efisien.",
+    "lokasi": "Jl. Merdeka No. 45, Surabaya",
+    "icon": "graduation-cap",
+    "kategori": "Pendidikan",
+    "image": "https://wp.mokapos.com/wp-content/uploads/2023/02/mudahnya-mengecek-stok-inventaris-melalui-aplikasi-gudang.jpg"
   },
   {
-    "nama": "Layanan Kesehatan Masyarakat",
-    "deskripsi": "Pusat kesehatan, vaksinasi, dan konsultasi kesehatan.",
-    "lokasi": "Puskesmas Utama",
-    "icon": "heart-pulse",
-    "kategori": "kesehatan"
+    "id": 2,
+    "nama": "Puskesmas Surabaya Pusat",
+    "deskripsi": "Puskesmas Surabaya Pusat menyediakan layanan kesehatan komprehensif bagi masyarakat dengan fasilitas modern dan tenaga medis profesional.",
+    "lokasi": "Jl. Kesehatan No. 23, Surabaya",
+    "icon": "heart",
+    "kategori": "Kesehatan",
+    "image": "https://cdn.antaranews.com/cache/1200x800/2021/07/02/antarafoto-vaksinasi-ewer-02072021-pus-1.jpg"
   },
   {
-    "nama": "Perpustakaan Daerah",
-    "deskripsi": "Pusat literasi masyarakat dengan koleksi buku fisik & digital.",
-    "lokasi": "Jl. Pendidikan No. 8",
-    "icon": "library",
-    "kategori": "pendidikan"
+    "id": 3,
+    "nama": "Dinas Pendidikan Kota Surabaya",
+    "deskripsi": "Dinas Pendidikan Kota Surabaya berkomitmen untuk meningkatkan kualitas pendidikan dan memberikan kemudahan akses layanan pendidikan bagi seluruh masyarakat.",
+    "lokasi": "Jl. Pendidikan No. 78, Surabaya",
+    "icon": "graduation-cap",
+    "kategori": "Pendidikan",
+    "image": "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
   },
   {
-    "nama": "Pelayanan Pajak Daerah",
-    "deskripsi": "Pembayaran pajak kendaraan, PBB, dan pajak daerah lainnya.",
-    "lokasi": "Kantor Samsat Kota",
-    "icon": "badge-dollar-sign",
-    "kategori": "administrasi"
+    "id": 4,
+    "nama": "Dinas Kependudukan dan Pencatatan Sipil Surabaya",
+    "deskripsi": "Disdukcapil Kota Surabaya berfokus pada pelayanan administrasi kependudukan yang cepat, akurat, dan mudah diakses oleh seluruh warga.",
+    "lokasi": "Jl. Manyar Kertoarjo No. 6, Surabaya",
+    "icon": "file-text",
+    "kategori": "Administrasi",
+    "image": "https://images.unsplash.com/photo-1573497491208-6b1acb260507?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
   },
   {
-    "nama": "Pelayanan Perizinan Usaha",
-    "deskripsi": "Pengajuan dan pengurusan izin usaha mikro dan menengah.",
-    "lokasi": "Dinas Penanaman Modal dan PTSP",
-    "icon": "briefcase",
-    "kategori": "administrasi"
+    "id": 5,
+    "nama": "Satuan Polisi Pamong Praja Kota Surabaya",
+    "deskripsi": "Satpol PP Kota Surabaya bertugas menegakkan Peraturan Daerah (Perda) dan Peraturan Kepala Daerah (Perkada), serta menjaga ketertiban umum dan ketenteraman masyarakat.",
+    "lokasi": "Jl. Jaksa Agung Suprapto No. 10, Surabaya",
+    "icon": "shield",
+    "kategori": "Keamanan",
+    "image": "https://images.unsplash.com/photo-1563206767-1096b0201383?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
   },
   {
-    "nama": "Layanan Kepolisian",
-    "deskripsi": "Pelaporan kehilangan, SKCK, dan pengurusan SIM.",
-    "lokasi": "Polsek Kota",
-    "icon": "shield-check",
-    "kategori": "administrasi"
-  },
-  {
-    "nama": "Pengaduan Pelayanan Publik",
-    "deskripsi": "Wadah resmi untuk menyampaikan aspirasi dan pengaduan warga.",
-    "lokasi": "Sekretariat Daerah",
-    "icon": "megaphone",
-    "kategori": "administrasi"
-  },
-  {
-    "nama": "Dukungan Bantuan Sosial",
-    "deskripsi": "Pendaftaran, cek, dan pencairan bantuan sosial pemerintah.",
-    "lokasi": "Dinas Sosial",
-    "icon": "hand-coins",
-    "kategori": "administrasi"
-  },
-  {
-    "nama": "Pelayanan Kependudukan Anak",
-    "deskripsi": "Pengurusan akta kelahiran, kartu identitas anak, dan data anak.",
-    "lokasi": "Kantor Disdukcapil",
-    "icon": "baby",
-    "kategori": "administrasi"
-  },
-  {
-    "nama": "Layanan Perizinan Bangunan",
-    "deskripsi": "Pengajuan dan konsultasi IMB serta sertifikat tanah.",
-    "lokasi": "Dinas PUPR",
+    "id": 6,
+    "nama": "Dinas Perumahan Rakyat dan Kawasan Permukiman",
+    "deskripsi": "DPRKP Surabaya bertanggung jawab atas penyediaan, pengelolaan, dan pengembangan perumahan rakyat yang layak huni, terutama bagi Masyarakat Berpenghasilan Rendah (MBR).",
+    "lokasi": "Jl. Taman Surya No. 1, Surabaya",
     "icon": "home",
-    "kategori": "administrasi"
-  },
-  {
-    "nama": "Konsultasi Keluarga Berencana",
-    "deskripsi": "Informasi dan layanan KB bagi masyarakat.",
-    "lokasi": "Puskesmas Pembantu",
-    "icon": "users",
-    "kategori": "kesehatan"
-  },
-  {
-    "nama": "Pelayanan Ketenagakerjaan",
-    "deskripsi": "Informasi lowongan kerja, pelatihan, dan pengurusan kartu AK1.",
-    "lokasi": "Dinas Tenaga Kerja",
-    "icon": "user-search",
-    "kategori": "administrasi"
+    "kategori": "Perumahan",
+    "image": "https://images.unsplash.com/photo-1599661448693-6e3e1100f73f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
   }
 ]
