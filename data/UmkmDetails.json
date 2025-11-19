@@ -5,7 +5,7 @@
     "description": "Kopi Senja Nusantara berdiri sejak tahun 2015 di sebuah bangunan bersejarah peninggalan kolonial yang telah direnovasi dengan sentuhan modern tanpa menghilangkan nuansa aslinya. Awalnya, kedai ini didirikan oleh tiga sahabat pecinta kopi yang ingin mengangkat potensi biji kopi lokal Indonesia ke panggung nasional. Sejak awal berdirinya, setiap sudut ruangan masih mempertahankan tembok bata ekspos, jendela kayu besar dan koleksi foto-foto Bandung tempo dulu, memberikan suasana hangat, penuh cerita, dan nyaman bagi setiap pengunjung.<br><br>Salah satu keunikan Kopi Senja Nusantara adalah komitmennya untuk hanya menggunakan biji kopi terbaik yang dipetik langsung dari para petani di berbagai pelosok Nusantara, mulai Aceh, Toraja, hingga Papua. Proses roasting dilakukan di tempat secara terbuka, sehingga pengunjung dapat langsung menyaksikan transformasi biji kopi mentah menjadi racikan yang harum dan khas. Tak hanya menghadirkan kopi, Kopi Senja juga menyuguhkan berbagai makanan rumahan khas Indonesia yang diolah dari resep keluarga para pendiri.<br><br>Tempat ini juga sering menjadi titik temu para seniman, musisi, dan komunitas kreatif Bandung yang ingin berdiskusi, berkarya, atau sekadar menikmati senja bersama secangkir kopi. Acara musik akustik dan pameran seni rutin diadakan setiap bulannya, menjadikan Kopi Senja Nusantara bukan sekadar kedai kopi, melainkan ruang interaksi dan pelestarian budaya lokal. Ketika senja tiba, aroma kopi dan suara obrolan ramah akan mengingatkan Anda pada kehangatan rumah di tengah hiruk-pikuk kota.",
     "rating": 4.8,
     "reviewCount": 312,
-    "heroImage": "../asset/Image/umkm/1/head.jpg",
+    "heroImage": "./asset/Image/umkm/1/head.jpg",
     "categories": [
       { "name": "Coffee Shop", "icon": "coffee" },
       { "name": "Cafe", "icon": "cup-soda" }
@@ -59,32 +59,32 @@
     "gallery": [
       {
         "caption": "Kopi spesial",
-        "image": "../asset/Image/umkm/1/coffe-1.jpg",
+        "image": "./asset/Image/umkm/1/coffe-1.jpg",
         "icon": "image"
       },
       {
         "caption": "Interior Warm",
-        "image": "../asset/Image/umkm/1/coffe-2.jpg",
+        "image": "./asset/Image/umkm/1/coffe-2.jpg",
         "icon": "image"
       },
       {
         "caption": "Coffee",
-        "image": "../asset/Image/umkm/1/coffe-3.jpg",
+        "image": "./asset/Image/umkm/1/coffe-3.jpg",
         "icon": "image"
       },
       {
         "caption": "Coffee",
-        "image": "../asset/Image/umkm/1/coffe-4.jpg",
+        "image": "./asset/Image/umkm/1/coffe-4.jpg",
         "icon": "image"
       },
       {
         "caption": "Coffee",
-        "image": "../asset/Image/umkm/1/coffe-5.jpg",
+        "image": "./asset/Image/umkm/1/coffe-5.jpg",
         "icon": "image"
       },
       {
         "caption": "Coffee",
-        "image": "../asset/Image/umkm/1/coffe-6.jpg",
+        "image": "./asset/Image/umkm/1/coffe-6.jpg",
         "icon": "image"
       }
     ]
@@ -95,7 +95,7 @@
     "description": "Bakso Juara Malang berawal dari sebuah kios kecil di sudut Jalan Ijen yang telah melayani para pecinta bakso sejak tahun 1998. Dengan resep turun-temurun asli keluarga, bakso di sini dibuat sepenuhnya homemade dari daging sapi segar yang dipilih setiap pagi oleh pemilik sendiri di pasar tradisional Malang, menjamin kualitas rasa dan tekstur kenyal yang tiada duanya.<br><br>Setiap mangkuk Bakso Juara Malang disajikan dengan kuah kaldu sapi bening hasil rebusan tulang dan rempah-rempah khas Jawa Timur selama berjam-jam. Uniknya, pelanggan bisa memilih beragam topping sesuai selera, mulai dari pentol urat, bakso halus, tahu isi, siomay, gorengan renyah, hingga sambal pedas legendaris khas Malang yang dibuat sendiri setiap hari.<br><br>Selain cita rasa yang otentik dan bahan baku premium, tempat ini juga dikenal akan keramahan pelayanannya serta suasana nostalgia yang mengingatkan banyak pengunjung pada masa kecil mereka menikmati bakso bersama keluarga. Area makan yang bersih dan nyaman, serta sentuhan dekorasi tempo dulu, menjadikan Bakso Juara Malang bukan hanya tempat makan, tetapi juga destinasi kuliner bersejarah yang telah menjadi bagian dari kehidupan masyarakat Malang selama lebih dari dua dekade.",
     "rating": 4.6,
     "reviewCount": 188,
-    "heroImage": "../asset/Image/umkm/2/bakso.jpg",
+    "heroImage": "./asset/Image/umkm/2/bakso.jpg",
     "categories": [
       { "name": "Kuliner", "icon": "utensils-crossed" },
       { "name": "Bakso", "icon": "beef" }
@@ -147,32 +147,32 @@
     "gallery": [
       {
         "caption": "Semangkuk Bakso",
-        "image": "../asset/Image/umkm/2/bakso-1.jpg",
+        "image": "./asset/Image/umkm/2/bakso-1.jpg",
         "icon": "image"
       },
       {
         "caption": "Bakso Urat Favorit",
-        "image": "../asset/Image/umkm/2/bakso-2.jpg",
+        "image": "./asset/Image/umkm/2/bakso-2.jpg",
         "icon": "image"
       },
       {
         "caption": "Gerobak Bakso",
-        "image": "../asset/Image/umkm/2/bakso-3.jpg",
+        "image": "./asset/Image/umkm/2/bakso-3.jpg",
         "icon": "image"
       },
       {
         "caption": "Suasana Kedai",
-        "image": "../asset/Image/umkm/2/bakso-4.jpg",
+        "image": "./asset/Image/umkm/2/bakso-4.jpg",
         "icon": "image"
       },
       {
         "caption": "Bakso Mercon Pedas",
-        "image": "../asset/Image/umkm/2/bakso-5.jpg",
+        "image": "./asset/Image/umkm/2/bakso-5.jpg",
         "icon": "image"
       },
       {
         "caption": "Menu Komplit",
-        "image": "../asset/Image/umkm/2/bakso-6.jpg",
+        "image": "./asset/Image/umkm/2/bakso-6.jpg",
         "icon": "image"
       }
     ]
@@ -183,7 +183,7 @@
     "description": "CraftyWood Studio adalah UMKM pengrajin kayu yang berlokasi di Yogyakarta dan berfokus pada pembuatan produk kayu handmade berkualitas tinggi.<br><br>Kami melayani pembuatan produk custom seperti meja, kursi, rak buku, serta dekorasi rumah sesuai kebutuhan dan selera pelanggan. Setiap pesanan dikerjakan secara detail dengan bahan kayu pilihan seperti jati, mahoni, dan pinus, sehingga menjamin ketahanan dan keindahan produk.<br><br>Selain menerima pemesanan individu, kami juga telah menangani berbagai proyek untuk kafe, kantor, dan hunian modern yang mengutamakan desain unik dan personalisasi. Komitmen kami adalah menghadirkan produk yang fungsional, estetik, dan ramah lingkungan untuk menunjang interior Anda.",
     "rating": 4.9,
     "reviewCount": 122,
-    "heroImage": "../asset/Image/umkm/3/image.png",
+    "heroImage": "./asset/Image/umkm/3/image.png",
     "categories": [
       { "name": "Kerajinan", "icon": "hammer" },
       { "name": "Furniture", "icon": "sofa" }
@@ -229,32 +229,32 @@
     "gallery": [
       {
         "caption": "Workshop",
-        "image": "../asset/Image/umkm/3/craftWood-1.jpg",
+        "image": "./asset/Image/umkm/3/craftWood-1.jpg",
         "icon": "image"
       },
       {
         "caption": "Koleksi Produk",
-        "image": "../asset/Image/umkm/3/craftWood-2.jpg",
+        "image": "./asset/Image/umkm/3/craftWood-2.jpg",
         "icon": "box"
       },
       {
         "caption": "Detail Finishing",
-        "image": "../asset/Image/umkm/3/craftWood-3.jpg",
+        "image": "./asset/Image/umkm/3/craftWood-3.jpg",
         "icon": "layers"
       },
       {
         "caption": "Desain Custom",
-        "image": "../asset/Image/umkm/3/craftWood-4.jpg",
+        "image": "./asset/Image/umkm/3/craftWood-4.jpg",
         "icon": "pencil"
       },
       {
         "caption": "Proses Produksi",
-        "image": "../asset/Image/umkm/3/craftWood-5.jpg",
+        "image": "./asset/Image/umkm/3/craftWood-5.jpg",
         "icon": "settings"
       },
       {
         "caption": "Packaging",
-        "image": "../asset/Image/umkm/3/craftWood-6.jpg",
+        "image": "./asset/Image/umkm/3/craftWood-6.jpg",
         "icon": "package"
       }
     ]
@@ -265,7 +265,7 @@
     "description": "UMKM fashion lokal yang memproduksi kain lurik dan baju etnik modern khas Indonesia.",
     "rating": 4.7,
     "reviewCount": 176,
-    "heroImage": "../asset/Image/umkm/4/image.png",
+    "heroImage": "./asset/Image/umkm/4/image.png",
     "categories": [
       { "name": "Fashion", "icon": "shirt" },
       { "name": "Kain Lurik", "icon": "waves" }
@@ -326,37 +326,37 @@
     "gallery": [
       {
         "caption": "Toko & Workshop",
-        "image": "../asset/Image/umkm/4/lurik-1.jpg",
+        "image": "./asset/Image/umkm/4/lurik-1.jpg",
         "icon": "image"
       },
       {
         "caption": "Koleksi Lurik Griya",
-        "image": "../asset/Image/umkm/4/lurik-2.jpg",
+        "image": "./asset/Image/umkm/4/lurik-2.jpg",
         "icon": "image"
       },
       {
         "caption": "Busana Etnik",
-        "image": "../asset/Image/umkm/4/lurik-3.jpg",
+        "image": "./asset/Image/umkm/4/lurik-3.jpg",
         "icon": "image"
       },
       {
         "caption": "Aksesoris & Craft",
-        "image": "../asset/Image/umkm/4/lurik-4.jpg",
+        "image": "./asset/Image/umkm/4/lurik-4.jpg",
         "icon": "image"
       },
       {
         "caption": "Motif Klasik",
-        "image": "../asset/Image/umkm/4/lurik-5.jpg",
+        "image": "./asset/Image/umkm/4/lurik-5.jpg",
         "icon": "image"
       },
       {
         "caption": "Custom Order",
-        "image": "../asset/Image/umkm/4/lurik-6.jpg",
+        "image": "./asset/Image/umkm/4/lurik-6.jpg",
         "icon": "image"
       },
       {
         "caption": "Ekspresi Lain",
-        "image": "../asset/Image/umkm/4/lurik-7.jpg",
+        "image": "./asset/Image/umkm/4/lurik-7.jpg",
         "icon": "image"
       }
     ]
@@ -367,7 +367,7 @@
     "description": "GlowSkin Aesthetic menghadirkan produk skincare berkualitas tinggi, dirancang khusus untuk memenuhi kebutuhan berbagai jenis kulit. Setiap formula dikembangkan dengan pendekatan dermatology grade, memastikan keamanan dan efektivitas pada kulit sensitif.<br>Seluruh produk dibuat dari bahan-bahan pilihan yang telah teruji klinis dan bebas dari zat berbahaya seperti paraben. Keamanan produk juga dijamin dengan adanya sertifikasi resmi dari BPOM, sehingga dapat digunakan tanpa rasa khawatir.<br>Kami berkomitmen memberi solusi perawatan kulit yang tidak hanya aman, tetapi juga memberikan hasil optimal dalam mencerahkan, melembapkan, dan menjaga kesehatan kulit Anda setiap hari.",
     "rating": 4.7,
     "reviewCount": 289,
-    "heroImage": "../asset/Image/umkm/5/image.png",
+    "heroImage": "./asset/Image/umkm/5/image.png",
     "categories": [
       { "name": "Skincare", "icon": "droplet" },
       { "name": "Beauty", "icon": "sparkles" }
@@ -408,37 +408,37 @@
     "gallery": [
       {
         "caption": "Packaging",
-        "image": "../asset/Image/umkm/5/skinCare-1.jpg",
+        "image": "./asset/Image/umkm/5/skinCare-1.jpg",
         "icon": "image"
       },
       {
         "caption": "Cleanser",
-        "image": "../asset/Image/umkm/5/skinCare-2.jpg",
+        "image": "./asset/Image/umkm/5/skinCare-2.jpg",
         "icon": "image"
       },
       {
         "caption": "Toner",
-        "image": "../asset/Image/umkm/5/skinCare-3.jpg",
+        "image": "./asset/Image/umkm/5/skinCare-3.jpg",
         "icon": "image"
       },
       {
         "caption": "Serum",
-        "image": "../asset/Image/umkm/5/skinCare-4.jpg",
+        "image": "./asset/Image/umkm/5/skinCare-4.jpg",
         "icon": "image"
       },
       {
         "caption": "Night Cream",
-        "image": "../asset/Image/umkm/5/skinCare-5.jpg",
+        "image": "./asset/Image/umkm/5/skinCare-5.jpg",
         "icon": "image"
       },
       {
         "caption": "Day Cream",
-        "image": "../asset/Image/umkm/5/skinCare-6.jpg",
+        "image": "./asset/Image/umkm/5/skinCare-6.jpg",
         "icon": "image"
       },
       {
         "caption": "Complete Set",
-        "image": "../asset/Image/umkm/5/skinCare-7.jpg",
+        "image": "./asset/Image/umkm/5/skinCare-7.jpg",
         "icon": "image"
       }
     ]
@@ -490,37 +490,37 @@
     "gallery": [
       {
         "caption": "GR-1",
-        "image": "../asset/Image/umkm/5/skinCare-1.jpg",
+        "image": "./asset/Image/umkm/5/skinCare-1.jpg",
         "icon": "image"
       },
       {
         "caption": "GR-2",
-        "image": "../asset/Image/umkm/5/skinCare-2.jpg",
+        "image": "./asset/Image/umkm/5/skinCare-2.jpg",
         "icon": "image"
       },
       {
         "caption": "GR-3",
-        "image": "../asset/Image/umkm/5/skinCare-3.jpg",
+        "image": "./asset/Image/umkm/5/skinCare-3.jpg",
         "icon": "image"
       },
       {
         "caption": "GR-4",
-        "image": "../asset/Image/umkm/5/skinCare-4.jpg",
+        "image": "./asset/Image/umkm/5/skinCare-4.jpg",
         "icon": "image"
       },
       {
         "caption": "GR-5",
-        "image": "../asset/Image/umkm/5/skinCare-5.jpg",
+        "image": "./asset/Image/umkm/5/skinCare-5.jpg",
         "icon": "image"
       },
       {
         "caption": "GR-6",
-        "image": "../asset/Image/umkm/5/skinCare-6.jpg",
+        "image": "./asset/Image/umkm/5/skinCare-6.jpg",
         "icon": "image"
       },
       {
         "caption": "GR-7",
-        "image": "../asset/Image/umkm/5/skinCare-7.png",
+        "image": "./asset/Image/umkm/5/skinCare-7.png",
         "icon": "image"
       }
     ]

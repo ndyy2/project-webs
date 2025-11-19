@@ -1033,7 +1033,7 @@
 
         try {
           // Fetch data from JSON file
-          const response = await fetch(`/data/UmkmDetails.json`);
+          const response = await fetch(`./data/UmkmDetails.json`);
 
           if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);

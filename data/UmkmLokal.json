@@ -10,7 +10,7 @@
     },
     "lokasi": "Jl. Mawar No. 12, Bandung",
     "icon": "coffee",
-    "gambar": "../asset/Image/umkm/1/head.jpg"
+    "gambar": "./asset/Image/umkm/1/head.jpg"
   },
   {
     "id": 2,
@@ -23,7 +23,7 @@
     },
     "lokasi": "Jl. Ijen No. 20, Malang",
     "icon": "beef",
-    "gambar": "../asset/Image/umkm/2/bakso.jpg"
+    "gambar": "./asset/Image/umkm/2/bakso.jpg"
   },
   {
     "id": 3,
@@ -36,7 +36,7 @@
     },
     "lokasi": "Jl. Melati No. 5, Yogyakarta, Indonesia",
     "icon": "hammer",
-    "gambar": "../asset/Image/umkm/3/image.png"
+    "gambar": "./asset/Image/umkm/3/image.png"
   },
   {
     "id": 4,
@@ -49,7 +49,7 @@
     },
     "lokasi": "Jl. Batik No. 9, Solo",
     "icon": "shirt",
-    "gambar": "../asset/Image/umkm/4/image.png"
+    "gambar": "./asset/Image/umkm/4/image.png"
   },
   {
     "id": 5,
@@ -62,7 +62,7 @@
     },
     "lokasi": "-",
     "icon": "droplet",
-    "gambar": "../asset/Image/umkm/5/image.png"
+    "gambar": "./asset/Image/umkm/5/image.png"
   },
   {
     "id": 6,

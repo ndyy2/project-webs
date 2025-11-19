@@ -6,7 +6,7 @@
     "lokasi": "Jl. Merdeka No. 45, Surabaya",
     "icon": "graduation-cap",
     "kategori": "pendidikan",
-    "image": "../asset/Image/layanan/Pusat-Layanan-Masyarakat-Kota-SBY/thumbnail.jpg"
+    "image": "./asset/Image/layanan/Pusat-Layanan-Masyarakat-Kota-SBY/thumbnail.jpg"
   },
   {
     "id": 2,
@@ -15,7 +15,7 @@
     "lokasi": "Jl. Kesehatan No. 23, Surabaya",
     "icon": "heart",
     "kategori": "kesehatan",
-    "image": "../asset/Image/layanan/puskesmas-surabaya-pst/thumbnail.jpg"
+    "image": "./asset/Image/layanan/puskesmas-surabaya-pst/thumbnail.jpg"
   },
   {
     "id": 3,
@@ -24,7 +24,7 @@
     "lokasi": "Jl. Pendidikan No. 78, Surabaya",
     "icon": "graduation-cap",
     "kategori": "pendidikan",
-    "image": "../asset/Image/layanan/Dinas-Pendidikan/thumbnail.jpg"
+    "image": "./asset/Image/layanan/Dinas-Pendidikan/thumbnail.jpg"
   },
   {
     "id": 4,
@@ -33,7 +33,7 @@
     "lokasi": "Jl. Manyar Kertoarjo No. 6, Surabaya",
     "icon": "file-text",
     "kategori": "administrasi",
-    "image": "../asset/Image/layanan/dinas-kependudukan/thumnail.jpg"
+    "image": "./asset/Image/layanan/dinas-kependudukan/thumnail.jpg"
   },
   {
     "id": 5,
@@ -42,7 +42,7 @@
     "lokasi": "Jl. Jaksa Agung Suprapto No. 10, Surabaya",
     "icon": "shield",
     "kategori": "keamanan",
-    "image": "../asset/Image/layanan/satunan-polisi-pamong/thumbnail.jpg"
+    "image": "./asset/Image/layanan/satunan-polisi-pamong/thumbnail.jpg"
   },
   {
     "id": 6,
@@ -51,6 +51,6 @@
     "lokasi": "Jl. Taman Surya No. 1, Surabaya",
     "icon": "home",
     "kategori": "perumahan",
-    "image": "../asset/Image/layanan/Dinas-Perumahan-Rakyat/thumbnail.jpg"
+    "image": "./asset/Image/layanan/Dinas-Perumahan-Rakyat/thumbnail.jpg"
   }
 ]

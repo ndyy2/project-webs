@@ -1512,7 +1512,7 @@
       // Fungsi untuk memuat data JSON
       async function loadServiceData() {
         try {
-          const response = await fetch("/data/LayananDetails.json");
+          const response = await fetch("./data/LayananDetails.json");
           const data = await response.json();
           allServices = data.services;
 
